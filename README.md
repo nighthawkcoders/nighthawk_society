@@ -45,17 +45,45 @@ pi@raspberrypi:~ $  ``` sudo apt install python3-pip nginx```
 
 pi@raspberrypi:~ $  ``` sudo pip3 install virtualenv```
 
+#### Get code and move into your project directory (clone is 1st time only; after you use pull in project directory...
+
 pi@raspberrypi:~ $  ``` cd ~; git clone https://github.com/nighthawkcoders/nighthawk_society```
 
-pi@raspberrypi:~ $  ``` cd ~/nighthawk_society; virtualenv -p /usr/bin/python3 nighthawk; source nighthawk/bin/activate```
+pi@raspberrypi:~ $  ``` cd ~/nighthawk_society```
 
-#### In console/terminal with virtualenv activitate (first time only: test for python3)...
+#### Create virtualenv environment (virtualenv create is first time only: test for python3)...
 
-(nighthawk) pi@raspberrypi:~ $  ``` python -V```
+pi@raspberrypi:~/nighthawk_society $ ```virtualenv -p /usr/bin/python3 nighthawk; 
 
-(nighthawk) pi@raspberrypi:~ $  ``` deactivate```
+pi@raspberrypi:~/nighthawk_society $ ```source nighthawk/bin/activate```
 
-(nighthawk) pi@raspberrypi:~ $  ``` cd```
+(nighthawk) pi@raspberrypi:~/nighthawk_society $   ``` python -V```
+
+#### Install dependencies...
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` pip install gunicorn```
+
+(nighthawk) pi@raspberrypi:~/fnighthawk_society $ ```  sudo pip install -r requirements.txt```
+
+#### Start an application test server, same as we do on development machine
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` python main.py ``` 
+
+in your browser ...
+
+http://localhost:8080/ 
+
+stop test server by typing control-c in terminal
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` ^c ``` 
+
+#### Leave project environemnt and return to home directory...
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` deactivate```
+
+pi@raspberrypi:~/nighthawk_society $  ``` cd```
+
+pi@raspberrypi:~/
 
 
 ### Build Gunicorn configuration file.  Interesting bits...
@@ -106,34 +134,6 @@ pi@raspberrypi:~ $  ``` sudo nano /etc/nginx/sites-available/homesite```
             proxy_pass http://unix:/home/pi/nighthawk_society/nighthawk.sock;
         }
     }
-
-
-## Pull code from Github and update packages
-#### In console/terminal (every update: pull code and check package dependencies)...
-
-pi@raspberrypi:~ $  ``` cd ~/nighthawk_society```
-
-pi@raspberrypi:~/nighthawk_society $ ```  git pull```
-
-pi@raspberrypi:~/nighthawk_society $ ```  source nighthawk/bin/activate```
-
-#### In console/terminal with virtualenv activitate (every time: check and update packages)...
-
-(nighthawk) pi@raspberrypi:~/fnighthawk_society $ ```  sudo pip install -r requirements.txt```
-
-
-## Start Flask test Server and verify
-#### Start an application test server, same as we do on development machine
-
-(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` python main.py ``` 
-
-in your browser ...
-
-http://localhost:8080/ 
-
-stop test server by typing control-c in terminal
-
-(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` ^c ``` 
 
 
 ## Prepare for Gunicorn usage and verify
