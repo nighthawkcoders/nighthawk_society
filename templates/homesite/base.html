@@ -133,7 +133,11 @@
             {% for menu in menus %}
                 {% set title = menu['title'] %}
                 {% set tag = menu['key'] %}
-                {% set url = url_for("landing", selection = tag) %}
+                {% if 'url' in menu %}
+                    {% set url = menu['url'] %}
+                {% else %}
+                    {% set url = url_for("landing", selection = tag) %}
+                {% endif %}
                 <a class="nav-link java" href={{url}}>{{title}}</a>
             {% endfor %}
           </div>

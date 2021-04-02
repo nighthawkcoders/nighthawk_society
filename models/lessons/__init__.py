@@ -1,5 +1,4 @@
 from models.lessons.java import *
-from models.lessons.python import *
 from models.lessons.pi import *
 from models.lessons.git import *
 from models.lessons.pbl import *
@@ -11,7 +10,7 @@ from models.lessons.pbl import *
 # ---- "key" is used in building dynamic URL (https://www.tutorialspoint.com/flask/flask_variable_rules.htm)
 menus = [
     java_details(),
-    python_details(),
+    {"title": 'CSP: Python', 'key': 'python', 'url': 'http://csp.nighthawkcoders.cf/'},
     pi_details(),
     git_details(),
     pbl_details()
@@ -26,7 +25,6 @@ TITLE = 0
 PROJECTS = 1
 select_2_proj = {
     java_details()['key']: [java_details()['title'], java_projects()],
-    python_details()['key']: [python_details()['title'], python_projects()],
     pi_details()['key']: [pi_details()['title'], pi_projects()],
     git_details()['key']: [git_details()['title'], git_projects()],
     pbl_details()['key']: [pbl_details()['title'], pbl_projects()]
@@ -39,13 +37,6 @@ lessons_dict = { \
     java_mvc()['route']: java_mvc(),
     java_event()['route']: java_event(),
     java_study()['route']: java_study(),
-    python_ap()['route']: python_ap(),
-    python_hello()['route']: python_hello(),
-    python_flask()['route']: python_flask(),
-    python_cbproj()['route']: python_cbproj(),
-    python_study()['route']: python_study(),
-    python_database()['route']: python_database(),
-    python_restapi()['route']: python_restapi(),
     pi_webserver()['route']: pi_webserver(),
     pi_deploy()['route']: pi_deploy(),
     pi_portforward()['route']: pi_portforward(),
