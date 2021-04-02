@@ -36,7 +36,7 @@ Flask/Python Webserver Deployment
 
 ## Nginx is the web server:  it accepts requests, takes care of general domain logic and takes care of handling https connections. Only requests which are meant to arrive at the application are passed on toward the application server (Gunicorn) and the application itself (Flask). 
 
-## Setup Virtual environment and clone code from GitHub
+## Setup Virtual environment, clone code from GitHub, and get a Test Server running
 #### In console/terminal (first time only: setup environment)...
 
 pi@raspberrypi:~ $  ``` sudo apt update; sudo apt upgrade```
@@ -45,38 +45,72 @@ pi@raspberrypi:~ $  ``` sudo apt install python3-pip nginx```
 
 pi@raspberrypi:~ $  ``` sudo pip3 install virtualenv```
 
-pi@raspberrypi:~ $  ``` cd ~; git clone https://github.com/nighthawkcoders/flask-idea-homesite```
+#### Get code and move into your project directory (clone is 1st time only; after you use pull in project directory...
 
-pi@raspberrypi:~ $  ``` cd ~/flask-idea-homesite; virtualenv -p `which python3` homesite; source homesite/bin/activate```
+pi@raspberrypi:~ $  ``` cd ~; git clone https://github.com/nighthawkcoders/nighthawk_society```
 
-#### In console/terminal with virtualenv activitate (first time only: test for python3)...
+pi@raspberrypi:~ $  ``` cd ~/nighthawk_society```
 
-(homesite) pi@raspberrypi:~ $  ``` python -V```
+#### Create virtualenv environment (virtualenv create is first time only: test for python3)...
 
-(homesite) pi@raspberrypi:~ $  ``` deactivate```
+pi@raspberrypi:~/nighthawk_society $ ```virtualenv -p /usr/bin/python3 nighthawk; 
 
-(homesite) pi@raspberrypi:~ $  ``` cd```
+pi@raspberrypi:~/nighthawk_society $ ```source nighthawk/bin/activate```
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $   ``` python -V```
+
+#### Install dependencies...
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` pip install gunicorn```
+
+(nighthawk) pi@raspberrypi:~/fnighthawk_society $ ```  sudo pip install -r requirements.txt```
+
+#### Start an application test server, same as we do on development machine
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` python main.py ``` 
+
+in your browser ...
+
+http://localhost:8080/ 
+
+stop test server by typing control-c in terminal
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` ^c ``` 
+
+#### Leave project environemnt and return to home directory...
+
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` deactivate```
+
+pi@raspberrypi:~/nighthawk_society $  ``` cd```
+
+pi@raspberrypi:~/
 
 
 ### Build Gunicorn configuration file.  Interesting bits...
 <ol>
-<li> 'ExecStart' start statement looks into wsgi:app (wsgi.py) and starts localhost:8080 as defined in file. </li>
+<li> 'ExecStart' start statement looks into main.py for app (main:app) and starts unix sock as defined in file. </li>
 <li> 'ExecStart' -workers 3 starts thread processes that are listening for connections, this ties into load balancing. </li>
 </ol>
-#### In console/terminal with nano, vi, or other text editor (first time only: setup Gunicorn configuration file)...
 
-pi@raspberrypi:~ $  ``` sudo nano /etc/systemd/system/homesite.service```
+```diff
+- project specific information changes: nighhawk, nighthawk_society, main:app 
++ REPLACE with your project name and information
+```
+
+#### In console/terminal with nano, vi, or other text editor (setup Gunicorn configuration file)...
+
+pi@raspberrypi:~ $  ``` sudo nano /etc/systemd/system/nighthawk.service```
 
     [Unit]
-    Description=Gunicorn instance to serve homesite web project
+    Description=Gunicorn instance to serve nighthawk web project
     After=network.target
 
     [Service]
     User=pi
     Group=www-data
-    WorkingDirectory=/home/pi/flask-idea-homesite
-    Environment="PATH=/home/pi/flask-idea-homesite/homesite/bin"
-    ExecStart=/home/pi/flask-idea-homesite/homesite/bin/gunicorn --workers 3 --bind unix:homesite.sock -m 007 wsgi:app
+    WorkingDirectory=/home/pi/nighthawk_society
+    Environment="PATH=/home/pi/nighthawk_society/nighthawk/bin"
+    ExecStart=/home/pi/nighthawk_society/nighthawk/bin/gunicorn --workers 3 --bind unix:nighthawk.sock -m 007 main:app
 
     [Install]
     WantedBy=multi-user.target
@@ -90,8 +124,8 @@ pi@raspberrypi:~ $  ``` sudo nano /etc/systemd/system/homesite.service```
 
 ```diff
 - THESE server_name values MUST CHANGE to match your solution:  
-- nighthawkcoders.cf 192.168.1.245 70.95.179.231
-+ REPLACE with yourdomain.com yourpi-ip yourpublic-ip
+- nighthawkcoders.cf
++ REPLACE with yourdomain.com
 ```
 #### In console/terminal with nano, vi, or other text editor (first time only: setup Nginx configuration file)...
 
@@ -99,65 +133,37 @@ pi@raspberrypi:~ $  ``` sudo nano /etc/nginx/sites-available/homesite```
 
     server {
         listen 80;
-        server_name nighthawkcoders.cf 192.168.1.245 70.95.179.231;
+        server_name nighthawkcoders.cf;
 
         location / {
             include proxy_params;
-            proxy_pass http://unix:/home/pi/flask-idea-homesite/homesite.sock;
+            proxy_pass http://unix:/home/pi/nighthawk_society/nighthawk.sock;
         }
     }
-
-
-## Pull code from Github and update packages
-#### In console/terminal (every update: pull code and check package dependencies)...
-
-pi@raspberrypi:~ $  ``` cd ~/flask-idea-homesite```
-
-pi@raspberrypi:~/flask-idea-homesite $ ```  git pull```
-
-pi@raspberrypi:~/flask-idea-homesite $ ```  source homesite/bin/activate```
-
-#### In console/terminal with virtualenv activitate (every time: check and update packages)...
-
-(homesite) pi@raspberrypi:~/flask-idea-homesite $ ```  sudo pip install -r requirements.txt```
-
-
-## Start Flask test Server and verify
-#### Start an application test server, same as we do on development machine
-
-(homesite) pi@raspberrypi:~/flask-idea-homesite $ ``` python wsgi.py ``` 
-
-in your browser ...
-
-http://localhost:8080/ 
-
-stop test server by typing control-c in terminal
-
-(homesite) pi@raspberrypi:~/flask-idea-homesite $ ``` ^c ``` 
 
 
 ## Prepare for Gunicorn usage and verify
 #### In console/terminal test Gunicorn test Server and virify (first time only: gunicor exectuion)...
 
-(homesite) pi@raspberrypi:~/flask-idea-homesite $ ```homesite/bin/gunicorn --bind 0.0.0.0:8080 wsgi:app```
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ```nighthawk/bin/gunicorn --bind 0.0.0.0:8080 main:app```
 
 in your browser ...
 
 http://localhost:8080/ 
 
-(homesite) pi@raspberrypi:~/flask-idea-homesite $ ``` ^c ``` 
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ``` ^c ``` 
 
 
 ## Validate Gunicorn configuration file and enable service permanently
 #### In console/terminal start Gunicorn
 
-pi@raspberrypi:~ $ ```sudo systemctl start homesite.service```
+pi@raspberrypi:~ $ ```sudo systemctl start nighthawk.service```
 
-pi@raspberrypi:~ $ ```sudo systemctl enable homesite.service```
+pi@raspberrypi:~ $ ```sudo systemctl enable nighthawk.service```
  
 check the status...
 
-pi@raspberrypi:~ $ ```sudo systemctl status homesite.service```
+pi@raspberrypi:~ $ ```sudo systemctl status nighthawk.service```
 
 stop status by typing q in terminal
 
@@ -167,7 +173,7 @@ stop status by typing q in terminal
 
 link file...
 
-pi@raspberrypi:~ $ ```sudo ln -s /etc/nginx/sites-available/homesite /etc/nginx/sites-enabled```
+pi@raspberrypi:~ $ ```sudo ln -s /etc/nginx/sites-available/nighthawk /etc/nginx/sites-enabled```
 
 test for errors...
 
@@ -209,19 +215,19 @@ Flask/Python Webserver Update (aka Refresh)
 
 pi@raspberrypi:~ $  ``` sudo apt update; sudo apt upgrade```
 
-pi@raspberrypi:~ $  ``` cd ~/flask-idea-homesite```
+pi@raspberrypi:~ $  ``` cd ~/nighthawk_society```
 
-pi@raspberrypi:~/flask-idea-homesite $ ```  git pull```
+pi@raspberrypi:~/nighthawk_society $ ```  git pull```
 
-pi@raspberrypi:~/flask-idea-homesite $ ```  source homesite/bin/activate```
+pi@raspberrypi:~/nighthawk_society $ ```  source nighthawk/bin/activate```
 
 #### In console/terminal with virtualenv activitate (every time: check and update packages)...
 
-(homesite) pi@raspberrypi:~/flask-idea-homesite $ ```  sudo pip install -r requirements.txt```
+(nighthawk) pi@raspberrypi:~/nighthawk_society $ ```  sudo pip install -r requirements.txt```
 
 #### In console/terminal (every time AFTER initial setup: restart gunicorn)...
 
-pi@raspberrypi:~ $ ```sudo systemctl restart  homesite.service```
+pi@raspberrypi:~ $ ```sudo systemctl restart nighthawk.service```
 
 
 
