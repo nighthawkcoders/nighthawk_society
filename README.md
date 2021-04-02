@@ -88,10 +88,16 @@ pi@raspberrypi:~/
 
 ### Build Gunicorn configuration file.  Interesting bits...
 <ol>
-<li> 'ExecStart' start statement looks into wsgi:app (wsgi.py) and starts localhost:8080 as defined in file. </li>
+<li> 'ExecStart' start statement looks into main.py for app (main:app) and starts unix sock as defined in file. </li>
 <li> 'ExecStart' -workers 3 starts thread processes that are listening for connections, this ties into load balancing. </li>
 </ol>
-#### In console/terminal with nano, vi, or other text editor (first time only: setup Gunicorn configuration file)...
+
+```diff
+- project specific information changes: nighhawk, nighthawk_society, main:app 
++ REPLACE with your project name and information
+```
+
+#### In console/terminal with nano, vi, or other text editor (setup Gunicorn configuration file)...
 
 pi@raspberrypi:~ $  ``` sudo nano /etc/systemd/system/nighthawk.service```
 
@@ -104,7 +110,7 @@ pi@raspberrypi:~ $  ``` sudo nano /etc/systemd/system/nighthawk.service```
     Group=www-data
     WorkingDirectory=/home/pi/nighthawk_society
     Environment="PATH=/home/pi/nighthawk_society/nighthawk/bin"
-    ExecStart=/home/pi/nighthawk_society/nighthawk/bin/gunicorn --workers 3 --bind unix:nighthawk.sock -m 007 wsgi:app
+    ExecStart=/home/pi/nighthawk_society/nighthawk/bin/gunicorn --workers 3 --bind unix:nighthawk.sock -m 007 main:app
 
     [Install]
     WantedBy=multi-user.target
