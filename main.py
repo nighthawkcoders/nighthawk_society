@@ -1,20 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
-from models.lessons import LessonData
 import requests
-from y2021 import y2021_bp
-from y2021.prep import y2021_prep_bp
-from y2021.tri1 import y2021_tri1_bp
-from y2021.tri2 import y2021_tri2_bp
-from y2021.tri3 import y2021_tri3_bp
 
-app = Flask(__name__)
-app.register_blueprint(y2021_bp, url_prefix='/y2021/repos')
-app.register_blueprint(y2021_prep_bp, url_prefix='/y2021/prep')
-app.register_blueprint(y2021_tri1_bp, url_prefix='/y2021/tri1')
-app.register_blueprint(y2021_tri2_bp, url_prefix='/y2021/tri2')
-app.register_blueprint(y2021_tri3_bp, url_prefix='/y2021/tri3')
-# ld is an object that contains data for lesson
-ld = LessonData()
+from models.lessons import LessonData
+
+app = Flask(__name__)  # app is the main flask object
+ld = LessonData()  # ld is an object that contains data for lesson
 
 
 @app.route('/')
@@ -51,5 +41,5 @@ def lesson(selection):
 
 
 if __name__ == "__main__":
-    # runs the application on the repl development server
+    # runs the flask application on the repl development server
     app.run(debug=True)
