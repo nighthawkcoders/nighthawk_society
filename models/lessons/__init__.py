@@ -3,7 +3,7 @@ from models.lessons.git import *
 from models.lessons.pbl import *
 
 
-class MenuData:
+class LessonData:
     def __init__(self):
         """Dropdown data for menu selection"""
         # This table is used to inform HTML of items to be placed in main menu
@@ -25,7 +25,7 @@ class MenuData:
         # ---- [1] the projects/choices associated to key, used to populate choices on landing page selector widget
         self.TITLE = 0
         self.PROJECTS = 1
-        self.select_2_proj = {
+        self._select_2_proj = {
             pi_details()['key']: [pi_details()['title'], pi_projects()],
             git_details()['key']: [git_details()['title'], git_projects()],
             pbl_details()['key']: [pbl_details()['title'], pbl_projects()]
@@ -50,7 +50,7 @@ class MenuData:
         return self._menus
 
     def get_menu(self, selection):
-        selected_list = self.select_2_proj[selection]  # selection is "key" used to pull project details from dictionary
+        selected_list = self._select_2_proj[selection]  # selection is "key" used to pull project details from dictionary
         heading = selected_list[self.TITLE]
         projects = selected_list[self.PROJECTS]
         return heading, projects
