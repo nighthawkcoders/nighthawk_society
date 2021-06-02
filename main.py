@@ -41,8 +41,11 @@ def lesson(selection):
 
 @app.route('/projectsearch')
 def projectsearch():
-    return render_template("projectsearch.html")
+    return render_template("projectsearch/projectsearch.html")
 
+@app.route('/projectdetails')
+def projectdetails():
+    return render_template("projectsearch/projectdetails.html")
 
 #for comment section
 #@app.route('/comments')
