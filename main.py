@@ -41,7 +41,27 @@ def lesson(selection):
 
 @app.route('/projectsearch')
 def projectsearch():
-    return render_template("projectsearch.html")
+    return render_template("projectsearch/projectsearch.html")
+
+@app.route('/projectdetails')
+def projectdetails():
+    return render_template("projectsearch/projectdetails.html")
+
+#for comment section
+#@app.route('/comments')
+#def comments():
+#   return 'Comments'
+#for submitting comment
+
+#@app.route('submit_comments', methods=['POST'])
+#def submit_comments():
+#   comment = {
+# 'body': request.form['comment'],
+#'name':request.form['name']
+#   }
+#database.post('/comments',comment)
+# return redirect(url_for('comments'))
+
 
 if __name__ == "__main__":
     # runs the flask application on the repl development server
