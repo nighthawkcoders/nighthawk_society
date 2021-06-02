@@ -39,6 +39,9 @@ def lesson(selection):
     print(x.text)
     return render_template("homesite/lesson.html", data=ld.get_lesson(selection))
 
+@app.route('/projectsearch')
+def projectsearch():
+    return render_template("projectsearch.html")
 
 if __name__ == "__main__":
     # runs the flask application on the repl development server
