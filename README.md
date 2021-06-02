@@ -4,6 +4,7 @@ IntelliJ IDEA Python Development
 # Walruses README
 ### Project Checkpoint Week 1
 - [Sriya's Ticket](https://github.com/nighthawkcoders/nighthawk_society/issues/14): I worked on creating the frontend for the project menu based on our [project plan](https://docs.google.com/presentation/d/1CFiTaqvGOJBBHy6SLb8dqiXlm94fUvoZnKz5r99-06Y/edit#slide=id.gd3dc9efc7b_0_107). I utilized Bootstrap to create the cards and left the titles, scrum team name, & developer names as variables. Next week, I will be working with Iniyaa on the frontend and backend of the chat feature.
+- [Iniyaa's Ticket](https://github.com/nighthawkcoders/nighthawk_society/issues/18): I worked on starting the backend for the chat feature. I used flask forms and the method POST. Currently, it is not connected to a database that will update based on the comments that are submitted - my next goal is to create this database and make sure it updates based on what is input to the website. 
 
 # How to develop code for this Project
 ## This project was developed using IntelliJ IDEA with Python Plugin.  Following are tool requirements.
