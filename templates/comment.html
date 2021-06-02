@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>comment</title>
+</head>
+<body>
+<p>Comments</p>
+<div class="large-8 columns">
+    <form action="/enter_comment" method="post">
+        <input type="text" placeholder="Name" name="who">
+        <textarea placeholder="Type your comment here" name="message" cols="50" rows="4"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{% block body %}
+<h2>Comments</h2>
+{% if comments %}
+<ul>
+    {% for comment in comments %}
+    <li>
+        <h5>{{ comments[comment].who }}</h5>
+        <p>{{ comments[comment].body }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+No Comments!
+{% endif %}
+{% endblock %}
+</body>
+</html>
