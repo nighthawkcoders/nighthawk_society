@@ -7,7 +7,7 @@
 <body>
 <p>Comments</p>
 <div class="large-8 columns">
-    <form id="chat" action="{{ url_for('chat') }}" method="post" class= form>
+    <form id="chat" action="{{ url_for('comment') }}" method="post" class= form>
         <input type="text" placeholder="Name" name="who">
         <textarea placeholder="Type your comment here" name="message" cols="50" rows="4"></textarea>
         <input type="submit" value="Submit">
