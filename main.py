@@ -5,8 +5,8 @@ import sqlite3 as sl3
 from models.lessons import LessonData
 
 app = Flask(__name__)  # app is the main flask object
-import storecom
-import connection
+#import storecom
+#import connection
 ld = LessonData()  # ld is an object that contains data for lesson
 
 
