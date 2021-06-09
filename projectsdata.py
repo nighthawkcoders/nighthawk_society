@@ -1,4 +1,5 @@
 #building basic template structure for filtering process
+import json
 
 def project1:
     name = "bob"
