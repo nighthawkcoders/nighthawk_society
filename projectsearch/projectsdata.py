@@ -11,10 +11,10 @@ def wascwebsite():
     comlink = "Insert commercial link here"
     gitlink = "Insert github repo link here"
     description = "This website was built for the WASC committee in order to help them navigate to Del Norte"
-    return filterdict( title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 def PieceofthePI():
-    image = ""
+    image = "../static/assets/v2ncslogo.png"
     title = "Piece of the PI"
     members = "Bradley Bartelt", "Diego Krenz", "DK Khalili-Samani", "Colin Szeto", "Andrew Zhang"
     scrum_team = "Wave"
@@ -23,10 +23,11 @@ def PieceofthePI():
     gitlink = ""
     comlink = ""
     description = "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
-    return filterdict( title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 
 def GamesFromtheDecades():
+    image = ""
     title = "Games From the Decades"
     members = "Siddhant Ranka", "Kevin Hu", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants"
     scrum_team = "GroceryStore"
@@ -35,9 +36,10 @@ def GamesFromtheDecades():
     gitlink = ""
     comlink = ""
     description = "This project allowed the user to play different video games from different decades. The games specifically were Minesweeper, Uno, and Go Fish."
-    return filterdict(title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 def project4():
+    image = ""
     title = ""
     members = ""
     scrum_team = ""
@@ -46,9 +48,10 @@ def project4():
     gitlink = ""
     comlink = ""
     description = ""
-    return filterdict(title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 def project5():
+    image = ""
     title = ""
     members = ""
     scrum_team = ""
@@ -57,10 +60,11 @@ def project5():
     gitlink = ""
     comlink = ""
     description = ""
-    return filterdict(title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 
 def project6():
+    image = ""
     title = ""
     members = ""
     scrum_team = ""
@@ -69,10 +73,10 @@ def project6():
     gitlink = ""
     comlink = ""
     description = ""
-    return filterdict(title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
-def filterdict(title, members, scrum_team, trimester, keyword, gitlink, comlink, description):
-    row = {"title": title, "members": members, "scrum_team": scrum_team, "trimester": trimester, "keyword": keyword, "gitlink": gitlink, "comlink": comlink, "description": description}
+def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description):
+    row = {"image":image, "title": title, "members": members, "scrum_team": scrum_team, "trimester": trimester, "keyword": keyword, "gitlink": gitlink, "comlink": comlink, "description": description}
     return row
 
 def output():
