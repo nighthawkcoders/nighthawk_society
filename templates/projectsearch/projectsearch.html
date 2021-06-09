@@ -163,54 +163,32 @@ h1.heading {
     <p id="demo">A Paragraph.</p>
     <ul id="charactersList"></ul>
         <script>
-        const charactersList = document.getElementById('charactersList');
-            const loadCharacters = async () => {
-        try {
-            const res = await fetch('https://hp-api.herokuapp.com/api/characters');
-            hpCharacters = await res.json();
-        } catch (err) {
-            console.error(err);
-        }
-};
-            function myFunction() {
-              document.getElementById("demo").innerHTML = "Paragraph changed.";
-            }
-            const displayCharacters = (characters) => {
-    const htmlString = characters
-        .map((character) => {
+
+            const charactersList = document.getElementById('charactersList');
+            const txt = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+            const hpCharacters = JSON.parse(txt);
+            //obj.birth = new Date(obj.birth);
+            //charactersList.innerHTML = obj.name + ", " + obj.birth;
+
+function displayCharacters(characters) {
+var GraceVar2  = characters;
+const htmlString = function (GraceVar) {
             return `
             <li class="character">
-                <h2>${character.name}</h2>
-                <p>House: ${character.species}</p>
+                <h2>${GraceVar.name}</h2>
+                <p>House: ${GraceVar.birth}</p>
 
             </li>
         `;
-        })
-        .join('');
-    document.getElementById('charactersList').innerHTML = "grace paragraph";
-};
-
- /* function loadGrace() {
-            document.getElementById("demo").innerHTML = "grace paragraph.";
-      }
-*/
-            const loadGrace = async () => {
-        try {
-               document.getElementById("demo").innerHTML = "grace 2paragraph.";
-        } catch (err) {
-            console.error(err);
         }
-};
-async function loadGrace() {
-        try {
-               document.getElementById("demo").innerHTML = "grace 2paragraph.";
-        } catch (err) {
-            console.error(err);
-        }
-};
+       // .join('');
 
-loadCharacters();
-loadGrace();
+
+     //charactersList.innerHTML = characters.name + ", " + characters.birth;
+    charactersList.innerHTML = htmlString(GraceVar2);
+};
+displayCharacters(hpCharacters);
+
         </script>
         <div class="content">
             <div class="container">
