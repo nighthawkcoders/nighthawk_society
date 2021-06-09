@@ -5,8 +5,8 @@ import sqlite3 as sl3
 from models.lessons import LessonData
 
 app = Flask(__name__)  # app is the main flask object
-import storecom
-import connection
+#import storecom
+#import connection
 ld = LessonData()  # ld is an object that contains data for lesson
 
 
@@ -59,7 +59,9 @@ def comment():
     c.execute("SELECT * FROM COMMENTS")
     comment.storecom(first,second)
     return render_template("comment.html", com=c.fetchall())
-
+@app.route('/projects')
+def viewer():
+    return render_template('')
 #for comment section
 #@app.route('/comments')
 #def comments():
