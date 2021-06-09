@@ -59,7 +59,9 @@ def comment():
     c.execute("SELECT * FROM COMMENTS")
     comment.storecom(first,second)
     return render_template("comment.html", com=c.fetchall())
-
+@app.route('/projects')
+def viewer():
+    return render_template('')
 #for comment section
 #@app.route('/comments')
 #def comments():
