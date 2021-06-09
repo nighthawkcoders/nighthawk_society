@@ -34,7 +34,25 @@
             text-align: center;
             vertical-align: middle;
         }
-        h1.heading {
+
+    </style>
+</head>
+<body>
+<section class="wrapper">
+    <div class="container-fostrap">
+        <div>
+            <h1 class="heading">
+                Student Project Search
+            </h1>
+        </div>
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+* {
+  box-sizing: border-box;
+}
+h1.heading {
             color: #fff;
             font-size: 1.15em;
             font-weight: 900;
@@ -65,7 +83,6 @@
                 float: left;
                 width: 25%;
                 padding: 0 10px;
-
             }
         }
 
@@ -123,63 +140,78 @@
             font-weight:600;
             text-transform: uppercase
         }
-
-    </style>
-</head>
-<body>
-<section class="wrapper">
-    <div class="container-fostrap">
-        <div>
-            <h1 class="heading">
-                Student Project Search
-            </h1>
-        </div>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style>
-* {
-  box-sizing: border-box;
-}
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
+        #searchBar {
+          background-image: url('https://www.w3schools.com/css/searchicon.png');
+          background-position: 10px 12px;
+          background-repeat: no-repeat;
+          width: 100%;
+          font-size: 16px;
+          padding: 12px 20px 12px 40px;
+          border: 1px solid #ddd;
+          margin-bottom: 12px;
+        }
 </style>
         </head>
         <body>
+    <div>
+        <input type="text" id="searchBar" placeholder="Search for Project Title or Team Name..." title="Type in a name">
+        </div>
+    <div>
+                <ul id="projectList"></ul>
+                </div>
+                <script src="app.js"></script>
+    <p id="demo">A Paragraph.</p>
+    <ul id="charactersList"></ul>
+        <script>
+        const charactersList = document.getElementById('charactersList');
+            const loadCharacters = async () => {
+        try {
+            const res = await fetch('https://hp-api.herokuapp.com/api/characters');
+            hpCharacters = await res.json();
+        } catch (err) {
+            console.error(err);
+        }
+};
+            function myFunction() {
+              document.getElementById("demo").innerHTML = "Paragraph changed.";
+            }
+            const displayCharacters = (characters) => {
+    const htmlString = characters
+        .map((character) => {
+            return `
+            <li class="character">
+                <h2>${character.name}</h2>
+                <p>House: ${character.species}</p>
 
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for project.." title="Type in a name">
+            </li>
+        `;
+        })
+        .join('');
+    document.getElementById('charactersList').innerHTML = "grace paragraph";
+};
 
+ /* function loadGrace() {
+            document.getElementById("demo").innerHTML = "grace paragraph.";
+      }
+*/
+            const loadGrace = async () => {
+        try {
+               document.getElementById("demo").innerHTML = "grace 2paragraph.";
+        } catch (err) {
+            console.error(err);
+        }
+};
+async function loadGrace() {
+        try {
+               document.getElementById("demo").innerHTML = "grace 2paragraph.";
+        } catch (err) {
+            console.error(err);
+        }
+};
 
+loadCharacters();
+loadGrace();
+        </script>
         <div class="content">
             <div class="container">
                 <div class="column">
