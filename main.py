@@ -3,6 +3,8 @@ import requests
 import sqlite3 as sl3
 
 from models.lessons import LessonData
+from projectsearch.projectapp import projectsearch_bp
+from projectsearch.projectapp import projectdetails_bp
 
 app = Flask(__name__)  # app is the main flask object
 #import storecom
@@ -42,13 +44,13 @@ def lesson(selection):
     print(x.text)
     return render_template("homesite/lesson.html", data=ld.get_lesson(selection))
 
-@app.route('/projectsearch')
-def projectsearch():
-    return render_template("projectsearch/projectsearch.html")
+#@app.route('/projectsri')
+#def projectsri():
+    #return render_template("projectsearch.html")
 
 @app.route('/projectdetails')
 def projectdetails():
-    return render_template("projectsearch/projectdetails.html")
+    return render_template("projectdetails.html")
 
 @app.route('/projectsearch/comment/')
 def comment():
@@ -59,6 +61,11 @@ def comment():
     c.execute("SELECT * FROM COMMENTS")
     comment.storecom(first,second)
     return render_template("comment.html", com=c.fetchall())
+
+
+app.register_blueprint(projectsearch_bp)
+#app.register_blueprint(projectdetails_bp)
+
 
 #for comment section
 #@app.route('/comments')
