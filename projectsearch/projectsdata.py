@@ -22,7 +22,7 @@ def PieceofthePI():
     keyword = "statistics"
     gitlink = ""
     comlink = ""
-    description = ""
+    description = "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
     return filterdict( title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 
@@ -34,7 +34,7 @@ def GamesFromtheDecades():
     keyword = "statistics"
     gitlink = ""
     comlink = ""
-    description = ""
+    description = "This project allowed the user to play different video games from different decades. The games specifically were Minesweeper, Uno, and Go Fish."
     return filterdict(title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 def project4():
