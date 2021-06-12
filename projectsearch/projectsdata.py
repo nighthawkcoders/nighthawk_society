@@ -14,7 +14,7 @@ def wascwebsite():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, description)
 
 def PieceofthePI():
-    image = "../static/assets/v2ncslogo.png"
+    image = "piece_of_the_pi.png"
     title = "Piece of the PI"
     members = "Bradley Bartelt", "Diego Krenz", "DK Khalili-Samani", "Colin Szeto", "Andrew Zhang"
     scrum_team = "Wave"

@@ -219,8 +219,8 @@ loadGrace();
                 <div class="column">
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href={{project.image}}>
-                                <img src={{project.image}} />
+                            <a class="img-card" >
+                                <img src={{ url_for('projectsearch.static', filename=project.image) }} />
                             </a>
                             <div class="card-content">
                                 <h4 class="card-title">
