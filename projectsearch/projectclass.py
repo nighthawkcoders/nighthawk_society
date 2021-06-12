@@ -12,6 +12,13 @@ class Projects:
     def filters(self):
         return self.filters
 
+    def get_project(self, team):
+        projects = self.list
+        for proj in projects:
+            if team == proj["scrum_team"]:
+                return proj
+        return None
+
 
 if __name__ == '__main__':
     projects_object = Projects()
@@ -23,3 +30,4 @@ if __name__ == '__main__':
     print("Project Data")
     for project in projects_object._list:
         print(project)
+        print(project["scrum_team"])

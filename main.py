@@ -4,11 +4,11 @@ import sqlite3 as sl3
 
 from models.lessons import LessonData
 from projectsearch.projectapp import projectsearch_bp
-from projectsearch.projectapp import projectdetails_bp
 
 app = Flask(__name__)  # app is the main flask object
 #import storecom
 #import connection
+app.register_blueprint(projectsearch_bp)
 ld = LessonData()  # ld is an object that contains data for lesson
 
 
@@ -63,8 +63,6 @@ def comment():
     return render_template("comment.html", com=c.fetchall())
 
 
-app.register_blueprint(projectsearch_bp)
-#app.register_blueprint(projectdetails_bp)
 
 
 #for comment section
