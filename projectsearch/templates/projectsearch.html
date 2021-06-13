@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=devce-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/5c98679dee.js" crossorigin="anonymous"></script>
+
+   <!-- <link rel="stylesheet" href="/static/styles/article/bootstrap.min.css"/> -->
+    <link rel="stylesheet" href="/static/styles/article/bootstrap.min.css"/>
     <title>N@M Project Search</title>
-    <style>
+   <!-- <style>
         @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
         * {
@@ -78,8 +84,8 @@ h1.heading {
         /* Responsive columns - one column layout (vertical) on small screens */
         @media screen and (max-width: 600px) {
             .column {
-                <!-- display: block; -->
-                <!-- margin-bottom: 20px; -->
+                 display: block;
+                 margin-bottom: 20px;
                 float: left;
                 width: 25%;
                 padding: 0 10px;
@@ -150,71 +156,82 @@ h1.heading {
           border: 1px solid #ddd;
           margin-bottom: 12px;
         }
-</style>
+</style> -->
         </head>
-        <body>
-    <div>
+        <!-- <body>-->
+  <!--  <div>
         <input type="text" id="searchBar" placeholder="Search for Project Title or Team Name..." title="Type in a name">
         </div>
     <div>
                 <ul id="projectList"></ul>
-                </div>
-                <script src="app.js"></script>
-    <p id="demo">A Paragraph.</p>
-    <ul id="charactersList"></ul>
-        <script>
-        const charactersList = document.getElementById('charactersList');
-            const loadCharacters = async () => {
-        try {
-            const res = await fetch('https://hp-api.herokuapp.com/api/characters');
-            hpCharacters = await res.json();
-        } catch (err) {
-            console.error(err);
-        }
-};
-            function myFunction() {
-              document.getElementById("demo").innerHTML = "Paragraph changed.";
-            }
-            const displayCharacters = (characters) => {
-    const htmlString = characters
-        .map((character) => {
-            return `
-            <li class="character">
-                <h2>${character.name}</h2>
-                <p>House: ${character.species}</p>
+                </div> -->
+         <!--       <script src="app.js"></script> -->
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    </html>
+  <div class="container mt-5">
+      <div class="row">
+          <div class="col-md-6 m-auto">
+              <h3 class="text-center mb-3">
+                  <!--
+                  <i class="fas fa-flag-usa"></i>State Capitol Lookup
+                  -->
+                  <i class="fas fa-project-diagram"></i> Student Project Lookup
+              </h3>
+              <div class="form-group">
+                  <input
+                          type="text"
+                          id="search"
+                          class="form-control form-control-lg"
+                          placeholder="Enter project name or abbreviation" />
 
-            </li>
-        `;
-        })
-        .join('');
-    document.getElementById('charactersList').innerHTML = "grace paragraph";
-};
+              </div>
+              <div id="match-list"></div>
+          </div>
+      </div>
+  </div>
+  <script >
+        const search = document.getElementById('search');
+const matchList = document.getElementById('match-list');
 
- /* function loadGrace() {
-            document.getElementById("demo").innerHTML = "grace paragraph.";
-      }
-*/
-            const loadGrace = async () => {
-        try {
-               document.getElementById("demo").innerHTML = "grace 2paragraph.";
-        } catch (err) {
-            console.error(err);
-        }
-};
-async function loadGrace() {
-        try {
-               document.getElementById("demo").innerHTML = "grace 2paragraph.";
-        } catch (err) {
-            console.error(err);
-        }
+const searchStates = async searchText => {
+        const res = await fetch('/static/projectcards.json');
+    const states = await res.json();
+
+    let matches = states.filter(state => {
+        const regex = new RegExp(`^${searchText}`, 'gi');
+        return state.name.match(regex) || state.abbr.match(regex);
+    });
+
+    if(searchText.length === 0) {
+        matches =[];
+    }
+    outputHtml(matches);
+    //console.log(matches);
 };
 
-loadCharacters();
-loadGrace();
-        </script>
+const outputHtml = matches => {
+    if(matches.length > 0) {
+        const html = matches.map(match => `
+        <div class="card card-body mb-1">
+        <h4>${match.name} ${match.title} (${match.abbr}) <span class="text-primary">${match.capital}</span></h4><small>Lat: ${match.lat} / Long: ${match.long} </small>
+        </div>
+        `
+        ).join('');
 
+      matchList.innerHTML = html;
+    }
+};
+
+search.addEventListener('input', () => searchStates(search.value));
+
+
+
+    </script>
     {% for project in projects %}
-        <div class="content">
+  <!--      <div class="content">
             <div class="container">
                 <div class="column">
                     <div class="col-xs-12 col-sm-4">
@@ -238,10 +255,9 @@ loadGrace();
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     {% endfor %}
 </section>
-
 
 </body>
 </html>
