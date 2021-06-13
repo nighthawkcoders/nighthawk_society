@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project Details</title>
+    <title>{{project.title}}</title>
     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
     <style>
@@ -54,12 +54,23 @@
     <div class="container-fostrap">
         <div>
             <h1 class="heading">
-                Project Details
+                {{project.title}}
             </h1>
         </div>
 
+    </div>
+</section>
+<section class="wrapper">
 
-
+<table id="navigator">
+    <tr>
+        <td><a href={{project.comlink}}>Commercial</a></td>
+        <td><a href={{project.runlink}}>Running Project</a></td>
+        <td><a href={{project.gitlink}}>Code/Github</a></td>
+        <td><a href={{project.scrumlink}}>Scrum Board</a></td>
+        <td><a href={{project.readmelink}}>How it's Made</a></td>
+    </tr>
+</table>
 
 </body>
 </html>

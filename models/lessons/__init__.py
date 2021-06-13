@@ -11,8 +11,8 @@ class LessonData:
         # ---- "title" is displayed in dropdown
         # ---- "key" is used in building dynamic URL (https://www.tutorialspoint.com/flask/flask_variable_rules.htm)
         self._menus = [
-            {"title": 'CSA: Java', 'key': 'java', 'url': 'https://csa.nighthawkcoders.cf/'},
-            {"title": 'CSP: Python', 'key': 'python', 'url': 'https://csp.nighthawkcoders.cf/'},
+            {"title": 'CSA: Java', 'key': 'java', 'url': 'https://csa.nighthawkcodingsociety.com/'},
+            {"title": 'CSP: Python', 'key': 'python', 'url': 'https://csp.nighthawkcodingsociety.com/'},
             pi_details(),
             git_details(),
             pbl_details()

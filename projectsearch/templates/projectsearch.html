@@ -236,8 +236,8 @@ search.addEventListener('input', () => searchStates(search.value));
                 <div class="column">
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
-                            <a class="img-card" href={{project.image}}>
-                                <img src={{project.image}} />
+                            <a class="img-card" >
+                                <img src={{ url_for('projectsearch.static', filename=project.image) }} />
                             </a>
                             <div class="card-content">
                                 <h4 class="card-title">
@@ -247,7 +247,7 @@ search.addEventListener('input', () => searchStates(search.value));
                                 <p class="">{{project.description}}</p>
                             </div>
                             <div class="card-read-more">
-                                <a href="/projectdetails" class="btn btn-link btn-block">
+                                <a href="/projectsearch/view/{{ project.scrum_team }}" class="btn btn-link btn-block">
                                     Go to Project
                                 </a>
                             </div>
