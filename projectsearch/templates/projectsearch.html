@@ -192,12 +192,13 @@ h1.heading {
           </div>
       </div>
   </div>
+
   <script >
         const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
 
 const searchStates = async searchText => {
-        const res = await fetch('/static/projectcards.json');
+        const res = await fetch('/static/data/projectcards.json');
     const states = await res.json();
 
     let matches = states.filter(state => {
@@ -215,9 +216,22 @@ const searchStates = async searchText => {
 const outputHtml = matches => {
     if(matches.length > 0) {
         const html = matches.map(match => `
-        <div class="card card-body mb-1">
-        <h4>${match.name} ${match.title} (${match.abbr}) <span class="text-primary">${match.capital}</span></h4><small>Lat: ${match.lat} / Long: ${match.long} </small>
-        </div>
+
+<div class="card mb-3">
+  <h3 class="card-header">${match.title}</h3>
+  <div class="card-body">
+    <h5 class="card-title">${match.name}</h5>
+  </div>
+    <img src="${match.img}">
+  <div class="card-body">
+    <p class="card-text">${match.description}</p>
+  </div>
+
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Github link</a>
+  </div>
+</div>
         `
         ).join('');
 
@@ -227,9 +241,8 @@ const outputHtml = matches => {
 
 search.addEventListener('input', () => searchStates(search.value));
 
-
-
     </script>
+
     {% for project in projects %}
   <!--      <div class="content">
             <div class="container">
