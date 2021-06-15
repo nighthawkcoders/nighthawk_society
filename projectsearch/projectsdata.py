@@ -49,19 +49,19 @@ def GamesFromtheDecades():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
 
 
-def project4():
+def Covid19TeaShop():
     image = ""
-    title = ""
-    members = ""
-    scrum_team = ""
-    trimester = 3
-    keyword = ""
-    gitlink = "#"
-    comlink = "#"
+    title = "Covid-19 Tea Shop"
+    members = "Siddhant Ranka, Aidan Rosen, Andrew Hale, "
+    scrum_team = "Coconuts"
+    trimester = 2
+    keyword = "Commerce adn Data"
+    gitlink = "https://github.com/Siddhant8/p1-coconuts2"
+    comlink = "https://drive.google.com/file/d/1stjN2g0_sbFWiXRue-2ZFMkNQsxnuwyK/view"
     runlink = "#"
     scrumlink = "#"
-    readmelink = "#"
-    description = ""
+    readmelink = "https://github.com/Siddhant8/p1-coconuts2"
+    description = "An online website was created to simulate an online tea shop. A coronavirus calculator was created to calculate cases during the covid pandemic, and a jukebox was created to make shopping more enjoyable."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
 
 
