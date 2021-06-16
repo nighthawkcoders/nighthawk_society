@@ -34,7 +34,7 @@ def PieceofthePI():
 
 
 def GamesFromtheDecades():
-    image = ""
+    image = "GamesFromTheDecades.png"
     title = "Games From the Decades"
     members = "Siddhant Ranka", "Kevin Hu", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants"
     scrum_team = "snakeyees"
@@ -50,7 +50,7 @@ def GamesFromtheDecades():
 
 
 def Covid19TeaShop():
-    image = ""
+    image = "Covid19TeaShop.png"
     title = "Covid-19 Tea Shop"
     members = "Siddhant Ranka, Aidan Rosen, Andrew Hale"
     scrum_team = "Coconuts"
@@ -65,7 +65,7 @@ def Covid19TeaShop():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
 
 def OnlineGroceryStore():
-    image = ""
+    image = "OnlineGroceryStore.png"
     title = "Online Grocery Store"
     members = "Siddhant Ranka, Sean Tran, Aditya Surapaneni, Jaco Rozenkrants, Kevin Hu"
     scrum_team = "Grocerytore"
@@ -81,7 +81,7 @@ def OnlineGroceryStore():
 
 
 def MusicWebsite():
-    image = ""
+    image = "MusicWebsite.png"
     title = "Music Website"
     members = "Eshaan Parlikar, Chris Rubin, Komay Sugiyama, Charlie Zhu, Devam S"
     scrum_team = "kpop"
@@ -97,7 +97,7 @@ def MusicWebsite():
 
 
 def TheGatorsCalculatorHub():
-    image = ""
+    image = "TheGatorsCalculatorHub.png"
     title = "The Gators Calculator Hub"
     members = "Aryan Amberkar, Pranav Kambhampati, Praveen Natarajan, Neil Sahai"
     scrum_team = "Gators"
@@ -113,7 +113,7 @@ def TheGatorsCalculatorHub():
 
 
 def SurveyDrone():
-    image = ""
+    image = "SurveyDrone.png"
     title = "Survey Drone"
     members = "Pranav Kambhampati, Nakul Nandhakumar, Aryan Amberkar, Michael Hayes"
     scrum_team = "Drone"
@@ -129,7 +129,7 @@ def SurveyDrone():
 
 
 def HexPass():
-    image = ""
+    image = "HexPass.PNG"
     title = "HexPass"
     members = "Alex Hu, Aidan Rosen, Andrew Hale, Andrew Joseph, Atharva Kudrimoti"
     scrum_team = "P1A"
@@ -146,7 +146,7 @@ def HexPass():
 
 
 def COVID19Tracker():
-    image = ""
+    image = "Covid19Tracker.png"
     title = "Covid-19 Tracker"
     members = "Pragdeesh Raj, Ayman Kazi, Yazhisai Rajaraman, Karam Alshaikh"
     scrum_team = "Platypodes"
@@ -163,7 +163,7 @@ def COVID19Tracker():
 
 
 def Hangman():
-    image = ""
+    image = "Hangman.png"
     title = "Hangman"
     members = "Noah Pidding, Sarah Xie, Charlie Zhu, Rivan Nayak, Rohan Nallapati"
     scrum_team = "Hangman"
@@ -179,7 +179,7 @@ def Hangman():
 
 
 def CypherCrypto():
-    image = ""
+    image = "CypherCrypto.png"
     title = "CypherCrypto"
     members = "Noah Pidding, Nihar Marar, Rivan Nayak, Adam Holbel"
     scrum_team = "Wildcats"
@@ -195,7 +195,7 @@ def CypherCrypto():
 
 
 def CowboyTown():
-    image = ""
+    image = "CowboyTown.png"
     title = "Cowboy Town"
     members = "Noah Pidding, Aiden Tung, Nathaniel Lee, Dane Vestal"
     scrum_team = "Cowboys"
@@ -211,7 +211,7 @@ def CowboyTown():
 
 
 def CowboysAdvertisementWebsite():
-    image = ""
+    image = "CowboysAdvertisementWebsite.png"
     title = "Cowboys Advertisement Website (CAW)"
     members = "William Cherres, Allen Xu, Marc Humeau, Karam Alshaikh, Tanmay Marwah"
     scrum_team = "Cowboys"
@@ -227,7 +227,7 @@ def CowboysAdvertisementWebsite():
 
 
 def PokemonGame():
-    image = ""
+    image = "PokemonGame.png"
     title = "Pokemon Game"
     members = "Abhijay Deevi, Aiden Cizek, Akshit Prathipati, Megan Corrigan, Zachary Joseph"
     scrum_team = "Slackbots"
@@ -243,7 +243,7 @@ def PokemonGame():
 
 
 def TheSmack():
-    image = ""
+    image = "TheSmack.PNG"
     title = "The Smack"
     members = "Ava Brooks, Eva Gravin, Risa Iwazaki, Linda Long, "
     scrum_team = "Kangaroos"
@@ -259,7 +259,7 @@ def TheSmack():
 
 
 def JavaSwingTeaShop():
-    image = ""
+    image = "JavaSwingTeaShop.png"
     title = "Java Swing Tea Shop"
     members = "Siddhant Ranka, Andrew Hale, Aidan Rosen"
     scrum_team = "Coconuts"
@@ -275,7 +275,7 @@ def JavaSwingTeaShop():
 
 
 def Recipebox():
-    image = ""
+    image = "Recipebox.PNG"
     title = "Recipebox"
     members = "Sophie Lee, Eva Gravin, Linda Long, Ali Saad"
     scrum_team = "Slugs"
@@ -291,7 +291,7 @@ def Recipebox():
 
 
 def NighthawkPlanner():
-    image = ""
+    image = "NighthawkPlanner.JPG"
     title = "Nighthawk Planner"
     members = "Mackenzie Aboy, Pedro de Medeiros, Anthony Giustiniano, Naweid Hassanzadeh, Cherry Ding"
     scrum_team = "Anteaters"
@@ -307,7 +307,7 @@ def NighthawkPlanner():
 
 
 def TigersShopWebsite():
-    image = ""
+    image = "TigersShopWebsite.png"
     title = "Tigers Shop Website"
     members = "Rohan Nallapati, Tanmay Marwah, Charlie Zhu, Eshaan Parlikar"
     scrum_team = "Tigers"
@@ -323,7 +323,7 @@ def TigersShopWebsite():
 
 
 def Uno():
-    image = ""
+    image = "Uno.PNG"
     title = "Uno!"
     members = "Alex Hu, Atharva Kudrimoti, Andrew Pu, Kevin Hu, Sean Tran"
     scrum_team = "More Rice"
@@ -339,7 +339,7 @@ def Uno():
 
 
 def ImagePostingDiscussionJavaMiniLabs():
-    image = ""
+    image = "ImagePostingDiscussionJavaMiniLabs.PNG"
     title = "Image Posting/Discussion Java Mini Labs"
     members = "Dominic Phung, Sean Rollins, Jason Chang, Andrew Joseph"
     scrum_team = "Rain"
@@ -355,7 +355,7 @@ def ImagePostingDiscussionJavaMiniLabs():
 
 
 def BoomerESports():
-    image = ""
+    image = "BoomerEsports.JPG"
     title = "Boomer ESports"
     members = "Aditya Surapaneni, Siddhant Ranka, Jacob Rozenkrants, Kevin Hu, Sean Tran"
     scrum_team = "GroceryStoreSim"
@@ -371,7 +371,7 @@ def BoomerESports():
 
 
 def CitySimulation():
-    image = ""
+    image = "CitySimulation.JPG"
     title = "City Simulation"
     members = "Aditya Surapaneni, Arnav Swami, Jacob Rozenkrants, Atharva Kudrimoti"
     scrum_team = "DebugDataBandits"
@@ -386,8 +386,8 @@ def CitySimulation():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
 
 
-def StudenTools():
-    image = ""
+def StudentTools():
+    image = "StudentTools.JPG"
     title = "StudentTools"
     members = "Aditya Surapaneni, Yasaswi Singamneni, Neil Sahai, Praveen Natarajan, Vihan Jayaraman"
     scrum_team = "Booleans"
@@ -410,5 +410,5 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), GamesFromtheDecades()]
+    output_list = [wascwebsite(), PieceofthePI(), GamesFromtheDecades(), ]
     return output_list
