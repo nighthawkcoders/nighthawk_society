@@ -410,5 +410,9 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), GamesFromtheDecades(), ]
+    output_list = [wascwebsite(), PieceofthePI(), GamesFromtheDecades(), Covid19TeaShop(), OnlineGroceryStore(),
+                   MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
+                   CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
+                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(), Uno(),
+                   ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation(), StudentTools()]
     return output_list
