@@ -52,7 +52,7 @@ def GamesFromtheDecades():
 def Covid19TeaShop():
     image = "Covid19TeaShop.png"
     title = "Covid-19 Tea Shop"
-    members = "Siddhant Ranka, Aidan Rosen, Andrew Hale"
+    members = "Siddhant Ranka", "Aidan Rosen", "Andrew Hale"
     scrum_team = "Coconuts"
     trimester = 2
     keyword = "Commerce adn Data"
@@ -67,7 +67,7 @@ def Covid19TeaShop():
 def OnlineGroceryStore():
     image = "OnlineGroceryStore.png"
     title = "Online Grocery Store"
-    members = "Siddhant Ranka, Sean Tran, Aditya Surapaneni, Jaco Rozenkrants, Kevin Hu"
+    members = "Siddhant Ranka", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants", "Kevin Hu"
     scrum_team = "Grocerytore"
     trimester = 1
     keyword = "Commerce/Trade"
@@ -83,7 +83,7 @@ def OnlineGroceryStore():
 def MusicWebsite():
     image = "MusicWebsite.png"
     title = "Music Website"
-    members = "Eshaan Parlikar, Chris Rubin, Komay Sugiyama, Charlie Zhu, Devam S"
+    members = "Eshaan Parlikar", "Chris Rubin", "Komay Sugiyama", "Charlie Zhu", "Devam S"
     scrum_team = "kpop"
     trimester = 3
     keyword = "Music"
@@ -99,7 +99,7 @@ def MusicWebsite():
 def TheGatorsCalculatorHub():
     image = "TheGatorsCalculatorHub.png"
     title = "The Gators Calculator Hub"
-    members = "Aryan Amberkar, Pranav Kambhampati, Praveen Natarajan, Neil Sahai"
+    members = "Aryan Amberkar", " Kambhampati", "Praveen Natarajan", "Neil Sahai"
     scrum_team = "Gators"
     trimester = 2
     keyword = "School/Education"
@@ -115,7 +115,7 @@ def TheGatorsCalculatorHub():
 def SurveyDrone():
     image = "SurveyDrone.png"
     title = "Survey Drone"
-    members = "Pranav Kambhampati, Nakul Nandhakumar, Aryan Amberkar, Michael Hayes"
+    members = "Pranav Kambhampati", "Nakul Nandhakumar", "Aryan Amberkar", "Michael Hayes"
     scrum_team = "Drone"
     trimester = 3
     keyword = "School/Education, Statistics/Information/Data"
@@ -131,7 +131,7 @@ def SurveyDrone():
 def HexPass():
     image = "HexPass.PNG"
     title = "HexPass"
-    members = "Alex Hu, Aidan Rosen, Andrew Hale, Andrew Joseph, Atharva Kudrimoti"
+    members = "Alex Hu", "Aidan Rosen", "Andrew Hale", "Andrew Joseph", "Atharva Kudrimoti"
     scrum_team = "P1A"
     trimester = 1
     keyword = "School/Education, Statistics/Information/Data, Technology"
@@ -148,7 +148,7 @@ def HexPass():
 def COVID19Tracker():
     image = "Covid19Tracker.png"
     title = "Covid-19 Tracker"
-    members = "Pragdeesh Raj, Ayman Kazi, Yazhisai Rajaraman, Karam Alshaikh"
+    members = "Pragdeesh Raj", "Ayman Kazi", "Yazhisai Rajaraman", "Karam Alshaikh"
     scrum_team = "Platypodes"
     trimester = 2
     keyword = "Statistics/Information/Data"
@@ -165,7 +165,7 @@ def COVID19Tracker():
 def Hangman():
     image = "Hangman.png"
     title = "Hangman"
-    members = "Noah Pidding, Sarah Xie, Charlie Zhu, Rivan Nayak, Rohan Nallapati"
+    members = "Noah Pidding", "Sarah Xie", "Charlie Zhu", "Rivan Nayak", "Rohan Nallapati"
     scrum_team = "Hangman"
     trimester = 1
     keyword = "Games/Gaming"
@@ -181,7 +181,7 @@ def Hangman():
 def CypherCrypto():
     image = "CypherCrypto.png"
     title = "CypherCrypto"
-    members = "Noah Pidding, Nihar Marar, Rivan Nayak, Adam Holbel"
+    members = "Noah Pidding", "Nihar Marar", "Rivan Nayak", "Adam Holbel"
     scrum_team = "Wildcats"
     trimester = 2
     keyword = "Technology"
@@ -197,7 +197,7 @@ def CypherCrypto():
 def CowboyTown():
     image = "CowboyTown.png"
     title = "Cowboy Town"
-    members = "Noah Pidding, Aiden Tung, Nathaniel Lee, Dane Vestal"
+    members = "Noah Pidding", "Aiden Tung", "Nathaniel Lee", "Dane Vestal"
     scrum_team = "Cowboys"
     trimester = 3
     keyword = "Games/Gaming, Museums"
@@ -213,7 +213,7 @@ def CowboyTown():
 def CowboysAdvertisementWebsite():
     image = "CowboysAdvertisementWebsite.png"
     title = "Cowboys Advertisement Website (CAW)"
-    members = "William Cherres, Allen Xu, Marc Humeau, Karam Alshaikh, Tanmay Marwah"
+    members = "William Cherres", "Allen Xu", "Marc Humeau", "Karam Alshaikh", "Tanmay Marwah"
     scrum_team = "Cowboys"
     trimester = 3
     keyword = "Social Media"
@@ -229,7 +229,7 @@ def CowboysAdvertisementWebsite():
 def PokemonGame():
     image = "PokemonGame.png"
     title = "Pokemon Game"
-    members = "Abhijay Deevi, Aiden Cizek, Akshit Prathipati, Megan Corrigan, Zachary Joseph"
+    members = "Abhijay Deevi", "Aiden Cizek", "Akshit Prathipati", "Megan Corrigan", "Zachary Joseph"
     scrum_team = "Slackbots"
     trimester = 3
     keyword = "Games/Gaming"
@@ -245,7 +245,7 @@ def PokemonGame():
 def TheSmack():
     image = "TheSmack.PNG"
     title = "The Smack"
-    members = "Ava Brooks, Eva Gravin, Risa Iwazaki, Linda Long, "
+    members = "Ava Brooks", "Eva Gravin", "Risa Iwazaki", "Linda Long"
     scrum_team = "Kangaroos"
     trimester = 3
     keyword = "Social Media"
@@ -261,7 +261,7 @@ def TheSmack():
 def JavaSwingTeaShop():
     image = "JavaSwingTeaShop.png"
     title = "Java Swing Tea Shop"
-    members = "Siddhant Ranka, Andrew Hale, Aidan Rosen"
+    members = "Siddhant Ranka", "Andrew Hale", "Aidan Rosen"
     scrum_team = "Coconuts"
     trimester = 2
     keyword = "Commerce/Trade"
@@ -277,7 +277,7 @@ def JavaSwingTeaShop():
 def Recipebox():
     image = "Recipebox.PNG"
     title = "Recipebox"
-    members = "Sophie Lee, Eva Gravin, Linda Long, Ali Saad"
+    members = "Sophie Lee", "Eva Gravin", "Linda Long", "Ali Saad"
     scrum_team = "Slugs"
     trimester = 2
     keyword = "Games/Gaming, Food"
@@ -293,7 +293,7 @@ def Recipebox():
 def NighthawkPlanner():
     image = "NighthawkPlanner.JPG"
     title = "Nighthawk Planner"
-    members = "Mackenzie Aboy, Pedro de Medeiros, Anthony Giustiniano, Naweid Hassanzadeh, Cherry Ding"
+    members = "Mackenzie Aboy", "Pedro de Medeiros", "Anthony Giustiniano", "Naweid Hassanzadeh", "Cherry Ding"
     scrum_team = "Anteaters"
     trimester = 3
     keyword = "School/Education, Organization"
@@ -309,7 +309,7 @@ def NighthawkPlanner():
 def TigersShopWebsite():
     image = "TigersShopWebsite.png"
     title = "Tigers Shop Website"
-    members = "Rohan Nallapati, Tanmay Marwah, Charlie Zhu, Eshaan Parlikar"
+    members = "Rohan Nallapati", "Tanmay Marwah", "Charlie Zhu", "Eshaan Parlikar"
     scrum_team = "Tigers"
     trimester = 2
     keyword = "Commerce/Trade"
@@ -325,7 +325,7 @@ def TigersShopWebsite():
 def Uno():
     image = "Uno.PNG"
     title = "Uno!"
-    members = "Alex Hu, Atharva Kudrimoti, Andrew Pu, Kevin Hu, Sean Tran"
+    members = "Alex Hu", "Atharva Kudrimoti", "Andrew Pu", "Kevin Hu", "Sean Tran"
     scrum_team = "More Rice"
     trimester = 3
     keyword = "Games/Gaming"
@@ -341,7 +341,7 @@ def Uno():
 def ImagePostingDiscussionJavaMiniLabs():
     image = "ImagePostingDiscussionJavaMiniLabs.PNG"
     title = "Image Posting/Discussion Java Mini Labs"
-    members = "Dominic Phung, Sean Rollins, Jason Chang, Andrew Joseph"
+    members = "Dominic Phung", "Sean Rollins", "Jason Chang", "Andrew Joseph"
     scrum_team = "Rain"
     trimester = 3
     keyword = "Social Media"
@@ -357,7 +357,7 @@ def ImagePostingDiscussionJavaMiniLabs():
 def BoomerESports():
     image = "BoomerEsports.JPG"
     title = "Boomer ESports"
-    members = "Aditya Surapaneni, Siddhant Ranka, Jacob Rozenkrants, Kevin Hu, Sean Tran"
+    members = "Aditya Surapaneni", "Siddhant Ranka", "Jacob Rozenkrants", "Kevin Hu", "Sean Tran"
     scrum_team = "GroceryStoreSim"
     trimester = 1
     keyword = "Games/Gaming"
@@ -373,7 +373,7 @@ def BoomerESports():
 def CitySimulation():
     image = "CitySimulation.JPG"
     title = "City Simulation"
-    members = "Aditya Surapaneni, Arnav Swami, Jacob Rozenkrants, Atharva Kudrimoti"
+    members = "Aditya Surapaneni", "Arnav Swami", "Jacob Rozenkrants", "Atharva Kudrimoti"
     scrum_team = "DebugDataBandits"
     trimester = 2
     keyword = "Simulation"
@@ -389,7 +389,7 @@ def CitySimulation():
 def StudentTools():
     image = "StudentTools.JPG"
     title = "StudentTools"
-    members = "Aditya Surapaneni, Yasaswi Singamneni, Neil Sahai, Praveen Natarajan, Vihan Jayaraman"
+    members = "Aditya Surapaneni", "Yasaswi Singamneni", "Neil Sahai", "Praveen Natarajan", "Vihan Jayaraman"
     scrum_team = "Booleans"
     trimester = 3
     keyword = "School/Education"
