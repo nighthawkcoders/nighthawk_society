@@ -512,6 +512,22 @@ def hawkers():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+def parrot_music():
+    image = "Parrot.png"
+    title = "Parrots Music"
+    members = "Lola Bulkin", "Valerie Militeeva", "Ryan Shay", "Nick Gee", "Michael Iribarren"
+    scrum_team = "Parrots"
+    trimester = 3
+    keyword = "Movies"
+    gitlink = "https://github.com/ryanshay18/P3_Parrots"
+    comlink = "https://drive.google.com/file/d/1N_HcRLte_2jb-DfVuYcRFIIi6Yegzkd2/view?usp=sharing"
+    runlink = "https://parrot-music.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/ryanshay18/P3_Parrots"
+    readmelink = "https://github.com/ryanshay18/P3_Parrots#readme"
+    description = "Our project is a movie recommendation site, where the user takes a quiz and gets results based on their input. You can pick different genres, streamers, and ratings to get results personalized to you."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                  readmelink, description)
+
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
@@ -526,7 +542,7 @@ def output():
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
-                   GamesFromtheDecades(),
+                   GamesFromtheDecades(), parrot_music(),
                    Covid19TeaShop(),
                    OnlineGroceryStore(),
                    ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
