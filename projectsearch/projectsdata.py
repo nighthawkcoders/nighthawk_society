@@ -3,7 +3,7 @@
 
 def wascwebsite():
     image = "WASCimage.png"
-    title = "WASC report/NCS Website"
+    title = "WASC report"
     members = "Sriya Chilla", "Grace Le", "Iniyaa Mohanraj", "Isai Rajaraman", "Ridhima Inukurti"
     scrum_team = "walruses"
     trimester = 3
