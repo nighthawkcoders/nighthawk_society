@@ -478,6 +478,21 @@ def chess():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+def gamerating():
+    image = "GameRate.jpeg"
+    title = "City Simulation"
+    members = "Kira Liao", "Lucas Bruner", "Dylan Roman", "Jagroop Vij", "Jacob Nguyen"
+    scrum_team = "The Group"
+    trimester = 3
+    keyword = "game"
+    gitlink = "https://github.com/notkobalt/group-project"
+    comlink = "https://www.youtube.com/watch?v=zqX350T5Stg"
+    runlink = "#"
+    scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
+    readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
+    description = "Our website is a game rating system which uses an API to allow for searching for thousands of games."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
