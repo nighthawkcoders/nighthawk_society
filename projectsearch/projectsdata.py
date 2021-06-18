@@ -94,7 +94,7 @@ def MusicWebsite():
     trimester = 3
     keyword = "Music"
     gitlink = "https://github.com/zenxha/kpop"
-    comlink = ""
+    comlink = "https://www.youtube.com/watch?v=wpCmiDVF604"
     runlink = "http://kpop.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/zenxha/kpop"
     readmelink = "https://github.com/zenxha/kpop"
