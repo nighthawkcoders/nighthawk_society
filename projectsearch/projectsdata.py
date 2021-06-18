@@ -478,6 +478,7 @@ def chess():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+
 def gamerating():
     image = "GameRate.jpeg"
     title = "Game Rating"
@@ -494,21 +495,23 @@ def gamerating():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+
 def hawkers():
-    image = ""
+    image = "hawkers.png"
     title = "Hawkers Tweet"
     members = "Sarah", "Noya", "Nivu", "Maggie", "Akhil"
     scrum_team = "The Group"
     trimester = 3
     keyword = "game"
-    gitlink = "#"
-    comlink = "#"
+    gitlink = "https://github.com/noyah81/p2ducks"
+    comlink = "https://youtu.be/3vHtIVMIy5U"
     runlink = "https://hawkers.nighthawkcodingsociety.com/"
-    scrumlink = "#"
-    readmelink = "#"
+    scrumlink = "https://github.com/noyah81/p2ducks/projects/1"
+    readmelink = "https://hawkers.nighthawkcodingsociety.com/aboutus"
     description = "Here on Hawkers, you get the full Twitter experience but without the toxicity of regular twitter! Enjoy the sweet Del Norte High School Themed Color scheme, as well as all the features of regular twitter! Start Tweeting Today!"
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
-                  readmelink, description)
+                      readmelink, description)
+
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
@@ -519,10 +522,12 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
-                   OnlineGroceryStore(), linkdn(), schlimes(), chess(), gamerating(), hawkers(),
+    output_list = [wascwebsite(), PieceofthePI(), hawkers(), StudentTools(), Uno(), linkdn(), schlimes(), chess(), gamerating(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
+                   GamesFromtheDecades(),
+                   Covid19TeaShop(),
+                   OnlineGroceryStore(),
                    ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
     return output_list
