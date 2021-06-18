@@ -14,7 +14,9 @@ def wascwebsite():
     scrumlink = "#"
     readmelink = "#"
     description = "This website was built for the WASC committee in order to help them navigate to Del Norte"
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
 
 def PieceofthePI():
     image = "piece_of_the_pi.png"
@@ -29,7 +31,8 @@ def PieceofthePI():
     scrumlink = "https://github.com/BradleyBartelt/P2__Waves"
     readmelink = "https://github.com/BradleyBartelt/P2__Waves"
     description = "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def GamesFromtheDecades():
@@ -45,7 +48,8 @@ def GamesFromtheDecades():
     scrumlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     description = "This project allowed the user to play different video games from different decades. The games specifically were Minesweeper, Uno, and Go Fish."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def Covid19TeaShop():
@@ -61,7 +65,9 @@ def Covid19TeaShop():
     scrumlink = "https://github.com/Siddhant8/p1-coconuts2"
     readmelink = "https://github.com/Siddhant8/p1-coconuts2"
     description = "An online website was created to simulate an online tea shop. A coronavirus calculator was created to calculate cases during the covid pandemic, and a jukebox was created to make shopping more enjoyable."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
 
 def OnlineGroceryStore():
     image = "OnlineGroceryStore.png"
@@ -76,7 +82,8 @@ def OnlineGroceryStore():
     scrumlink = "https://replit.com/@KevinHu10/Grocery-Store#Main.java"
     readmelink = "https://replit.com/@KevinHu10/Grocery-Store#Main.java"
     description = "This project simulated an online grocery store."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def MusicWebsite():
@@ -92,7 +99,8 @@ def MusicWebsite():
     scrumlink = "https://github.com/zenxha/kpop"
     readmelink = "https://github.com/zenxha/kpop"
     description = "The purpose of our project is to give users access to new playlists and discover music for their taste. A cool feature our website holds is that it includes a random playlist generator on the homepage."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def TheGatorsCalculatorHub():
@@ -108,7 +116,8 @@ def TheGatorsCalculatorHub():
     scrumlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
     readmelink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
     description = "We created a calculator hub where the user can perform simple calculations powered by JavaScript, CSS, HTML, Java Spring and Thymeleaf. Users are able to use a trigonometric calculator, conversions calculator, logarithmic calculator, and a simple 4 function calculator. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def SurveyDrone():
@@ -119,12 +128,15 @@ def SurveyDrone():
     trimester = 3
     keyword = "School/Education, Statistics/Information/Data"
     gitlink = "https://github.com/PranavKambhampati/Tri3Drone"
-    comlink = ""
-    runlink = "#"
-    scrumlink = "https://github.com/PranavKambhampati/Tri3Drone"
-    readmelink = "https://github.com/PranavKambhampati/Tri3Drone"
-    description = "A group based polling applications that centralizes multiple different forms together. Administrators can view quick statistics from multiple different forms on a dashboard. The user experience will be up to date through an AWS RDS MySQL database."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    comlink = "https://drive.google.com/file/d/1k2jruHC8m4zHGvUX51qb6hu8-wcexIOk/view?usp=sharing"
+    runlink = "https://drone.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/PranavKambhampati/Tri3Drone/projects/1"
+    readmelink = "https://github.com/PranavKambhampati/Tri3Drone#tri3drone"
+    description = "A group based polling applications that centralizes multiple different forms together. " \
+                  "Administrators can view quick statistics from multiple different forms on a dashboard. The user " \
+                  "experience will be up to date through an AWS RDS MySQL database. "
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def HexPass():
@@ -140,8 +152,8 @@ def HexPass():
     scrumlink = "https://github.com/AidanRosen/HexPass-Portfolio-Vector-IDEA"
     readmelink = "https://github.com/AidanRosen/HexPass-Portfolio-Vector-IDEA"
     description = "An application with various uses such as a graphing calculator, password manager, and vector calculator."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
-
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def COVID19Tracker():
@@ -157,8 +169,8 @@ def COVID19Tracker():
     scrumlink = "https://github.com/aymankazi9/P2-Platypodes"
     readmelink = "https://github.com/aymankazi9/P2-Platypodes"
     description = "COVID-19 data collected from credible sources and organized in a simply interface. Includes information pages to detail precautionary strategies to stay safe during this pandemic."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
-
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def Hangman():
@@ -174,7 +186,8 @@ def Hangman():
     scrumlink = "https://github.com/NoahPidding/Portfolioflask"
     readmelink = "https://github.com/NoahPidding/Portfolioflask"
     description = "Our project theme was Halloween, as the time of making this project it was around the time of Halloween. Our project involved games such as a guessing game, and a hangman game, as well as different genres of music that the user could choose from. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def CypherCrypto():
@@ -190,7 +203,8 @@ def CypherCrypto():
     scrumlink = "https://github.com/NoahPidding/CollegeBoardProject"
     readmelink = "https://github.com/NoahPidding/CollegeBoardProject"
     description = "Our project was essentially a website that would allow the user to input a message, and either encrypt or decrypt the message in several different ciphers including Caesar cipher, Binary, Morse code, RSA and Pig Latin. There were also quizzes that the user could take based on some of the ciphers incorporated in the project. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def CowboyTown():
@@ -206,7 +220,8 @@ def CowboyTown():
     scrumlink = "https://github.com/awtung/p2-cowboys"
     readmelink = "https://github.com/awtung/p2-cowboys"
     description = "There are several features to our website, including an interactive home page that can take you to places like a history section of the wild west as well as a quiz, a saloon section, involving a snake game, a clicking speed test, a random api section, and an about us page including information and work done by all the creators. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def CowboysAdvertisementWebsite():
@@ -222,7 +237,8 @@ def CowboysAdvertisementWebsite():
     scrumlink = "https://github.com/TMarwah/P3Cowboys"
     readmelink = "https://github.com/TMarwah/P3Cowboys"
     description = "We have created a platform where you can upload your ads and showcase your company. All you need to do is sign up and create an account. This is a great way to make your website and company more popular. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def PokemonGame():
@@ -238,7 +254,8 @@ def PokemonGame():
     scrumlink = "https://github.com/Dubshott/p4-slackbots"
     readmelink = "https://github.com/Dubshott/p4-slackbots"
     description = "Our project allows players to look through our pokedex and see information on each pokemon. At the same time, they will be able to look through each type of pokemon. You can also rate each pokemon based on how much you like the pokemon. This rating will avereage and show the overall rating to every user. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def TheSmack():
@@ -254,7 +271,8 @@ def TheSmack():
     scrumlink = "https://github.com/evagravin/p4-kangaroos"
     readmelink = "https://github.com/evagravin/p4-kangaroos"
     description = "TheSmack is an aspiring social media site where users can share messages and emotions with friends, using inspiration from Twitter and TheSLAP."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def JavaSwingTeaShop():
@@ -270,7 +288,8 @@ def JavaSwingTeaShop():
     scrumlink = "https://github.com/Siddhant8/p1-coconuts1"
     readmelink = "https://github.com/Siddhant8/p1-coconuts1"
     description = "We created a REACT tea shop and a swing covid case calculator and a swing jukebox."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def Recipebox():
@@ -286,7 +305,8 @@ def Recipebox():
     scrumlink = "https://github.com/p2slugs/recipebox"
     readmelink = "https://github.com/p2slugs/recipebox"
     description = "Recipebox is a website centered around recipes, where you can filter through recipes, select ingredients that affect your money and amount, create a recipe, and give input to the website that will be displayed as a community suggestion."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def NighthawkPlanner():
@@ -302,7 +322,8 @@ def NighthawkPlanner():
     scrumlink = "https://github.com/PedroBMedeiros/P2-Anteaters"
     readmelink = "https://github.com/PedroBMedeiros/P2-Anteaters"
     description = "This website is meant to be an easily accessible planner for students and anyone who wants to become more organized."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def TigersShopWebsite():
@@ -318,7 +339,8 @@ def TigersShopWebsite():
     scrumlink = "https://github.com/TMarwah/P4Tigers"
     readmelink = "https://github.com/TMarwah/P4Tigers"
     description = "Our project is a website that sells merchandise to the user, much like Amazon, eBay, or any other online shop. You can browse through the shop and find what you want. "
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def Uno():
@@ -334,7 +356,8 @@ def Uno():
     scrumlink = "https://github.com/sgtran/p1---more-rice"
     readmelink = "https://github.com/sgtran/p1---more-rice"
     description = "Our project allows the user to play Uno through their computer browser, with gameplay and cards similar to real-life Uno. It also includes an additional 2048 game and a leaderboard for Uno scores."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def ImagePostingDiscussionJavaMiniLabs():
@@ -350,7 +373,8 @@ def ImagePostingDiscussionJavaMiniLabs():
     scrumlink = "https://github.com/domph/p1-rain"
     readmelink = "https://github.com/domph/p1-rain"
     description = "This project showcases a simplistic version of an image-posting board (think Instagram) where you can make posts and comment/view others' posts. It also consists of various mini-labs that highlight various Java skills practiced/learned."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def BoomerESports():
@@ -366,7 +390,8 @@ def BoomerESports():
     scrumlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     description = "This JFrame Application allows users to play a variety of games, including Thai 21, Uno, Mine Sweeper, GoFish, & TicTacToe. Each game originated from a different decade, starting from the 1970s. Have fun!"
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def CitySimulation():
@@ -382,7 +407,8 @@ def CitySimulation():
     scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
     readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
     description = "This Java Application is intended to simulate features of a typical city. It includes a fully-functioning car dealership, a bank, & a school. Make sure to explore!"
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 
 def StudentTools():
@@ -398,10 +424,27 @@ def StudentTools():
     scrumlink = "https://github.com/AdityaS1426/BooleansCalendar"
     readmelink = "https://github.com/AdityaS1426/BooleansCalendar"
     description = "This Spring Boot Application (Web App) aims to help students go through their day with ease. It consists of an Advanced Calculator, a Calendar, & a Task Manager tool."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
+def linkdn():
+    image = "linkdn.png"
+    title = "Link DN"
+    members = "Sophie Bulkin", "Ida Mobini", "Chrystal Widjaja", "Manuel Villa Hernandez", "Arul Salaniwal"
+    scrum_team = "Platypodes"
+    trimester = 3
+    keyword = "connect"
+    gitlink = "https://github.com/Mewe14/P3Platypodes"
+    comlink = "https://drive.google.com/file/d/1KzIIv0PQS8jvkRK5vpM-3B1V_W-kCkjw/view"
+    runlink = "https://linkdn.nighthawkcodingsociety.com/"
+    scrumlink= "https://github.com/Mewe14/P3Platypodes"
+    readmelink = "https://github.com/Mewe14/P3Platypodes#readme"
+    description = "LinkDN is an aspiring social media site exclusive to Del Norte’s students. Students can share their “stats,” what classes they are taking, and their accomplishments outside of school. Ideally, LinkDN will be able to be used as a platform for students to create study/support groups with one another."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                     readmelink, description)
 
-def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description):
+def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
+               description):
     row = {"image": image, "title": title, "members": members, "scrum_team": scrum_team, "trimester": trimester,
            "keyword": keyword, "gitlink": gitlink, "comlink": comlink, "runlink": runlink,
            "scrumlink": scrumlink, "readmelink": readmelink, "description": description}
@@ -409,7 +452,8 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(), OnlineGroceryStore(),
+    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
+                   OnlineGroceryStore(), linkdn(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
