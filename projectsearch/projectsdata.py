@@ -8,8 +8,8 @@ def wascwebsite():
     scrum_team = "walruses"
     trimester = 3
     keyword = "school"
-    comlink = "https://drive.google.com/file/d/1DXLdooST--GXtNpSmw8pWvhsr2w-dmhz/view?usp=sharing"  # Insert commercial link here
-    gitlink = "https://github.com/nighthawkcoders/nighthawk_society"  # Insert github repo link here
+    comlink = ""  # Insert commercial link here
+    gitlink = "https://github.com/ridhimainukurti/group-2"  # Insert github repo link here
     runlink = "https://wasc.nighthawkcoders.cf/"
     scrumlink = "#"
     readmelink = "#"
