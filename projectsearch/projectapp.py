@@ -12,11 +12,13 @@ projectsearch_bp = Blueprint('projectsearch', __name__,
 
 @projectsearch_bp.route('/viewer', methods=["GET", "POST"])
 def viewer():
+    print('before search')
     return render_template('projectsearch.html', projects=projects_object.list)
 
-@projectsearch_bp.route('/details', methods=["GET", "POST"])
-def details():
-    return render_template('projectdetails.html', project=projects_object.get_details("WASC report"))
+@projectsearch_bp.route('/details/<name>', methods=["GET", "POST"])
+def details(name):
+    #return render_template('projectdetails.html', project=projects_object.get_details("projects"))
+    return render_template('projectdetails.html', project=projects_object.get_details(name))
 
 @projectsearch_bp.route('/dash', methods=["GET", "POST"])
 def dash():
@@ -24,4 +26,6 @@ def dash():
 
 @projectsearch_bp.route('/view/<team_selection>/')
 def view(team_selection):
+    print('before team selection')
+    print (projects_object.get_project(team_selection))
     return render_template('projectdetails.html', project=projects_object.get_project(team_selection))

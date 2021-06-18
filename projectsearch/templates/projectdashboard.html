@@ -166,16 +166,15 @@
                             <div class="card-content">
                                 <div class="overflow-auto" style="height: 400px">
                                     <h4 class="card-title">
-                                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">{{project.title}}</a>
+                                        <a id='titl'>{{project.title}}</a>
                                     </h4>
                                     <p class="">Developers: {{project.members[0]}}, {{project.members[1]}}, {{project.members[2]}}, {{project.members[3]}}, {{project.members[4]}}, {{project.members[5]}}</p>
                                     <p class="">{{project.description}}</p>
                                 </div>
                             </div>
                             <div class="card-read-more">
-                                <a href="/projectsearch/details" class="btn btn-link btn-block">
-                                    Go to Project
-                                </a>
+                                <a href="/projectsearch/details/{{project.title}}" class="btn btn-link btn-block">Go to Project</a>
+                               <!-- <a href="mywebsite.com/validate_registration/{{ project.title }}">link</a>-->
                             </div>
                         </div>
                         {% endfor %}
