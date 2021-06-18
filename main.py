@@ -48,9 +48,9 @@ def lesson(selection):
 #def projectsri():
     #return render_template("projectsearch.html")
 
-@app.route('/projectdetails')
-def projectdetails():
-    return render_template("projectdetails.html")
+# @app.route('/projectdetails')
+# def projectdetails():
+    # return render_template("projectdetails.html")
 
 @app.route('/projectsearch/comment/')
 def comment():
