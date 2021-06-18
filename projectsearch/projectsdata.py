@@ -487,7 +487,7 @@ def gamerating():
     keyword = "game"
     gitlink = "https://github.com/notkobalt/group-project"
     comlink = "https://www.youtube.com/watch?v=zqX350T5Stg"
-    runlink = "#"
+    runlink = "https://thegroup.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
     readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
     description = "Our website is a game rating system which uses an API to allow for searching for thousands of games."
@@ -504,7 +504,7 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 def output():
     output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
-                   OnlineGroceryStore(), linkdn(), schlimes(), chess(),
+                   OnlineGroceryStore(), linkdn(), schlimes(), chess(), gamerating(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
