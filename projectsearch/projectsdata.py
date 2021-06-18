@@ -8,14 +8,13 @@ def wascwebsite():
     scrum_team = "walruses"
     trimester = 3
     keyword = "school"
-    comlink = "#"  # Insert commercial link here
-    gitlink = "#"  # Insert github repo link here
-    runlink = "#"
+    comlink = "https://drive.google.com/file/d/1DXLdooST--GXtNpSmw8pWvhsr2w-dmhz/view?usp=sharing"  # Insert commercial link here
+    gitlink = "https://github.com/nighthawkcoders/nighthawk_society"  # Insert github repo link here
+    runlink = "https://wasc.nighthawkcoders.cf/"
     scrumlink = "#"
     readmelink = "#"
     description = "This website was built for the WASC committee in order to help them navigate to Del Norte"
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
-
 
 def PieceofthePI():
     image = "piece_of_the_pi.png"
