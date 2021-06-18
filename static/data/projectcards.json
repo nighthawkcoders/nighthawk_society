@@ -3,12 +3,12 @@
     "title": "WASC Report",
     "abbr": "WASC",
     "name": "Sriya Chilla, Grace Le, Iniyaa Mohanraj, Isai Rajaraman, Ridhima Inukurti",
-    "img" : "/static/mediaimg.png",
+    "img" : "projectsearch/static/WASCimage.png",
     "description": "This website was built for the WASC committee in order to help them navigate to Del Norte"
   },
   {
     "title": "Piece of the PI",
-    "img": "/static/piece_of_the_pi.png",
+    "img": "projectsearch/static/piece_of_the_pi.png",
     "abbr": "PI",
     "name": "Bradley Bartelt, Diego Krenz,Dk Khalili-Samani, Colin Szeto, Andrew Zhang",
     "description": "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
