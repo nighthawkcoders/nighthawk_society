@@ -478,6 +478,53 @@ def chess():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+def parrotgames():
+    image = "parrots.png"
+    title = "Parrots Music"
+    members = "Lola Bulkin", "Valerie Militeeva", "Ryan Shay", "Nick Gee", "Michael Iribarren"
+    scrum_team = "Parrots"
+    trimester = 3
+    keyword = "Movies"
+    gitlink = "https://github.com/ryanshay18/P3_Parrots"
+    comlink = "https://drive.google.com/file/d/1N_HcRLte_2jb-DfVuYcRFIIi6Yegzkd2/view?usp=sharing"
+    runlink = "https://parrot-music.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/ryanshay18/P3_Parrots"
+    readmelink = "https://github.com/ryanshay18/P3_Parrots#readme"
+    description = "Our project is a movie recommendation site, where the user takes a quiz and gets results based on their input. You can pick different genres, streamers, and ratings to get results personalized to you."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+def ImagePostingDiscussionJavaMiniLabs():
+    image = "ImagePostingDiscussionJavaMiniLabs.PNG"
+    title = "Image Posting Discussion"
+    members = "Dominic Phung", "Sean Rollins", "Jason Chang", "Andrew Joseph"
+    scrum_team = "Rain"
+    trimester = 3
+    keyword = "Social Media"
+    gitlink = "https://github.com/domph/p1-rain"
+    comlink = "https://youtu.be/MAHcWIJ0Cog"
+    runlink = "https://rain.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/domph/p1-rain/projects/1"
+    readmelink = "https://github.com/domph/p1-rain#readme"
+    description = "This project showcases a simplistic version of an image-posting board (think Instagram) where you can make posts and comment/view others' posts. It also consists of various mini-labs that highlight various Java skills practiced/learned."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+def climatechange():
+    image = "climatechange.png"
+    title = "Climage Change Tracker and Statistics"
+    members = "Pragadeesh Raj, Ayman Kazi, Navodit Maheshwari, Ali Saad, Mustafa Sharaf"
+    scrum_team = "p2-platypodes"
+    trimester = 3
+    keyword = "climatechange"
+    comlink = "https://youtu.be/W_YLQeprAFU"
+    gitlink = "https://github.com/Ali-Saad/p2-platypodes3"
+    runlink = "http://climatechange.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/Ali-Saad/p2-platypodes3/projects/1"
+    readmelink = "https://github.com/Ali-Saad/p2-platypodes3/blob/master/README.md"
+    description = "This website includes climate change tracking for various countries around the world. It also includes research level analysis on climate change throughout the various information pages, which allows users to be educated on this phenomena."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
@@ -488,10 +535,10 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
-                   OnlineGroceryStore(), linkdn(), schlimes(), chess(),
+    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), ImagePostingDiscussionJavaMiniLabs(),
+                   OnlineGroceryStore(), linkdn(), schlimes(), chess(), ImagePostingDiscussionJavaMiniLabs(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
-                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
-                   ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
+                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(), climatechange(),
+                   GamesFromtheDecades(), Covid19TeaShop(), BoomerESports(), CitySimulation(), parrotgames()]
     return output_list
