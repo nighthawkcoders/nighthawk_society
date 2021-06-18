@@ -19,6 +19,13 @@ class Projects:
                 return proj
         return None
 
+    def get_details(self, title):
+        projects = self.list
+        for proj in projects:
+            if title == proj["title"]:
+                return proj
+        return None
+
 
 if __name__ == '__main__':
     projects_object = Projects()

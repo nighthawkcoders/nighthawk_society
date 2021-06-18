@@ -2,7 +2,7 @@
   {
     "title": "WASC Report",
     "abbr": "WASC",
-    "name": "Sriya Chilla, Grace Le, Iniyaa Mohanraj, Isai Rajaraman, Ridhima Inukurti",
+    "name": "Sriya Chilla", "Grace Le", "Iniyaa Mohanraj", "Isai Rajaraman", "Ridhima Inukurti"
     "img" : "/static/mediaimg.png",
     "description": "This website was built for the WASC committee in order to help them navigate to Del Norte"
   },
@@ -14,22 +14,18 @@
     "description": "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
   },
   {
-    "title": "WASC Report",
-    "members": "Grace",
-    "abbr": "AZ",
-    "name": "Arizona",
-    "capital": "Phoenix",
-    "lat": "33.448457",
-    "long": "-112.073844"
+    "title": "WAST Report",
+    "members": "Sriya Chilla, Grace Le",
+    "abbr": "WAST",
+    "img" : "/static/mediaimg.png",
+    "description": "This website was built for the WASC committee in order to help them navigate to Del Norte"
   },
   {
-    "title": "WASC Report",
+    "title": "x",
     "members": "Grace",
     "abbr": "AR",
-    "name": "Arkansas",
-    "capital": "Little Rock",
-    "lat": "34.736009",
-    "long": "-92.331122"
+    "img" : "/static/mediaimg.png",
+    "description": "This website was built for the WASC committee in order to help them navigate to Del Norte",
   },
   {
     "abbr": "CA",
