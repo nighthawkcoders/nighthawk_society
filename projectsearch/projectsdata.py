@@ -17,10 +17,10 @@ def wascwebsite():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink, description)
 
 def PieceofthePI():
-    image = "piece_of_the_pi.png"
+    image = "/static/piece_of_the_pi.png"
     title = "Piece of the PI"
     members = "Bradley Bartelt", "Diego Krenz", "DK Khalili-Samani", "Colin Szeto", "Andrew Zhang"
-    scrum_team = "wave2"
+    scrum_team = "Wave"
     trimester = 3
     keyword = "statistics"
     gitlink = "https://github.com/BradleyBartelt/P2__Waves"
@@ -33,7 +33,7 @@ def PieceofthePI():
 
 
 def GamesFromtheDecades():
-    image = "GamesFromTheDecades.png"
+    image = "/static/GamesFromTheDecades.png"
     title = "Games From the Decades"
     members = "Siddhant Ranka", "Kevin Hu", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants"
     scrum_team = "snakeyees"

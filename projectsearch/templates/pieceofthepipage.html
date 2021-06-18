@@ -47,6 +47,31 @@
             text-align: center;
             vertical-align: middle;
         }
+
+        .infocontainer {
+            .imgpreview1 {
+                display: inline-block;
+                vertical-align: top;
+                float: left;
+                width: 500px;
+                border: 3px solid #73AD21;
+                padding: 10px;
+            }
+            .text {
+                display: inline-block;
+                width: 46%;
+                @media (max-width: 620px) {
+                width: 100%;
+                }
+            }
+        }
+
+        .imgpreview {
+            float: left;
+            width: 500px;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -54,12 +79,18 @@
     <div class="container-fostrap">
         <div>
             <h1 class="heading">
-                PieceOfThePie
+                Piece Of The Pie
             </h1>
+            <h3>
+                Wave: Name1, Name2, Name3
+            </h3>
         </div>
 
     </div>
 </section>
+
+<img class="imgpreview" src="/static/piece_of_the_pi.png" alt="Piece of the Pi Image">
+
 <section class="wrapper">
 
     <table id="navigator">
@@ -70,6 +101,8 @@
             <td><a href=https://github.com/BradleyBartelt/P2__Waves>How it's Made</a></td>
         </tr>
     </table>
+</section>
+
 
 </body>
 </html>
