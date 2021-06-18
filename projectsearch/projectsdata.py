@@ -3,9 +3,9 @@
 
 def wascwebsite():
     image = "WASCimage.png"
-    title = "WASC report/NCS Website"
+    title = "WASC Report"
     members = "Sriya Chilla", "Grace Le", "Iniyaa Mohanraj", "Isai Rajaraman", "Ridhima Inukurti"
-    scrum_team = "walruses"
+    scrum_team = "Walruses"
     trimester = 3
     keyword = "school"
     comlink = ""  # Insert commercial link here
@@ -39,7 +39,7 @@ def GamesFromtheDecades():
     image = "GamesFromTheDecades.png"
     title = "Games From the Decades"
     members = "Siddhant Ranka", "Kevin Hu", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants"
-    scrum_team = "snakeyees"
+    scrum_team = "Snakeyees"
     trimester = 3
     keyword = "statistics"
     gitlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
@@ -73,7 +73,7 @@ def OnlineGroceryStore():
     image = "OnlineGroceryStore.png"
     title = "Online Grocery Store"
     members = "Siddhant Ranka", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants", "Kevin Hu"
-    scrum_team = "Grocerytore"
+    scrum_team = "Grocerystore"
     trimester = 1
     keyword = "Commerce/Trade"
     gitlink = "https://replit.com/@KevinHu10/Grocery-Store#Main.java"
@@ -90,7 +90,7 @@ def MusicWebsite():
     image = "MusicWebsite.png"
     title = "Music Website"
     members = "Eshaan Parlikar", "Chris Rubin", "Komay Sugiyama", "Charlie Zhu", "Devam S"
-    scrum_team = "kpop"
+    scrum_team = "Kpop"
     trimester = 3
     keyword = "Music"
     gitlink = "https://github.com/zenxha/kpop"
@@ -432,7 +432,7 @@ def schlimes():
     image = "stock.png"
     title = "Schlimes Stock"
     members = "Brayden Basinger", "Noah Ahooja", "Carter Quartararo", "Ryan Moghaddas", "Max Wang"
-    scrum_team = "p4schlimes"
+    scrum_team = "Schlimes"
     trimester = 3
     keyword = "stock"
     gitlink = "https://github.com/noahahooja/p4schlimes"
@@ -466,7 +466,7 @@ def chess():
     image = "chess.png"
     title = "Chess"
     members = "David Kim", "Kyle Myint", "Colin Szeto", "Shekar Krishnamoorthy", "Devam Shrivastava"
-    scrum_team = "chessgame"
+    scrum_team = "Chessgame"
     trimester = 1
     keyword = "chess"
     gitlink = "https://github.com/kylem314/ChessOO"
@@ -478,51 +478,19 @@ def chess():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
-def parrotgames():
-    image = "parrots.png"
-    title = "Parrots Music"
-    members = "Lola Bulkin", "Valerie Militeeva", "Ryan Shay", "Nick Gee", "Michael Iribarren"
-    scrum_team = "Parrots"
+def gamerating():
+    image = "GameRate.jpeg"
+    title = "City Simulation"
+    members = "Kira Liao", "Lucas Bruner", "Dylan Roman", "Jagroop Vij", "Jacob Nguyen"
+    scrum_team = "The Group"
     trimester = 3
-    keyword = "Movies"
-    gitlink = "https://github.com/ryanshay18/P3_Parrots"
-    comlink = "https://drive.google.com/file/d/1N_HcRLte_2jb-DfVuYcRFIIi6Yegzkd2/view?usp=sharing"
-    runlink = "https://parrot-music.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/ryanshay18/P3_Parrots"
-    readmelink = "https://github.com/ryanshay18/P3_Parrots#readme"
-    description = "Our project is a movie recommendation site, where the user takes a quiz and gets results based on their input. You can pick different genres, streamers, and ratings to get results personalized to you."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
-                      readmelink, description)
-
-def ImagePostingDiscussionJavaMiniLabs():
-    image = "ImagePostingDiscussionJavaMiniLabs.PNG"
-    title = "Image Posting Discussion"
-    members = "Dominic Phung", "Sean Rollins", "Jason Chang", "Andrew Joseph"
-    scrum_team = "Rain"
-    trimester = 3
-    keyword = "Social Media"
-    gitlink = "https://github.com/domph/p1-rain"
-    comlink = "https://youtu.be/MAHcWIJ0Cog"
-    runlink = "https://rain.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/domph/p1-rain/projects/1"
-    readmelink = "https://github.com/domph/p1-rain#readme"
-    description = "This project showcases a simplistic version of an image-posting board (think Instagram) where you can make posts and comment/view others' posts. It also consists of various mini-labs that highlight various Java skills practiced/learned."
-    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
-                      readmelink, description)
-
-def climatechange():
-    image = "climatechange.png"
-    title = "Climage Change Tracker and Statistics"
-    members = "Pragadeesh Raj, Ayman Kazi, Navodit Maheshwari, Ali Saad, Mustafa Sharaf"
-    scrum_team = "p2-platypodes"
-    trimester = 3
-    keyword = "climatechange"
-    comlink = "https://youtu.be/W_YLQeprAFU"
-    gitlink = "https://github.com/Ali-Saad/p2-platypodes3"
-    runlink = "http://climatechange.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/Ali-Saad/p2-platypodes3/projects/1"
-    readmelink = "https://github.com/Ali-Saad/p2-platypodes3/blob/master/README.md"
-    description = "This website includes climate change tracking for various countries around the world. It also includes research level analysis on climate change throughout the various information pages, which allows users to be educated on this phenomena."
+    keyword = "game"
+    gitlink = "https://github.com/notkobalt/group-project"
+    comlink = "https://www.youtube.com/watch?v=zqX350T5Stg"
+    runlink = "#"
+    scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
+    readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
+    description = "Our website is a game rating system which uses an API to allow for searching for thousands of games."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
@@ -535,10 +503,10 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), ImagePostingDiscussionJavaMiniLabs(),
-                   OnlineGroceryStore(), linkdn(), schlimes(), chess(), ImagePostingDiscussionJavaMiniLabs(),
+    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
+                   OnlineGroceryStore(), linkdn(), schlimes(), chess(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
-                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(), climatechange(),
-                   GamesFromtheDecades(), Covid19TeaShop(), BoomerESports(), CitySimulation(), parrotgames()]
+                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
+                   ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
     return output_list
