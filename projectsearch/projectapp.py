@@ -24,6 +24,10 @@ def details(name):
 def dash():
     return render_template('projectdashboard.html', projects=projects_object.list)
 
+@projectsearch_bp.route('/pieceofthepi', methods=["GET", "POST"])
+def pieceofthepi():
+    return render_template('pieceofthepipage.html')
+
 @projectsearch_bp.route('/view/<team_selection>/')
 def view(team_selection):
     print('before team selection')
