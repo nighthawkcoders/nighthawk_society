@@ -2,7 +2,7 @@
 
 
 def wascwebsite():
-    image = ""
+    image = "WASCimage.png"
     title = "WASC report"
     members = "Sriya Chilla", "Grace Le", "Iniyaa Mohanraj", "Isai Rajaraman", "Ridhima Inukurti"
     scrum_team = "walruses"
@@ -10,7 +10,7 @@ def wascwebsite():
     keyword = "school"
     comlink = ""  # Insert commercial link here
     gitlink = "https://github.com/ridhimainukurti/group-2"  # Insert github repo link here
-    runlink = "https://wasc.nighthawkcoders.cf/"
+    runlink = "http://wasc.nighthawkcodingsociety.com/"
     scrumlink = "#"
     readmelink = "#"
     description = "This website was built for the WASC committee in order to help them navigate to Del Norte"
@@ -25,7 +25,7 @@ def PieceofthePI():
     keyword = "statistics"
     gitlink = "https://github.com/BradleyBartelt/P2__Waves"
     comlink = "https://youtu.be/hc_ZCVRqu34"
-    runlink = "http://pieceofthepi.pusdcoders.tk/"
+    runlink = "http://pieceofthepi.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/BradleyBartelt/P2__Waves"
     readmelink = "https://github.com/BradleyBartelt/P2__Waves"
     description = "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
@@ -41,7 +41,7 @@ def GamesFromtheDecades():
     keyword = "statistics"
     gitlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     comlink = "#"
-    runlink = ""
+    runlink = "#"
     scrumlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     description = "This project allowed the user to play different video games from different decades. The games specifically were Minesweeper, Uno, and Go Fish."
@@ -88,7 +88,7 @@ def MusicWebsite():
     keyword = "Music"
     gitlink = "https://github.com/zenxha/kpop"
     comlink = ""
-    runlink = "#"
+    runlink = "http://kpop.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/zenxha/kpop"
     readmelink = "https://github.com/zenxha/kpop"
     description = "The purpose of our project is to give users access to new playlists and discover music for their taste. A cool feature our website holds is that it includes a random playlist generator on the homepage."
@@ -104,7 +104,7 @@ def TheGatorsCalculatorHub():
     keyword = "School/Education"
     gitlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
     comlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground "
-    runlink = ""
+    runlink = "#"
     scrumlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
     readmelink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
     description = "We created a calculator hub where the user can perform simple calculations powered by JavaScript, CSS, HTML, Java Spring and Thymeleaf. Users are able to use a trigonometric calculator, conversions calculator, logarithmic calculator, and a simple 4 function calculator. "
@@ -234,7 +234,7 @@ def PokemonGame():
     keyword = "Games/Gaming"
     gitlink = "https://github.com/Dubshott/p4-slackbots"
     comlink = ""
-    runlink = ""
+    runlink = "http://pokemongame.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/Dubshott/p4-slackbots"
     readmelink = "https://github.com/Dubshott/p4-slackbots"
     description = "Our project allows players to look through our pokedex and see information on each pokemon. At the same time, they will be able to look through each type of pokemon. You can also rate each pokemon based on how much you like the pokemon. This rating will avereage and show the overall rating to every user. "
@@ -250,7 +250,7 @@ def TheSmack():
     keyword = "Social Media"
     gitlink = "https://github.com/evagravin/p4-kangaroos"
     comlink = ""
-    runlink = ""
+    runlink = "http://thesmack.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/evagravin/p4-kangaroos"
     readmelink = "https://github.com/evagravin/p4-kangaroos"
     description = "TheSmack is an aspiring social media site where users can share messages and emotions with friends, using inspiration from Twitter and TheSLAP."
@@ -297,8 +297,8 @@ def NighthawkPlanner():
     trimester = 3
     keyword = "School/Education, Organization"
     gitlink = "https://github.com/PedroBMedeiros/P2-Anteaters"
-    comlink = ""
-    runlink = "#"
+    comlink = "https://www.youtube.com/watch?v=saeQ9iD25us"
+    runlink = "https://p2anteaters-todos.tk/"
     scrumlink = "https://github.com/PedroBMedeiros/P2-Anteaters"
     readmelink = "https://github.com/PedroBMedeiros/P2-Anteaters"
     description = "This website is meant to be an easily accessible planner for students and anyone who wants to become more organized."
@@ -329,8 +329,8 @@ def Uno():
     trimester = 3
     keyword = "Games/Gaming"
     gitlink = "https://github.com/sgtran/p1---more-rice"
-    comlink = "https://drive.google.com/file/d/12i--RR0FyqHeI86T77Li56oPTxmSA7lh/view"
-    runlink = "#"
+    comlink = "https://drive.google.com/file/d/1wfXmrx0R-mRZ5TQGmg2j-1lcUSLVE3Z9/view"
+    runlink = "https://rice.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/sgtran/p1---more-rice"
     readmelink = "https://github.com/sgtran/p1---more-rice"
     description = "Our project allows the user to play Uno through their computer browser, with gameplay and cards similar to real-life Uno. It also includes an additional 2048 game and a leaderboard for Uno scores."
@@ -393,8 +393,8 @@ def StudentTools():
     trimester = 3
     keyword = "School/Education"
     gitlink = "https://github.com/AdityaS1426/BooleansCalendar"
-    comlink = ""
-    runlink = "#"
+    comlink = "https://drive.google.com/file/d/1OSHjWk0bgubYHWmg2WIkeHKhsAo6D5WM/view?usp=sharing/"
+    runlink = "https://booleans.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/AdityaS1426/BooleansCalendar"
     readmelink = "https://github.com/AdityaS1426/BooleansCalendar"
     description = "This Spring Boot Application (Web App) aims to help students go through their day with ease. It consists of an Advanced Calculator, a Calendar, & a Task Manager tool."
@@ -409,9 +409,9 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), GamesFromtheDecades(), Covid19TeaShop(), OnlineGroceryStore(),
+    output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(), OnlineGroceryStore(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
-                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(), Uno(),
-                   ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation(), StudentTools()]
+                   JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
+                   ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
     return output_list

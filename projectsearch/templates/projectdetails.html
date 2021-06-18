@@ -47,7 +47,6 @@
             vertical-align: middle;
         }
         .imgpreview {
-            float: center;
             width: 400px;
             padding: 10px;
         }
@@ -87,20 +86,18 @@
     </section>
     <div class="container py-4">
         <div class="row align-items-md-stretch">
-            <div class="col-md-6">
-                <div class="h-100 p-5 text-white bg-dark rounded-3">
-                    <img class="imgpreview" src="/projectsearch/static/{{project.image}}" alt="{{project.title}}Image">
+            <div class="col-md-5">
+                <div class="h-100 p-5 text-white bg-light rounded-3">
+                    <img class="imgpreview" src="{{ url_for('projectsearch.static', filename=project.image) }}" alt="{{project.title}}Image">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="h-100 p-5 bg-light border rounded-3">
                     <h4>Description</h4>
                     <p>{{project.description}}</p>
-                    <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.comlink}}'>Commercial</button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.comlink}}'">Commercial</button>
                     <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.gitlink}}'">Github Repository</button>
                     <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.readmelink}}'">README Link</button>
-
-
                 </div>
             </div>
         </div>
