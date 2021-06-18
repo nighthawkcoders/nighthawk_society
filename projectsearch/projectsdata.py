@@ -3,7 +3,7 @@
 
 def wascwebsite():
     image = "WASCimage.png"
-    title = "WASC report"
+    title = "WASC report/NCS Website"
     members = "Sriya Chilla", "Grace Le", "Iniyaa Mohanraj", "Isai Rajaraman", "Ridhima Inukurti"
     scrum_team = "walruses"
     trimester = 3
@@ -13,7 +13,7 @@ def wascwebsite():
     runlink = "http://wasc.nighthawkcodingsociety.com/"
     scrumlink = "#"
     readmelink = "#"
-    description = "This website was built for the WASC committee in order to help them navigate to Del Norte"
+    description = "This website was built for the WASC committee in order to help them navigate to Del Norte. The Nighthawk Coding Society Website is used to display students' works and store resources for AP CSP and AP CSA."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
