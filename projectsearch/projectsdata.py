@@ -480,7 +480,7 @@ def chess():
 
 def gamerating():
     image = "GameRate.jpeg"
-    title = "City Simulation"
+    title = "Game Rating"
     members = "Kira Liao", "Lucas Bruner", "Dylan Roman", "Jagroop Vij", "Jacob Nguyen"
     scrum_team = "The Group"
     trimester = 3
@@ -488,11 +488,27 @@ def gamerating():
     gitlink = "https://github.com/notkobalt/group-project"
     comlink = "https://www.youtube.com/watch?v=zqX350T5Stg"
     runlink = "https://thegroup.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
-    readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
-    description = "Our website is a game rating system which uses an API to allow for searching for thousands of games."
+    scrumlink = "https://github.com/notkobalt/group-project/projects/1"
+    readmelink = "https://github.com/notkobalt/group-project#readme"
+    description = "Come to our game rating website to browse thousands of games, write reviews for your favorites, and see the newest reviews."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
+
+def hawkers():
+    image = ""
+    title = "Hawkers Tweet"
+    members = "Sarah", "Noya", "Nivu", "Maggie", "Akhil"
+    scrum_team = "The Group"
+    trimester = 3
+    keyword = "game"
+    gitlink = "#"
+    comlink = "#"
+    runlink = "https://hawkers.nighthawkcodingsociety.com/"
+    scrumlink = "#"
+    readmelink = "#"
+    description = "Here on Hawkers, you get the full Twitter experience but without the toxicity of regular twitter! Enjoy the sweet Del Norte High School Themed Color scheme, as well as all the features of regular twitter! Start Tweeting Today!"
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                  readmelink, description)
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
@@ -504,7 +520,7 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 def output():
     output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
-                   OnlineGroceryStore(), linkdn(), schlimes(), chess(), gamerating(),
+                   OnlineGroceryStore(), linkdn(), schlimes(), chess(), gamerating(), hawkers(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
