@@ -69,6 +69,7 @@
 </style>
 </head>
 <body>
+<!-- <a href="/projectsearch/dash"><h5><Go Back</h5></a> -->
 <main>
     <section class="wrapper">
         <div class="container-fostrap">
@@ -79,6 +80,8 @@
                 <h5>
                     Team {{project.scrum_team}}: {{project.members[0]}}, {{project.members[1]}}, {{project.members[2]}}, {{project.members[3]}}, {{project.members[4]}}, {{project.members[5]}}
                 </h5>
+                <br>
+                <button class="btn btn-primary btn-lg" type="button" onclick="location.href='{{project.runlink}}'">Run Project</button>
             </div>
         </div>
     </section>
@@ -86,14 +89,14 @@
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
-                    <img class="imgpreview" src="{{project.image}}" alt="{{project.title}}Image">
+                    <img class="imgpreview" src="/projectsearch/static/{{project.image}}" alt="{{project.title}}Image">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                    <h2>Description</h2>
+                    <h4>Description</h4>
                     <p>{{project.description}}</p>
-                    <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.comlink}}'">Commercial</button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.comlink}}'>Commercial</button>
                     <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.gitlink}}'">Github Repository</button>
                     <button class="btn btn-outline-secondary" type="button" onclick="location.href='{{project.readmelink}}'">README Link</button>
 
@@ -101,15 +104,15 @@
                 </div>
             </div>
         </div>
-        <footer class="pt-3 mt-4 text-muted border-top">
-            &copy; 2021
-        </footer>
+        <!-- <footer class="pt-3 mt-4 text-muted border-top">
+            Made by
+        </footer> -->
     </div>
 </main>
 </body>
 </html>
 <body>
-<section class="wrapper">
+<!-- <section class="wrapper">
     <table id="navigator">
         <tr>
             <td><a href={{project.comlink}}>Commercial</a></td>
@@ -118,7 +121,7 @@
             <td><a href={{project.scrumlink}}>Scrum Board</a></td>
             <td><a href={{project.readmelink}}>How it's Made</a></td>
         </tr>
-    </table>
+    </table> -->
 </body>
 </html>
 <!-- begin wwww.htmlcommentbox.com -->
