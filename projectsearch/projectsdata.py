@@ -427,6 +427,24 @@ def StudentTools():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+
+def p4schlimesI():
+    image = "stock.png"
+    title = "Schlimes Stock"
+    members = "Brayden Basinger", "Noah Ahooja", "Carter Quartararo", "Ryan Moghaddas", "Max Wang"
+    scrum_team = "p4schlimes"
+    trimester = 3
+    keyword = "stock"
+    gitlink = "https://github.com/noahahooja/p4schlimes"
+    comlink = "https://youtu.be/WSFM7zGL6Gw"
+    runlink = "http://p4schlimes.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/noahahooja/p4schlimes/projects/1"
+    readmelink = "https://github.com/noahahooja/p4schlimes/blob/main/README.md"
+    description = "Schtlimes Stock is a stock website where you can trade and buy stocks, and compete to be the richest person in the world! In our stock website  you can trade and buy stocks, and compete.  Lastly, we have a fun quiz for everybody to take that is related to stocks. Have fun and start investing!"
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
 def linkdn():
     image = "linkdn.png"
     title = "Link DN"
@@ -437,11 +455,29 @@ def linkdn():
     gitlink = "https://github.com/Mewe14/P3Platypodes"
     comlink = "https://drive.google.com/file/d/1KzIIv0PQS8jvkRK5vpM-3B1V_W-kCkjw/view"
     runlink = "https://linkdn.nighthawkcodingsociety.com/"
-    scrumlink= "https://github.com/Mewe14/P3Platypodes"
+    scrumlink = "https://github.com/Mewe14/P3Platypodes"
     readmelink = "https://github.com/Mewe14/P3Platypodes#readme"
     description = "LinkDN is an aspiring social media site exclusive to Del Norte’s students. Students can share their “stats,” what classes they are taking, and their accomplishments outside of school. Ideally, LinkDN will be able to be used as a platform for students to create study/support groups with one another."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
-                     readmelink, description)
+                      readmelink, description)
+
+
+def chess():
+    image = "chess.png"
+    title = "Chess"
+    members = "David Kim", "Kyle Myint", "Colin Szeto", "Shekar Krishnamoorthy", "Devam Shrivastava"
+    scrum_team = "chessgame"
+    trimester = 1
+    keyword = "chess"
+    gitlink = "https://github.com/kylem314/ChessOO"
+    comlink = "https://github.com/kylem314/ChessOO"
+    runlink = "https://replit.com/@KyleMyint/ChessOO-2#movepiece.py"
+    scrumlink = "https://github.com/kylem314/ChessOO"
+    readmelink = "https://github.com/kylem314/ChessOO#readme"
+    description = "This project is ASCII chess that can be played in the console. Other features include recorded games and playing against a rudimentary ai."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
@@ -453,7 +489,7 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 def output():
     output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
-                   OnlineGroceryStore(), linkdn(),
+                   OnlineGroceryStore(), linkdn(), p4schlimesI(), chess(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
