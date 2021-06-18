@@ -428,7 +428,7 @@ def StudentTools():
                       readmelink, description)
 
 
-def p4schlimesI():
+def schlimes():
     image = "stock.png"
     title = "Schlimes Stock"
     members = "Brayden Basinger", "Noah Ahooja", "Carter Quartararo", "Ryan Moghaddas", "Max Wang"
@@ -437,7 +437,7 @@ def p4schlimesI():
     keyword = "stock"
     gitlink = "https://github.com/noahahooja/p4schlimes"
     comlink = "https://youtu.be/WSFM7zGL6Gw"
-    runlink = "http://p4schlimes.nighthawkcodingsociety.com/"
+    runlink = "http://schlimes.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/noahahooja/p4schlimes/projects/1"
     readmelink = "https://github.com/noahahooja/p4schlimes/blob/main/README.md"
     description = "Schtlimes Stock is a stock website where you can trade and buy stocks, and compete to be the richest person in the world! In our stock website  you can trade and buy stocks, and compete.  Lastly, we have a fun quiz for everybody to take that is related to stocks. Have fun and start investing!"
@@ -489,7 +489,7 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 def output():
     output_list = [wascwebsite(), PieceofthePI(), StudentTools(), Uno(), GamesFromtheDecades(), Covid19TeaShop(),
-                   OnlineGroceryStore(), linkdn(), p4schlimesI(), chess(),
+                   OnlineGroceryStore(), linkdn(), schlimes(), chess(),
                    MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
