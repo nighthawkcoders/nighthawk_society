@@ -3,9 +3,9 @@
 
 def wascwebsite():
     image = "WASCimage.png"
-    title = "WASC report"
+    title = "WASC Report"
     members = "Sriya Chilla", "Grace Le", "Iniyaa Mohanraj", "Isai Rajaraman", "Ridhima Inukurti"
-    scrum_team = "walruses"
+    scrum_team = "Walruses"
     trimester = 3
     keyword = "school"
     comlink = ""  # Insert commercial link here
@@ -39,7 +39,7 @@ def GamesFromtheDecades():
     image = "GamesFromTheDecades.png"
     title = "Games From the Decades"
     members = "Siddhant Ranka", "Kevin Hu", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants"
-    scrum_team = "snakeyees"
+    scrum_team = "Snakeyees"
     trimester = 3
     keyword = "statistics"
     gitlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
@@ -73,7 +73,7 @@ def OnlineGroceryStore():
     image = "OnlineGroceryStore.png"
     title = "Online Grocery Store"
     members = "Siddhant Ranka", "Sean Tran", "Aditya Surapaneni", "Jacob Rozenkrants", "Kevin Hu"
-    scrum_team = "Grocerytore"
+    scrum_team = "Grocerystore"
     trimester = 1
     keyword = "Commerce/Trade"
     gitlink = "https://replit.com/@KevinHu10/Grocery-Store#Main.java"
@@ -90,7 +90,7 @@ def MusicWebsite():
     image = "MusicWebsite.png"
     title = "Music Website"
     members = "Eshaan Parlikar", "Chris Rubin", "Komay Sugiyama", "Charlie Zhu", "Devam S"
-    scrum_team = "kpop"
+    scrum_team = "Kpop"
     trimester = 3
     keyword = "Music"
     gitlink = "https://github.com/zenxha/kpop"
@@ -432,7 +432,7 @@ def schlimes():
     image = "stock.png"
     title = "Schlimes Stock"
     members = "Brayden Basinger", "Noah Ahooja", "Carter Quartararo", "Ryan Moghaddas", "Max Wang"
-    scrum_team = "p4schlimes"
+    scrum_team = "Schlimes"
     trimester = 3
     keyword = "stock"
     gitlink = "https://github.com/noahahooja/p4schlimes"
@@ -466,7 +466,7 @@ def chess():
     image = "chess.png"
     title = "Chess"
     members = "David Kim", "Kyle Myint", "Colin Szeto", "Shekar Krishnamoorthy", "Devam Shrivastava"
-    scrum_team = "chessgame"
+    scrum_team = "Chessgame"
     trimester = 1
     keyword = "chess"
     gitlink = "https://github.com/kylem314/ChessOO"
