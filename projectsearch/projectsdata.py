@@ -266,10 +266,10 @@ def TheSmack():
     trimester = 3
     keyword = "Social Media"
     gitlink = "https://github.com/evagravin/p4-kangaroos"
-    comlink = ""
+    comlink = "#"
     runlink = "http://thesmack.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/evagravin/p4-kangaroos"
-    readmelink = "https://github.com/evagravin/p4-kangaroos"
+    scrumlink = "https://github.com/evagravin/p4-kangaroos/projects/1"
+    readmelink = "https://github.com/evagravin/p4-kangaroos/blob/main/README.md"
     description = "TheSmack is an aspiring social media site where users can share messages and emotions with friends, using inspiration from Twitter and TheSLAP."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -322,6 +322,25 @@ def NighthawkPlanner():
     scrumlink = "https://github.com/PedroBMedeiros/P2-Anteaters"
     readmelink = "https://github.com/PedroBMedeiros/P2-Anteaters"
     description = "This website is meant to be an easily accessible planner for students and anyone who wants to become more organized."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
+def lavalamps():
+    image = "covid_info.jpeg"
+    title = "Covid Database"
+    members = "Francis Lim", "Bryce Modugno", "Nihar Marar", "Luca Pinto", "Colin Tran"
+    scrum_team = "Lavalamps"
+    trimester = 3
+    keyword = "database"
+    gitlink = "https://github.com/NiharMarar/p4lavalamps"
+    comlink = "https://youtu.be/A1bD2Etho_E"
+    runlink = "https://lavalamps.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/NiharMarar/p4lavalamps"
+    readmelink = "https://github.com/NiharMarar/p4lavalamps#readme"
+    description = "We aspire to create an easy platform for users to get information on COVID-19. Our goal is to " \
+                  "inform the public on Covid-19 cases within many areas around the world. Our website contains a " \
+                  "database which updates, as well as a subscription option for email reminder in your country "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
@@ -561,7 +580,7 @@ def output():
                    TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
-                   GamesFromtheDecades(), parrot_music(), MusicWebsite(),
+                   GamesFromtheDecades(), parrot_music(), MusicWebsite(), lavalamps(),
                    Covid19TeaShop(),
                    OnlineGroceryStore(),
                    ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
