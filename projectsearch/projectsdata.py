@@ -512,6 +512,24 @@ def hawkers():
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+
+def hardstuck_music():
+    image = "music.png"
+    title = "Music Project"
+    members = "Cody Peng", "David Kim", "Brandon Truong", "Gavin Theriault", "Kian Kishimoto"
+    scrum_team = "hardstuck"
+    trimester = 3
+    keyword = "statistics"
+    gitlink = "https://github.com/0404btruong/p2-hardstuck"
+    comlink = "https://github.com/0404btruong/p2-hardstuck"
+    runlink = "https://music.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/0404btruong/p2-hardstuck"
+    readmelink = "https://github.com/0404btruong/p2-hardstuck"
+    description = "Our planned project is a table that shows 5 song recomendations pulled from a music api. We will have user interaction in the way that you can play a quiz game that tests your music knowledge, and you can search for songs and a summary of them with data pulled from an api. The Quiz gives you the genre, song name, and a little information on the artist and scores you based on right or wrong answers. The song look up lets you search up any given song as long as you know the name and artist and tells you what album the song is from."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
 def parrot_music():
     image = "Parrot.png"
     title = "Parrots Music"
@@ -526,7 +544,7 @@ def parrot_music():
     readmelink = "https://github.com/ryanshay18/P3_Parrots#readme"
     description = "Our project is a movie recommendation site, where the user takes a quiz and gets results based on their input. You can pick different genres, streamers, and ratings to get results personalized to you."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
-                  readmelink, description)
+                      readmelink, description)
 
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
@@ -538,11 +556,12 @@ def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, c
 
 
 def output():
-    output_list = [wascwebsite(), PieceofthePI(), hawkers(), StudentTools(), Uno(), linkdn(), schlimes(), chess(), gamerating(),
-                   MusicWebsite(), TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
+    output_list = [wascwebsite(), PieceofthePI(), hawkers(), StudentTools(), Uno(), linkdn(), schlimes(), chess(),
+                   gamerating(),
+                   TheGatorsCalculatorHub(), SurveyDrone(), HexPass(), COVID19Tracker(), Hangman(),
                    CypherCrypto(), CowboyTown(), CowboysAdvertisementWebsite(), PokemonGame(), TheSmack(),
                    JavaSwingTeaShop(), Recipebox(), NighthawkPlanner(), TigersShopWebsite(),
-                   GamesFromtheDecades(), parrot_music(),
+                   GamesFromtheDecades(), parrot_music(), MusicWebsite(),
                    Covid19TeaShop(),
                    OnlineGroceryStore(),
                    ImagePostingDiscussionJavaMiniLabs(), BoomerESports(), CitySimulation()]
