@@ -266,7 +266,7 @@ def TheSmack():
     trimester = 3
     keyword = "Social Media"
     gitlink = "https://github.com/evagravin/p4-kangaroos"
-    comlink = "#"
+    comlink = "https://youtu.be/qXU-4Dwkv2E"
     runlink = "http://thesmack.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/evagravin/p4-kangaroos/projects/1"
     readmelink = "https://github.com/evagravin/p4-kangaroos/blob/main/README.md"
