@@ -11,8 +11,8 @@ def wascwebsite():
     comlink = ""  # Insert commercial link here
     gitlink = "https://github.com/ridhimainukurti/group-2"  # Insert github repo link here
     runlink = "http://wasc.nighthawkcodingsociety.com/"
-    scrumlink = "#"
-    readmelink = "#"
+    scrumlink = "https://github.com/ridhimainukurti/group-2/projects/1"
+    readmelink = "https://github.com/ridhimainukurti/group-2/blob/main/README.md"
     description = "This website was built for the WASC committee in order to help them navigate to Del Norte. The Nighthawk Coding Society Website is used to display students' works and store resources for AP CSP and AP CSA."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -28,8 +28,8 @@ def PieceofthePI():
     gitlink = "https://github.com/BradleyBartelt/P2__Waves"
     comlink = "https://youtu.be/hc_ZCVRqu34"
     runlink = "http://pieceofthepi.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/BradleyBartelt/P2__Waves"
-    readmelink = "https://github.com/BradleyBartelt/P2__Waves"
+    scrumlink = "https://github.com/BradleyBartelt/P2__Waves/issues"
+    readmelink = "https://github.com/BradleyBartelt/P2__Waves/blob/main/README.md"
     description = "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -46,7 +46,7 @@ def GamesFromtheDecades():
     comlink = "#"
     runlink = "#"
     scrumlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
-    readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
+    readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim/blob/main/README.md"
     description = "This project allowed the user to play different video games from different decades. The games specifically were Minesweeper, Uno, and Go Fish."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -94,10 +94,10 @@ def MusicWebsite():
     trimester = 3
     keyword = "Music"
     gitlink = "https://github.com/zenxha/kpop"
-    comlink = ""
+    comlink = "https://www.youtube.com/watch?v=wpCmiDVF604"
     runlink = "http://kpop.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/zenxha/kpop"
-    readmelink = "https://github.com/zenxha/kpop"
+    scrumlink = "https://github.com/zenxha/kpop/projects/1"
+    readmelink = "https://github.com/zenxha/kpop/blob/main/README.md"
     description = "The purpose of our project is to give users access to new playlists and discover music for their taste. A cool feature our website holds is that it includes a random playlist generator on the homepage."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -111,10 +111,10 @@ def TheGatorsCalculatorHub():
     trimester = 2
     keyword = "School/Education"
     gitlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
-    comlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground "
-    runlink = "#"
-    scrumlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
-    readmelink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
+    comlink = ""
+    runlink = "https://csa-gators-calculator-suite.herokuapp.com/"
+    scrumlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground/projects/1"
+    readmelink = "https://github.com/PranavKambhampati/CalculatorHubPlayground/blob/master/README.md"
     description = "We created a calculator hub where the user can perform simple calculations powered by JavaScript, CSS, HTML, Java Spring and Thymeleaf. Users are able to use a trigonometric calculator, conversions calculator, logarithmic calculator, and a simple 4 function calculator. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -131,7 +131,7 @@ def SurveyDrone():
     comlink = "https://drive.google.com/file/d/1k2jruHC8m4zHGvUX51qb6hu8-wcexIOk/view?usp=sharing"
     runlink = "https://drone.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/PranavKambhampati/Tri3Drone/projects/1"
-    readmelink = "https://github.com/PranavKambhampati/Tri3Drone#tri3drone"
+    readmelink = "https://github.com/PranavKambhampati/Tri3Drone/blob/master/README.md"
     description = "A group based polling applications that centralizes multiple different forms together. " \
                   "Administrators can view quick statistics from multiple different forms on a dashboard. The user " \
                   "experience will be up to date through an AWS RDS MySQL database. "
@@ -147,10 +147,10 @@ def HexPass():
     trimester = 1
     keyword = "School/Education, Statistics/Information/Data, Technology"
     gitlink = "https://github.com/AidanRosen/HexPass-Portfolio-Vector-IDEA"
-    comlink = ""
+    comlink = "https://drive.google.com/file/d/1phIvOBFDWPhBOPkg7f3a6cDzGLOLfMEJ/view"
     runlink = "#"
     scrumlink = "https://github.com/AidanRosen/HexPass-Portfolio-Vector-IDEA"
-    readmelink = "https://github.com/AidanRosen/HexPass-Portfolio-Vector-IDEA"
+    readmelink = "https://github.com/AidanRosen/HexPass-Portfolio-Vector-IDEA/blob/master/out/production/HexPassPortfolio/README.md"
     description = "An application with various uses such as a graphing calculator, password manager, and vector calculator."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -165,9 +165,9 @@ def COVID19Tracker():
     keyword = "Statistics/Information/Data"
     gitlink = "https://github.com/aymankazi9/P2-Platypodes"
     comlink = "https://www.youtube.com/watch?v=9CB3u6HePH8"
-    runlink = "#"
-    scrumlink = "https://github.com/aymankazi9/P2-Platypodes"
-    readmelink = "https://github.com/aymankazi9/P2-Platypodes"
+    runlink = "http://76.176.59.167/"
+    scrumlink = "https://github.com/aymankazi9/P2-Platypodes/projects/1"
+    readmelink = "https://github.com/aymankazi9/P2-Platypodes/blob/main/README.md"
     description = "COVID-19 data collected from credible sources and organized in a simply interface. Includes information pages to detail precautionary strategies to stay safe during this pandemic."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -184,7 +184,7 @@ def Hangman():
     comlink = "https://drive.google.com/file/d/1O2V0B20Kp5_JQtiEtKFJAB253Y8NNJsM/view?usp=sharing"
     runlink = "#"
     scrumlink = "https://github.com/NoahPidding/Portfolioflask"
-    readmelink = "https://github.com/NoahPidding/Portfolioflask"
+    readmelink = "https://github.com/NoahPidding/Portfolioflask/blob/master/README.md"
     description = "Our project theme was Halloween, as the time of making this project it was around the time of Halloween. Our project involved games such as a guessing game, and a hangman game, as well as different genres of music that the user could choose from. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -199,9 +199,9 @@ def CypherCrypto():
     keyword = "Technology"
     gitlink = "https://github.com/NoahPidding/CollegeBoardProject"
     comlink = "https://www.youtube.com/watch?v=M6lY3TwUoTY"
-    runlink = "#"
-    scrumlink = "https://github.com/NoahPidding/CollegeBoardProject"
-    readmelink = "https://github.com/NoahPidding/CollegeBoardProject"
+    runlink = "http://76.176.58.222:8080/"
+    scrumlink = "https://github.com/NoahPidding/CollegeBoardProject/projects/1"
+    readmelink = "https://github.com/NoahPidding/CollegeBoardProject/blob/main/README.md"
     description = "Our project was essentially a website that would allow the user to input a message, and either encrypt or decrypt the message in several different ciphers including Caesar cipher, Binary, Morse code, RSA and Pig Latin. There were also quizzes that the user could take based on some of the ciphers incorporated in the project. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -235,7 +235,7 @@ def CowboysAdvertisementWebsite():
     comlink = "https://www.youtube.com/watch?v=XnYaSJoKWxE"
     runlink = "https://p3cowboys.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/TMarwah/P3Cowboys/projects/1"
-    readmelink = "https://github.com/TMarwah/P3Cowboys#readme"
+    readmelink = "https://github.com/TMarwah/P3Cowboys/blob/main/README.md"
     description = "We have created a platform where you can upload your ads and showcase your company. All you need to do is sign up and create an account. This is a great way to make your website and company more popular. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -284,9 +284,9 @@ def JavaSwingTeaShop():
     keyword = "Commerce/Trade"
     gitlink = "https://github.com/Siddhant8/p1-coconuts1"
     comlink = ""
-    runlink = "#"
-    scrumlink = "https://github.com/Siddhant8/p1-coconuts1"
-    readmelink = "https://github.com/Siddhant8/p1-coconuts1"
+    runlink = "https://coconuts1.herokuapp.com/"
+    scrumlink = "https://github.com/Siddhant8/p1-coconuts2/projects/2"
+    readmelink = "https://github.com/Siddhant8/p1-coconuts1/blob/main/README.md"
     description = "We created a REACT tea shop and a swing covid case calculator and a swing jukebox."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -300,8 +300,8 @@ def Recipebox():
     trimester = 2
     keyword = "Games/Gaming, Food"
     gitlink = "https://github.com/p2slugs/recipebox"
-    comlink = "#"
-    runlink = "#"
+    comlink = "https://youtu.be/d6E0ru6qDYM"
+    runlink = "http://recipebox.cf/"
     scrumlink = "https://github.com/p2slugs/recipebox/projects/1x"
     readmelink = "https://github.com/p2slugs/recipebox/blob/main/README.md"
     description = "Recipebox is a website centered around recipes, where you can filter through recipes, select ingredients that affect your money and amount, create a recipe, and give input to the website that will be displayed as a community suggestion."
@@ -337,7 +337,7 @@ def lavalamps():
     gitlink = "https://github.com/NiharMarar/p4lavalamps"
     comlink = "https://youtu.be/A1bD2Etho_E"
     runlink = "https://lavalamps.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/NiharMarar/p4lavalamps"
+    scrumlink = "https://github.com/NiharMarar/p4lavalamps/projects/1"
     readmelink = "https://github.com/NiharMarar/p4lavalamps#readme"
     description = "We aspire to create an easy platform for users to get information on COVID-19. Our goal is to " \
                   "inform the public on Covid-19 cases within many areas around the world. Our website contains a " \
@@ -355,9 +355,9 @@ def TigersShopWebsite():
     keyword = "Commerce/Trade"
     gitlink = "https://github.com/TMarwah/P4Tigers"
     comlink = ""
-    runlink = "#"
-    scrumlink = "https://github.com/TMarwah/P4Tigers"
-    readmelink = "https://github.com/TMarwah/P4Tigers"
+    runlink = "http://104.63.255.27/"
+    scrumlink = "https://github.com/TMarwah/P4Tigers/projects/1"
+    readmelink = "https://github.com/TMarwah/P4Tigers/blob/main/README.md"
     description = "Our project is a website that sells merchandise to the user, much like Amazon, eBay, or any other online shop. You can browse through the shop and find what you want. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -409,8 +409,8 @@ def BoomerESports():
     gitlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
     comlink = ""
     runlink = "#"
-    scrumlink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
-    readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim"
+    scrumlink = ""
+    readmelink = "https://github.com/keviin0/CSA-Portfolio-GroceryStoreSim/blob/main/README.md"
     description = "This JFrame Application allows users to play a variety of games, including Thai 21, Uno, Mine Sweeper, GoFish, & TicTacToe. Each game originated from a different decade, starting from the 1970s. Have fun!"
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -424,10 +424,10 @@ def CitySimulation():
     trimester = 2
     keyword = "Simulation"
     gitlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
-    comlink = ""
-    runlink = "#"
-    scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
-    readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation"
+    comlink = "https://drive.google.com/file/d/1LclL3-2-TVlrB9HUQxFOhm4bTy5__Q5b/view?usp=sharing"
+    runlink = ""
+    scrumlink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation/projects/1"
+    readmelink = "https://github.com/AdityaS1426/DebugDataBandits-CitySimulation/blob/main/README.md"
     description = "This Java Application is intended to simulate features of a typical city. It includes a fully-functioning car dealership, a bank, & a school. Make sure to explore!"
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
@@ -443,9 +443,26 @@ def StudentTools():
     gitlink = "https://github.com/AdityaS1426/BooleansCalendar"
     comlink = "https://drive.google.com/file/d/1OSHjWk0bgubYHWmg2WIkeHKhsAo6D5WM/view?usp=sharing/"
     runlink = "https://booleans.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/AdityaS1426/BooleansCalendar"
-    readmelink = "https://github.com/AdityaS1426/BooleansCalendar"
+    scrumlink = "https://github.com/AdityaS1426/BooleansCalendar/projects/1"
+    readmelink = "https://github.com/AdityaS1426/BooleansCalendar/blob/master/README.md"
     description = "This Spring Boot Application (Web App) aims to help students go through their day with ease. It consists of an Advanced Calculator, a Calendar, & a Task Manager tool."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
+def JavaAPReview():
+    image = ""
+    title = "Java AP Review"
+    members = "Anthrony Vo", "Dhruv Kanetkar", "Eyaad MIr", "Nathaniel Cherian", "Tanay Shah"
+    scrum_team = "freekashmir"
+    trimester = 3
+    keyword = "freekashmir"
+    gitlink = ""
+    comlink = "https://drive.google.com/file/d/1Ww7f5Ad2-H99nE1CTJIi6Yy-XjNjMtzW/view?usp=sharing"
+    runlink = "https://freekashmir.nighthawkcodingsociety.com/"
+    scrumlink =""
+    readmelink =""
+    description = " Welcome to our Java hub! We are all part of the Free Kashmir CSA group from Del Norte High School. The goal of this site is to provide rising AP Computer Science A students with a reference point to follow when studying."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
@@ -477,7 +494,7 @@ def linkdn():
     gitlink = "https://github.com/Mewe14/P3Platypodes"
     comlink = "https://drive.google.com/file/d/1KzIIv0PQS8jvkRK5vpM-3B1V_W-kCkjw/view"
     runlink = "https://linkdn.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/Mewe14/P3Platypodes"
+    scrumlink = "https://github.com/Mewe14/P3Platypodes/projects/1"
     readmelink = "https://github.com/Mewe14/P3Platypodes#readme"
     description = "LinkDN is an aspiring social media site exclusive to Del Norte’s students. Students can share their “stats,” what classes they are taking, and their accomplishments outside of school. Ideally, LinkDN will be able to be used as a platform for students to create study/support groups with one another."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
