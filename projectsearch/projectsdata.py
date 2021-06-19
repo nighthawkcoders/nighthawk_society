@@ -300,10 +300,10 @@ def Recipebox():
     trimester = 2
     keyword = "Games/Gaming, Food"
     gitlink = "https://github.com/p2slugs/recipebox"
-    comlink = ""
+    comlink = "#"
     runlink = "#"
-    scrumlink = "https://github.com/p2slugs/recipebox"
-    readmelink = "https://github.com/p2slugs/recipebox"
+    scrumlink = "https://github.com/p2slugs/recipebox/projects/1x"
+    readmelink = "https://github.com/p2slugs/recipebox/blob/main/README.md"
     description = "Recipebox is a website centered around recipes, where you can filter through recipes, select ingredients that affect your money and amount, create a recipe, and give input to the website that will be displayed as a community suggestion."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
