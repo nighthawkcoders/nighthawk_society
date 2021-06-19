@@ -215,10 +215,10 @@ def CowboyTown():
     trimester = 3
     keyword = "Games/Gaming, Museums"
     gitlink = "https://github.com/awtung/p2-cowboys"
-    comlink = ""
-    runlink = "https://github.com/awtung/p2-cowboys"
-    scrumlink = "https://github.com/awtung/p2-cowboys"
-    readmelink = "https://github.com/awtung/p2-cowboys"
+    comlink = "https://www.youtube.com/watch?v=hmA6J9ylJc4"
+    runlink = "https://cowboys.nighthawkcodingsociety.com"
+    scrumlink = "https://github.com/awtung/p2-cowboys/projects/1"
+    readmelink = "https://github.com/awtung/p2-cowboys/blob/main/README.md"
     description = "There are several features to our website, including an interactive home page that can take you to places like a history section of the wild west as well as a quiz, a saloon section, involving a snake game, a clicking speed test, a random api section, and an about us page including information and work done by all the creators. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
