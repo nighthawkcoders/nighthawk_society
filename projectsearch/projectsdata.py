@@ -561,7 +561,7 @@ def parrot_music():
     comlink = "https://drive.google.com/file/d/1N_HcRLte_2jb-DfVuYcRFIIi6Yegzkd2/view?usp=sharing"
     runlink = "https://parrot-music.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/ryanshay18/P3_Parrots/projects/1"
-    readmelink = "https://github.com/ryanshay18/P3_Parrots/blob/main/README.mde"
+    readmelink = "https://github.com/ryanshay18/P3_Parrots/blob/main/README.md"
     description = "Our project is a movie recommendation site, where the user takes a quiz and gets results based on their input. You can pick different genres, streamers, and ratings to get results personalized to you."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
