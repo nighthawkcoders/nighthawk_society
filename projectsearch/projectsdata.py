@@ -249,10 +249,10 @@ def PokemonGame():
     trimester = 3
     keyword = "Games/Gaming"
     gitlink = "https://github.com/Dubshott/p4-slackbots"
-    comlink = ""
+    comlink = "https://youtu.be/-BtLcNAN6ks"
     runlink = "http://pokemongame.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/Dubshott/p4-slackbots"
-    readmelink = "https://github.com/Dubshott/p4-slackbots"
+    scrumlink = "https://github.com/Dubshott/p4-slackbots/projects/1"
+    readmelink = "https://github.com/Dubshott/p4-slackbots/blob/main/README.md"
     description = "Our project allows players to look through our pokedex and see information on each pokemon. At the same time, they will be able to look through each type of pokemon. You can also rate each pokemon based on how much you like the pokemon. This rating will avereage and show the overall rating to every user. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
