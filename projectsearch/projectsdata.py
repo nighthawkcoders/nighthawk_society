@@ -321,7 +321,8 @@ def NighthawkPlanner():
     runlink = "https://p2anteaters-todos.tk/"
     scrumlink = "https://github.com/PedroBMedeiros/P2-Anteaters/projects/1"
     readmelink = "https://github.com/PedroBMedeiros/P2-Anteaters/blob/main/README.md"
-    description = "This website is meant to be an easily accessible planner for students and anyone who wants to become more organized."
+    description = "This website is meant to be an easily accessible planner for students and anyone who wants to " \
+                  "become more organized. "
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
