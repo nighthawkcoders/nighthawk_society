@@ -373,8 +373,8 @@ def Uno():
     gitlink = "https://github.com/sgtran/p1---more-rice"
     comlink = "https://drive.google.com/file/d/1wfXmrx0R-mRZ5TQGmg2j-1lcUSLVE3Z9/view"
     runlink = "https://rice.nighthawkcodingsociety.com/"
-    scrumlink = "https://github.com/sgtran/p1---more-rice"
-    readmelink = "https://github.com/sgtran/p1---more-rice"
+    scrumlink = "https://github.com/sgtran/p1---more-rice/projects/3"
+    readmelink = "https://github.com/sgtran/p1---more-rice/blob/main/README.md"
     description = "Our project allows the user to play Uno through their computer browser, with gameplay and cards similar to real-life Uno. It also includes an additional 2048 game and a leaderboard for Uno scores."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
