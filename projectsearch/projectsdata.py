@@ -382,17 +382,19 @@ def Uno():
 
 def ImagePostingDiscussionJavaMiniLabs():
     image = "ImagePostingDiscussionJavaMiniLabs.PNG"
-    title = "Image Posting/Discussion Java Mini Labs"
+    title = "Image Posting and Discussion"
     members = "Dominic Phung", "Sean Rollins", "Jason Chang", "Andrew Joseph"
     scrum_team = "Rain"
     trimester = 3
     keyword = "Social Media"
     gitlink = "https://github.com/domph/p1-rain"
-    comlink = ""
-    runlink = "#"
-    scrumlink = "https://github.com/domph/p1-rain"
-    readmelink = "https://github.com/domph/p1-rain"
-    description = "This project showcases a simplistic version of an image-posting board (think Instagram) where you can make posts and comment/view others' posts. It also consists of various mini-labs that highlight various Java skills practiced/learned."
+    comlink = "https://youtu.be/MAHcWIJ0Cog"
+    runlink = "https://rain.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/domph/p1-rain/projects/1"
+    readmelink = "https://github.com/domph/p1-rain#readme"
+    description = "This project showcases a simplistic version of an image-posting board (think Instagram) where you " \
+                  "can make posts and comment/view others' posts. It also consists of various mini-labs that " \
+                  "highlight various Java skills practiced/learned."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
