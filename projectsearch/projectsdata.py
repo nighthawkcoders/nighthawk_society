@@ -111,7 +111,7 @@ def TheGatorsCalculatorHub():
     trimester = 2
     keyword = "School/Education"
     gitlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground"
-    comlink = ""
+    comlink = "https://drive.google.com/file/d/1VCDOuQqryL6b0sSoTU4nCXFCc7njAr2U/view"
     runlink = "https://csa-gators-calculator-suite.herokuapp.com/"
     scrumlink = "https://github.com/PranavKambhampati/CalculatorHubPlayground/projects/1"
     readmelink = "https://github.com/PranavKambhampati/CalculatorHubPlayground/blob/master/README.md"
@@ -586,18 +586,53 @@ def overflow():
 
 
 def JavaAPReview():
-    image = ""
+    image = "freekashmir.JPG"
     title = "Java AP Review"
-    members = "Anthrony Vo", "Dhruv Kanetkar", "Eyaad MIr", "Nathaniel Cherian", "Tanay Shah"
+    members = "Anthrony Vo", "Dhruv Kanetkar", "Eyaad Mir", "Nathaniel Cherian", "Tanay Shah"
     scrum_team = "freekashmir"
     trimester = 3
     keyword = "freekashmir"
-    gitlink = ""
+    gitlink = "https://github.com/Altoid0/AP-CSA"
     comlink = "https://drive.google.com/file/d/1Ww7f5Ad2-H99nE1CTJIi6Yy-XjNjMtzW/view?usp=sharing"
     runlink = "https://freekashmir.nighthawkcodingsociety.com/"
-    scrumlink =""
-    readmelink =""
+    scrumlink ="https://github.com/Altoid0/AP-CSA/projects/1"
+    readmelink ="https://github.com/Altoid0/AP-CSA/blob/master/README.md"
     description = " Welcome to our Java hub! We are all part of the Free Kashmir CSA group from Del Norte High School. The goal of this site is to provide rising AP Computer Science A students with a reference point to follow when studying."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
+
+def Battleship():
+    image = "battleship.JPG"
+    title = "Battleship"
+    members = "Aidan Lin", "Calvin Ni", "James Hunt", "Kyle Myint", "Tyler C"
+    scrum_team = "Web-error"
+    trimester = 3
+    keyword = "battleship"
+    gitlink = "https://github.com/kylem314/p3-web-error-project"
+    comlink = "https://www.youtube.com/watch?v=Kjab0tAilyY"
+    runlink = "https://freekashmir.nighthawkcodingsociety.com/"
+    scrumlink ="https://github.com/kylem314/p3-web-error-project/projects/1"
+    readmelink ="https://github.com/kylem314/p3-web-error-project/blob/main/README.md"
+    description = "Multiplayer battleship game.   Best to have two people involved.  Game play starts by sending an invitation.  Then see who guesses hit in the grid first."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
+def APJavaTips():
+    image = "snakeeyes.JPG"
+    title = "AP Java Tips"
+    members = "Aidan Rosen", "Andrew Hale", "Sanvi Pal", "Sara Beniwal", "Siddhant Ranka"
+    scrum_team = "snake-eyes"
+    trimester = 3
+    keyword = "javatips"
+    gitlink = "https://github.com/Siddhant8/p1-snakeeyes1"
+    comlink = "https://drive.google.com/file/d/1uPkUi0xbsuKyVs5AADTa9SG3_HIFlN37/view?usp=sharing"
+    runlink = "https://snake-eyes.nighthawkcodingsociety.com/"
+    scrumlink ="https://github.com/Siddhant8/p1-snakeeyes1/projects/5"
+    readmelink ="https://github.com/Siddhant8/p1-snakeeyes1/blob/main/README.md"
+    description = "Find checklists, study tips, interactive FRQs, grade Calculator, and common Java Algorithms."
     return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
@@ -619,5 +654,5 @@ def output():
                    chess(), JavaSwingTeaShop(), Recipebox(), TigersShopWebsite(),
                    GamesFromtheDecades(), CypherCrypto(), Hangman(),
                    OnlineGroceryStore(), TheGatorsCalculatorHub(), Covid19TeaShop(),
-                   BoomerESports(), CitySimulation(), JavaAPReview()]
+                   BoomerESports(), CitySimulation(), JavaAPReview(), Battleship(), APJavaTips()]
     return output_list
