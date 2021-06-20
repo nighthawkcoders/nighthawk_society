@@ -3,12 +3,12 @@
     "title": "WASC Report",
     "abbr": "WASC",
     "name": "Sriya Chilla, Grace Le, Iniyaa Mohanraj, Isai Rajaraman, Ridhima Inukurti",
-    "img" : "projectsearch/static/WASCimage.png",
+    "img" : "/projectsearch/static/WASCimage.png",
     "description": "This website was built for the WASC committee in order to help them navigate to Del Norte"
   },
   {
     "title": "Piece of the PI",
-    "img": "projectsearch/static/piece_of_the_pi.png",
+    "img": "/projectsearch/static/piece_of_the_pi.png",
     "abbr": "PI",
     "name": "Bradley Bartelt, Diego Krenz,Dk Khalili-Samani, Colin Szeto, Andrew Zhang",
     "description": "Our project is a pizza social media. To get the best slice of pizza. On our site you can leave reviews on pizza, chat with other users on pizza related topics, upload pictures of pizza, and navigate external pizza sites, all in one location."
@@ -17,14 +17,14 @@
     "title": "GamesFromtheDecades",
     "members":  "Siddhant Ranka, Kevin Hu, Sean Tran, Aditya Surapaneni, Jacob Rozenkrants",
     "abbr": "GFTD",
-    "img" : "projectsearch/static/GamesFromTheDecades.png",
+    "img" : "/projectsearch/static/GamesFromTheDecades.png",
     "description": "This website was built for the WASC committee in order to help them navigate to Del Norte"
   },
   {
     "title": "Covid 19 Tea Shop",
     "members":  "Siddhant Ranka, Aidan Rosen, Andrew Hale",
     "abbr": "C19TS",
-    "img" : "projectsearch/static/Covid19TeaShop.png",
+    "img" : "/projectsearch/static/Covid19TeaShop.png",
     "description": "An online website was created to simulate an online tea shop. A coronavirus calculator was created to calculate cases during the covid pandemic, and a jukebox was created to make shopping more enjoyable."
   },
 
@@ -32,7 +32,7 @@
     "title": "Online Grocery Store",
     "members": "Siddhant Ranka, Sean Tran, Aditya Surapaneni, Jaco Rozenkrants, Kevin Hu" ,
     "abbr": "OGS",
-    "img" : "projectsearch/static/OnlineGroceryStore.png",
+    "img" : "/projectsearch/static/OnlineGroceryStore.png",
     "description": "This project simulated an online grocery store."
   },
 
@@ -40,56 +40,56 @@
     "title": "Music Website",
     "members": "Eshaan Parlikar, Chris Rubin, Komay Sugiyama, Charlie Zhu, Devam S",
     "abbr": "MW",
-    "img" : "projectsearch/static/MusicWebsite.png",
+    "img" : "/projectsearch/static/MusicWebsite.png",
     "description": "The purpose of our project is to give users access to new playlists and discover music for their taste. A cool feature our website holds is that it includes a random playlist generator on the homepage."
   },
   {
     "title": "The Gators Calculator Hub",
     "members": "Aryan Amberkar, Pranav Kambhampati, Praveen Natarajan, Neil Sahai" ,
     "abbr": "TGCH",
-    "img" : "projectsearch/static/TheGatorsCalculatorHub.png",
+    "img" : "/projectsearch/static/TheGatorsCalculatorHub.png",
     "description": "We created a calculator hub where the user can perform simple calculations powered by JavaScript, CSS, HTML, Java Spring and Thymeleaf. Users are able to use a trigonometric calculator, conversions calculator, logarithmic calculator, and a simple 4 function calculator. "
   },
   {
     "title": "Survey Drone",
     "members": "Pranav Kambhampati, Nakul Nandhakumar, Aryan Amberkar, Michael Hayes",
     "abbr": "SD",
-    "img" : "projectsearch/static/SurveyDrone.png",
+    "img" : "/projectsearch/static/SurveyDrone.png",
     "description": "A group based polling applications that centralizes multiple different forms together. Administrators can view quick statistics from multiple different forms on a dashboard. The user experience will be up to date through an AWS RDS MySQL database."
   },
   {
     "title": "HexPass",
     "members": "Alex Hu, Aidan Rosen, Andrew Hale, Andrew Joseph, Atharva Kudrimoti",
     "abbr": "HP",
-    "img" : "projectsearch/static/HexPass.PNG",
+    "img" : "/projectsearch/static/HexPass.PNG",
     "description": "An application with various uses such as a graphing calculator, password manager, and vector calculator."
   },
   {
     "title": "COVID19 Tracker",
     "members": "Pragdeesh Raj, Ayman Kazi, Yazhisai Rajaraman, Karam Alshaikh",
     "abbr": "C19T",
-    "img" : "projectsearch/static/Covid19Tracker.png",
+    "img" : "/projectsearch/static/Covid19Tracker.png",
     "description": "COVID-19 data collected from credible sources and organized in a simply interface. Includes information pages to detail precautionary strategies to stay safe during this pandemic."
   },
   {
     "title": "Hangman",
     "members": "Noah Pidding, Sarah Xie, Charlie Zhu, Rivan Nayak, Rohan Nallapati",
     "abbr": "HM",
-    "img" : "projectsearch/static/Hangman.png",
+    "img" : "/projectsearch/static/Hangman.png",
     "description": "Our project theme was Halloween, as the time of making this project it was around the time of Halloween. Our project involved games such as a guessing game, and a hangman game, as well as different genres of music that the user could choose from. "
   },
   {
     "title": "Cypher Crypto",
     "members": "Noah Pidding, Nihar Marar, Rivan Nayak, Adam Holbel",
     "abbr": "CC",
-    "img" : "projectsearch/static/CypherCrypto.png",
+    "img" : "/projectsearch/static/CypherCrypto.png",
     "description": "Our project was essentially a website that would allow the user to input a message, and either encrypt or decrypt the message in several different ciphers including Caesar cipher, Binary, Morse code, RSA and Pig Latin. There were also quizzes that the user could take based on some of the ciphers incorporated in the project. "
   },
   {
     "title": "Cowboy Town",
     "members": "Noah Pidding, Aiden Tung, Nathaniel Lee, Dane Vestal",
     "abbr": "CT",
-    "img" : "projectsearch/static/CowboyTown.png",
+    "img" : "/projectsearch/static/CowboyTown.png",
     "description": "There are several features to our website, including an interactive home page that can take you to places like a history section of the wild west as well as a quiz, a saloon section, involving a snake game, a clicking speed test, a random api section, and an about us page including information and work done by all the creators. "
   },
 
@@ -97,83 +97,83 @@
     "title": "Cowboys Advertisement Website",
     "members": "William Cherres, Allen Xu, Marc Humeau, Karam Alshaikh, Tanmay Marwah",
     "abbr": "CAW",
-    "img" : "projectsearch/static/CowboysAdvertisementWebsite.png",
+    "img" : "/projectsearch/static/CowboysAdvertisementWebsite.png",
     "description": "We have created a platform where you can upload your ads and showcase your company. All you need to do is sign up and create an account. This is a great way to make your website and company more popular. "
   },
   {
     "title": "Pokemon Game",
     "members": "Abhijay Deevi, Aiden Cizek, Akshit Prathipati, Megan Corrigan, Zachary Joseph",
     "abbr": "PG",
-    "img" : "projectsearch/static/PokemonGame.png",
+    "img" : "/projectsearch/static/PokemonGame.png",
     "description": "Our project allows players to look through our pokedex and see information on each pokemon. At the same time, they will be able to look through each type of pokemon. You can also rate each pokemon based on how much you like the pokemon. This rating will avereage and show the overall rating to every user. "
   },
   {
     "title": "The Smack",
     "members": "Ava Brooks, Eva Gravin, Risa Iwazaki, Linda Long",
     "abbr": "TS",
-    "img" : "projectsearch/static/TheSmack.PNG",
+    "img" : "/projectsearch/static/TheSmack.PNG",
     "description": "TheSmack is an aspiring social media site where users can share messages and emotions with friends, using inspiration from Twitter and TheSLAP."
   },
   {
     "title": "Java Swing Tea Shop",
     "members": "Siddhant Ranka, Andrew Hale, Aidan Rosen",
     "abbr": "JSTS",
-    "img" : "projectsearch/static/JavaSwingTeaShop.png",
+    "img" : "/projectsearch/static/JavaSwingTeaShop.png",
     "description": "We created a REACT tea shop and a swing covid case calculator and a swing jukebox."
   },
   {
     "title": "Recipebox",
     "members": "Sophie Lee, Eva Gravin, Linda Long, Ali Saad",
     "abbr": "RB",
-    "img" : "projectsearch/static/Recipebox.PNG",
+    "img" : "/projectsearch/static/Recipebox.PNG",
     "description": "Recipebox is a website centered around recipes, where you can filter through recipes, select ingredients that affect your money and amount, create a recipe, and give input to the website that will be displayed as a community suggestion."
   },
   {
     "title": "Nighthawk Planner",
     "members": "Mackenzie Aboy, Pedro de Medeiros, Anthony Giustiniano, Naweid Hassanzadeh, Cherry Ding",
     "abbr": "NP",
-    "img" : "projectsearch/static/NighthawkPlanner.JPG",
+    "img" : "/projectsearch/static/NighthawkPlanner.JPG",
     "description": "This website is meant to be an easily accessible planner for students and anyone who wants to become more organized."
   },
   {
     "title": "Tigers Shop Website",
     "members": "Rohan Nallapati, Tanmay Marwah, Charlie Zhu, Eshaan Parlikar",
     "abbr": "TSW",
-    "img" : "projectsearch/static/TigersShopWebsite.png",
+    "img" : "/projectsearch/static/TigersShopWebsite.png",
     "description": "Our project is a website that sells merchandise to the user, much like Amazon, eBay, or any other online shop. You can browse through the shop and find what you want. "
   },
   {
     "title": "Uno",
     "members": "Alex Hu, Atharva Kudrimoti, Andrew Pu, Kevin Hu, Sean Tran",
     "abbr": "UNO",
-    "img" : "projectsearch/static/Uno.PNG",
+    "img" : "/projectsearch/static/Uno.PNG",
     "description": "Our project allows the user to play Uno through their computer browser, with gameplay and cards similar to real-life Uno. It also includes an additional 2048 game and a leaderboard for Uno scores."
   },
   {
     "title": "Image Posting/Discussion Java Minilabs",
     "members": "Dominic Phung, Sean Rollins, Jason Chang, Andrew Joseph",
     "abbr": "IPDJM",
-    "img" : "projectsearch/static/ImagePostingDiscussionJavaMiniLabs.PNG",
+    "img" : "/projectsearch/static/ImagePostingDiscussionJavaMiniLabs.PNG",
     "description": "This project showcases a simplistic version of an image-posting board (think Instagram) where you can make posts and comment/view others' posts. It also consists of various mini-labs that highlight various Java skills practiced/learned."
   },
   {
     "title": "Boomer ESports",
     "members": "Aditya Surapaneni, Siddhant Ranka, Jacob Rozenkrants, Kevin Hu, Sean Tran",
     "abbr": "BES",
-    "img" : "projectsearch/static/BoomerEsports.JPG",
+    "img" : "/projectsearch/static/BoomerEsports.JPG",
     "description": "This JFrame Application allows users to play a variety of games, including Thai 21, Uno, Mine Sweeper, GoFish, & TicTacToe. Each game originated from a different decade, starting from the 1970s. Have fun!"
   },
   {
     "title": "City Simulation",
     "members": "Aditya Surapaneni, Arnav Swami, Jacob Rozenkrants, Atharva Kudrimoti",
     "abbr": "CS",
-    "img" : "projectsearch/static/CitySimulation.JPG",
+    "img" : "/projectsearch/static/CitySimulation.JPG",
     "description": "This Java Application is intended to simulate features of a typical city. It includes a fully-functioning car dealership, a bank, & a school. Make sure to explore!"
   },
   {
     "title": "StudentTools",
     "members": "Aditya Surapaneni, Yasaswi Singamneni, Neil Sahai, Praveen Natarajan, Vihan Jayaraman",
     "abbr": "ST",
-    "img" : "projectsearch/static/StudentTools.JPG",
+    "img" : "/projectsearch/static/StudentTools.JPG",
     "description": "This Spring Boot Application (Web App) aims to help students go through their day with ease. It consists of an Advanced Calculator, a Calendar, & a Task Manager tool."
   }]
