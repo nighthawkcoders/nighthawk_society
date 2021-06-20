@@ -585,6 +585,24 @@ def overflow():
                       readmelink, description)
 
 
+def JavaAPReview():
+    image = ""
+    title = "Java AP Review"
+    members = "Anthrony Vo", "Dhruv Kanetkar", "Eyaad MIr", "Nathaniel Cherian", "Tanay Shah"
+    scrum_team = "freekashmir"
+    trimester = 3
+    keyword = "freekashmir"
+    gitlink = ""
+    comlink = "https://drive.google.com/file/d/1Ww7f5Ad2-H99nE1CTJIi6Yy-XjNjMtzW/view?usp=sharing"
+    runlink = "https://freekashmir.nighthawkcodingsociety.com/"
+    scrumlink =""
+    readmelink =""
+    description = " Welcome to our Java hub! We are all part of the Free Kashmir CSA group from Del Norte High School. The goal of this site is to provide rising AP Computer Science A students with a reference point to follow when studying."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
+
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
     row = {"image": image, "title": title, "members": members, "scrum_team": scrum_team, "trimester": trimester,
@@ -601,5 +619,5 @@ def output():
                    chess(), JavaSwingTeaShop(), Recipebox(), TigersShopWebsite(),
                    GamesFromtheDecades(), CypherCrypto(), Hangman(),
                    OnlineGroceryStore(), TheGatorsCalculatorHub(), Covid19TeaShop(),
-                   BoomerESports(), CitySimulation()]
+                   BoomerESports(), CitySimulation(), JavaAPReview()]
     return output_list
