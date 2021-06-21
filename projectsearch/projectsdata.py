@@ -15,7 +15,9 @@ def wasc_website():
     runlink = "http://wasc.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/ridhimainukurti/group-2/projects/1"
     readmelink = "https://github.com/ridhimainukurti/group-2/blob/main/README.md"
-    description = "This website was built for the WASC committee in order to help them navigate to Del Norte. The Nighthawk Coding Society Website is used to display students' works and store resources for AP CSP and AP CSA."
+    description = "This team built a portal for the WASC committee in order to help evaluators navigate Del Norte " \
+                  "High School and its achievements. Also, this team refactored the Nighthawk Coding Society " \
+                  "Website with the dashboard you are now viewing to display students' works."
     return filterdict(image, title, members, scrum_team,
                       year, trimester, tech, keywords,
                       gitlink, comlink, runlink, scrumlink,
