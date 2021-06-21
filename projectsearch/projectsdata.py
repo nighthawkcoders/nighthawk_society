@@ -637,6 +637,23 @@ def APJavaTips():
                       readmelink, description)
 
 
+def VirtualLibrary():
+    image = "virtuallibrary.JPG"
+    title = "Virtual Library"
+    members = "Adhithi Narayana Murthy", "Aditi Akella", "Dayita Ray", "Ketki Chakradeo", "Luke Manning"
+    scrum_team = "rats"
+    trimester = 3
+    keyword = "virtuallibrary"
+    gitlink = "https://github.com/adhithin/virtualLibrary"
+    comlink = "https://youtu.be/quRyOKOHL5k"
+    runlink = "https://vlibrary.nighthawkcodingsociety.com/#"
+    scrumlink ="https://github.com/adhithin/virtualLibrary/projects/1"
+    readmelink ="https://github.com/adhithin/virtualLibrary"
+    description = "Database for making random book recommendations, sending book recommendation, and making purchases. Also contains a random poem generator."
+    return filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
 
 def filterdict(image, title, members, scrum_team, trimester, keyword, gitlink, comlink, runlink, scrumlink, readmelink,
                description):
@@ -654,5 +671,5 @@ def output():
                    chess(), JavaSwingTeaShop(), Recipebox(), TigersShopWebsite(),
                    GamesFromtheDecades(), CypherCrypto(), Hangman(),
                    OnlineGroceryStore(), TheGatorsCalculatorHub(), Covid19TeaShop(),
-                   BoomerESports(), CitySimulation(), JavaAPReview(), Battleship(), APJavaTips()]
+                   BoomerESports(), CitySimulation(), JavaAPReview(), Battleship(), APJavaTips(), VirtualLibrary()]
     return output_list
