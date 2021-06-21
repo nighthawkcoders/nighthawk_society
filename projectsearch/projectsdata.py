@@ -861,6 +861,27 @@ def virtual_library():
                       readmelink, description)
 
 
+def fish():
+    image = "sw.png"
+    title = "Styled Weather"
+    members = "Paul Bokelman", "Wesley Chen", "Travis Medley", "Sam Koeing"
+    scrum_team = "Fish"
+    year = "2021"
+    trimester = 3
+    tech = "Python", "Flask", "HTML", "SQL", "API", "SQL"
+    keywords = "Analysis", "Weather"
+    gitlink = "https://github.com/Paul-Bokelman/styledweather-python"
+    comlink = "https://www.youtube.com/watch?v=Wt_i0IeJJSI"
+    runlink = "https://fish.nighthawkcodingsociety.com/"
+    scrumlink = "https://github.com/Paul-Bokelman/styledweather-python"
+    readmelink = "https://github.com/Paul-Bokelman/styledweather-python#readme"
+    description = "Find the weather anytime anywhere & make your ideal weather!"
+    return filterdict(image, title, members, scrum_team,
+                      year, trimester, tech, keywords,
+                      gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
+
 def filterdict(image, title, members, scrum_team,
                year, trimester, tech, keywords,
                gitlink, comlink, runlink, scrumlink, readmelink,
@@ -875,12 +896,12 @@ def filterdict(image, title, members, scrum_team,
 def output():
     output_list = [wasc_website(), cowboy_town(), piece_of_the_pi(), hawkers(),
                    image_posting_discussion(), student_tools(), uno(), survey_drone(),
-                   the_smack(), linkdn(), nighthawk_planner(), game_rating(),
+                   the_smack(), fish(), nighthawk_planner(), game_rating(),
                    overflow(), java_review(), java_tips(), the_gators_calculator_hub(),
                    covid19_tracker(), battleship(), parrot_music(), virtual_library(),
                    music_website(), lava_lamps(), cowboys_advertisement_website(), pokemon_game(),
                    schlimes(), chess(), recipe_box(), cypher_crypto(),
                    hex_pass(), java_swing_tea_shop(), covid19_tea_shop(), city_simulation(),
                    games_from_the_decades(), hangman(), online_grocery_store(), tigers_shop_website(),
-                   boomer_e_sports()]
+                   linkdn(), boomer_e_sports()]
     return output_list
