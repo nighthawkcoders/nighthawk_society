@@ -66,7 +66,7 @@ pi@raspberrypi:~ $  ``` cd ~/nighthawk_society```
 
 #### Create virtualenv environment (virtualenv create is first time only: test for python3)...
 
-pi@raspberrypi:~/nighthawk_society $ ```virtualenv -p /usr/bin/python3 nighthawk; 
+pi@raspberrypi:~/nighthawk_society $ ```virtualenv -p /usr/bin/python3 nighthawk``` 
 
 pi@raspberrypi:~/nighthawk_society $ ```source nighthawk/bin/activate```
 
