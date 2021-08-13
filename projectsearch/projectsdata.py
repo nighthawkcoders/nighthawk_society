@@ -883,6 +883,26 @@ def fish():
                       gitlink, comlink, runlink, scrumlink,
                       readmelink, description)
 
+def flask_portfolio():
+    image = "portfolio.png"
+    title = "Flask Portfolio Starter"
+    members = "Nathaniel Cherian", "Ava Brooks", "Sriya Chilla", "Ridhima Inukurti", "John Mortensen"
+    scrum_team = "NCS"
+    year = "2022"
+    trimester = 0
+    tech = "Python", "Flask", "HTML", "VANTA"
+    keywords = "Starter", "Portfolio", "Birds"
+    gitlink = "https://github.com/nighthawkcoders/flask_portfolio"
+    comlink = "#"
+    runlink = "https://portfolio.nighthawkcodingsociety.com/"
+    scrumlink = "#"
+    readmelink = "https://github.com/nighthawkcoders/flask_portfolio#readme"
+    description = "Learn the basics of setting up a flask website.  The code provides introduction to Python, Flask, HTHML, Bootstrap, and Jinja2.  The video playlist uses this code to get you started with IntelliJ, GitHub, and overview the Code."
+    return filterdict(image, title, members, scrum_team,
+                      year, trimester, tech, keywords,
+                      gitlink, comlink, runlink, scrumlink,
+                      readmelink, description)
+
 
 def filterdict(image, title, members, scrum_team,
                year, trimester, tech, keywords,
@@ -905,5 +925,5 @@ def output():
                    schlimes(), chess(), recipe_box(), cypher_crypto(),
                    hex_pass(), java_swing_tea_shop(), covid19_tea_shop(), city_simulation(),
                    games_from_the_decades(), hangman(), online_grocery_store(), tigers_shop_website(),
-                   linkdn(), boomer_e_sports()]
+                   linkdn(), boomer_e_sports(), flask_portfolio()]
     return output_list
