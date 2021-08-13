@@ -895,7 +895,7 @@ def flask_portfolio():
     gitlink = "https://github.com/nighthawkcoders/flask_portfolio"
     comlink = "#"
     runlink = "https://portfolio.nighthawkcodingsociety.com/"
-    scrumlink = "#"
+    scrumlink = "https://github.com/nighthawkcoders/flask_portfolio/projects/1"
     readmelink = "https://github.com/nighthawkcoders/flask_portfolio#readme"
     description = "Learn the basics of setting up a flask website.  This projects code provides introduction to Python, Flask, HTML, Bootstrap, and Jinja2.  The video playlist includes guide to get you started with key development tools: IntelliJ IDE, GitHub"
     return filterdict(image, title, members, scrum_team,
