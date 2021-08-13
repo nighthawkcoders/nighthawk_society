@@ -886,7 +886,7 @@ def fish():
 def flask_portfolio():
     image = "portfolio.png"
     title = "Flask Portfolio Starter"
-    members = "Nathaniel Cherian", "Ava Brooks", "Sriya Chilla", "Ridhima Inukurti", "John Mortensen"
+    members = "Nathaniel Cherian", "Ava Brooks", "Sriya Chilla", "Ridhima Inukurti",
     scrum_team = "NCS"
     year = "2022"
     trimester = 0
@@ -897,7 +897,7 @@ def flask_portfolio():
     runlink = "https://portfolio.nighthawkcodingsociety.com/"
     scrumlink = "#"
     readmelink = "https://github.com/nighthawkcoders/flask_portfolio#readme"
-    description = "Learn the basics of setting up a flask website.  The code provides introduction to Python, Flask, HTHML, Bootstrap, and Jinja2.  The video playlist uses this code to get you started with IntelliJ, GitHub, and overview the Code."
+    description = "Learn the basics of setting up a flask website.  This projects code provides introduction to Python, Flask, HTML, Bootstrap, and Jinja2.  The video playlist includes guide to get you started with key development tools: IntelliJ IDE, GitHub"
     return filterdict(image, title, members, scrum_team,
                       year, trimester, tech, keywords,
                       gitlink, comlink, runlink, scrumlink,
