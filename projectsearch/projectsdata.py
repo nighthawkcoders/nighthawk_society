@@ -893,7 +893,7 @@ def flask_portfolio():
     tech = "Python", "Flask", "HTML", "VANTA"
     keywords = "Starter", "Portfolio", "Birds"
     gitlink = "https://github.com/nighthawkcoders/flask_portfolio"
-    comlink = "#"
+    comlink = "https://www.youtube.com/playlist?list=PLvSGvE08EQMYejDdO-cTxMF74IyK6YXjy"
     runlink = "https://portfolio.nighthawkcodingsociety.com/"
     scrumlink = "https://github.com/nighthawkcoders/flask_portfolio/projects/1"
     readmelink = "https://github.com/nighthawkcoders/flask_portfolio#readme"
