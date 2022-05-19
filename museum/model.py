@@ -6,6 +6,49 @@ from flask_login import UserMixin
 
 
 # Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
+
+# Define the project notes table
+class Note(db.Model):
+    __tablename__ = 'notes'
+
+    # Define the Notes schema
+    id = db.Column(db.Integer, primary_key=True)
+    note = db.Column(db.Text, unique=False, nullable=False)
+    # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+
+    # Constructor of a Notes object, initializes of instance variables within object
+    def __init__(self, note, user_id):
+        self.note = note
+        self.id = user_id
+
+    # Returns a string representation of the Notes object, similar to java toString()
+    # returns string
+    def __repr__(self):
+        return "Notes(" + str(self.id) + "," + self.note + "," + str(self.project_id) + ")"
+
+    # CRUD create, adds a new record to the Notes table
+    # returns the object added or None in case of an error
+    def create(self):
+        try:
+            # creates a Notes object from Notes(db.Model) class, passes initializers
+            db.session.add(self)  # add prepares to persist person object to Notes table
+            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+            return self
+        except IntegrityError:
+            db.session.remove()
+            return None
+
+    # CRUD read, returns dictionary representation of Notes object
+    # returns dictionary
+    def read(self):
+        return {
+            "id": self.id,
+            "note": self.note,
+            "project_id": self.project_id
+        }
+
+
 class Project(db.Model):
     __tablename__ = 'projects'
 
@@ -16,12 +59,12 @@ class Project(db.Model):
     description = db.Column(db.Text)
     users = db.relationship('User', secondary='projects_users', back_populates='projects')
     jobs = db.relationship('Job', secondary='projects_jobs', back_populates='projects')
-    technologies = db.relationship('Tech', secondary='projects_technologies', back_populates='projects')
+    tags = db.relationship('Tag', secondary='projects_tags', back_populates='projects')
     github_link = db.Column(db.String(255), unique=False, nullable=False)
     pages_link = db.Column(db.String(255), unique=False, nullable=False)
     video_link = db.Column(db.String(255), unique=False, nullable=False)
     run_link = db.Column(db.String(255), unique=False, nullable=False)
-    notes = db.relationship("Note", cascade='all, delete', backref='projects', lazy=True)
+    notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
 
 
 # Define the Users table within the model
@@ -38,7 +81,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
     phone = db.Column(db.String(255), unique=False, nullable=False)
-    projects = db.relationship('Project', secondary='projects_users', back_populates='users')
+    projects = db.relationship(Project, secondary='projects_users', back_populates='users')
 
     # constructor of a User object, initializes of instance variables within object
     def __init__(self, name, email, password, phone):
@@ -107,60 +150,18 @@ class User(UserMixin, db.Model):
         return self.id
 
 
-# Define the project notes table
-class Note(db.Model):
-    __tablename__ = 'notes'
-
-    # Define the Notes schema
-    id = db.Column(db.Integer, primary_key=True)
-    note = db.Column(db.Text, unique=False, nullable=False)
-    # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
-    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-
-    # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, note, user_id):
-        self.note = note
-        self.id = user_id
-
-    # Returns a string representation of the Notes object, similar to java toString()
-    # returns string
-    def __repr__(self):
-        return "Notes(" + str(self.id) + "," + self.note + "," + str(self.project_id) + ")"
-
-    # CRUD create, adds a new record to the Notes table
-    # returns the object added or None in case of an error
-    def create(self):
-        try:
-            # creates a Notes object from Notes(db.Model) class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Notes table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
-            return self
-        except IntegrityError:
-            db.session.remove()
-            return None
-
-    # CRUD read, returns dictionary representation of Notes object
-    # returns dictionary
-    def read(self):
-        return {
-            "id": self.id,
-            "note": self.note,
-            "project_id": self.project_id
-        }
-
-
-class Tech(db.Model):
-    __tablename__ = 'technologies'
+class Tag(db.Model):
+    __tablename__ = 'tags'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
-    projects = db.relationship('Project', secondary='projects_technologies', back_populates='technologies')
+    projects = db.relationship(Project, secondary='projects_tags', back_populates='tags')
 
 
 class Job(db.Model):
     __tablename__ = 'jobs'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
-    projects = db.relationship('Project', secondary='projects_jobs', back_populates='jobs')
+    projects = db.relationship(Project, secondary='projects_jobs', back_populates='jobs')
 
 
 # Define the many-to-many table associating projects to users
@@ -181,12 +182,12 @@ class ProjectJob(db.Model):
 
 
 # Define the many-to-many table associating projects to users
-class ProjectTech(db.Model):
-    __tablename__ = "projects_technologies"
+class ProjectTag(db.Model):
+    __tablename__ = "projects_tags"
 
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey(Project.id), primary_key=True)
-    tech_id = db.Column(db.Integer, db.ForeignKey(Tech.id), primary_key=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey(Tag.id), primary_key=True)
 
 
 """Database Creation and Testing section"""
@@ -220,11 +221,11 @@ def model_tester():
         Job(name="Deployment Manager"),
         Job(name="Web Designer"),
         Job(name="Backend Developer"),
-        Tech(name="Python"),
-        Tech(name="Flask"),
-        Tech(name="JavaScript"),
-        Tech(name="SQL"),
-        Tech(name="API"),
+        Tag(name="Python"),
+        Tag(name="Flask"),
+        Tag(name="JavaScript"),
+        Tag(name="SQL"),
+        Tag(name="API"),
     ]
     model_adder(table)
 
@@ -247,9 +248,9 @@ def model_printer():
         print(row)
 
     print("------------")
-    print("Table: tech with SQL query")
+    print("Table: tag with SQL query")
     print("------------")
-    result = db.session.execute('select * from technologies')
+    result = db.session.execute('select * from tags')
     print(result.keys())
     for row in result:
         print(row)
