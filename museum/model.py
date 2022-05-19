@@ -8,6 +8,7 @@ from flask_login import UserMixin
 # Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
 
 # Define the project notes table
+
 class Note(db.Model):
     __tablename__ = 'notes'
 
@@ -88,7 +89,7 @@ class User(UserMixin, db.Model):
     # returns dictionary
     def read(self):
         return {
-            "userID": self.userID,
+            "userID": self.id,
             "name": self.name,
             "email": self.email,
             "password": self.password,
@@ -131,6 +132,9 @@ class User(UserMixin, db.Model):
     def get_id(self):
         return self.id
 
+    def get_rows(self):
+        return db.session.query(self).count()
+
 
 class Job(db.Model):
     __tablename__ = 'jobs'
@@ -165,6 +169,18 @@ class Project(db.Model):
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
 
+    # CRUD create/add a new record to the table
+    # returns self or None on error
+    def create(self):
+        try:
+            # creates an object from U class, passes initializers
+            db.session.add(self)  # add prepares to persist person object to Users table
+            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+            return self
+        except IntegrityError:
+            db.session.remove()
+            return None
+
 
 class ProjectJob(db.Model):
     __tablename__ = "projects_jobs"
@@ -173,12 +189,36 @@ class ProjectJob(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey(Project.id), primary_key=True)
     job_id = db.Column(db.Integer, db.ForeignKey(Job.id), primary_key=True)
 
+    ## CRUD create/add a new record to the table
+    # returns self or None on error
+    def create(self):
+        try:
+            # creates an object from U class, passes initializers
+            db.session.add(self)  # add prepares to persist person object to Users table
+            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+            return self
+        except IntegrityError:
+            db.session.remove()
+            return None
+
 
 class Tag(db.Model):
     __tablename__ = 'tags'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_tags', back_populates='tags')
+
+    # CRUD create/add a new record to the table
+    # returns self or None on error
+    def create(self):
+        try:
+            # creates an object from U class, passes initializers
+            db.session.add(self)  # add prepares to persist person object to Users table
+            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+            return self
+        except IntegrityError:
+            db.session.remove()
+            return None
 
 
 # Define the many-to-many table associating projects to users
@@ -203,7 +243,17 @@ def model_adder(table):
             print("Records exist, duplicate email, or error")
 
 
-def model_tester():
+def model_printer(command):
+    print("------------")
+    print("Table: users with SQL query")
+    print("------------")
+    result = db.session.execute(command)
+    print(result.keys())
+    for row in result:
+        print(row)
+
+
+def model_init():
     print("--------------------------")
     print("Seed Data for Table: users")
     print("--------------------------")
@@ -226,36 +276,32 @@ def model_tester():
         Tag(name="JavaScript"),
         Tag(name="SQL"),
         Tag(name="API"),
+        Project(name="Area 51",
+                scrum_team="Aliens",
+                description="Establish project database and relations",
+                github_link="http://gihub",
+                pages_link="http://pages",
+                video_link="http://youtube",
+                run_link="http://aws",
+                ),
     ]
     model_adder(table)
 
+    project = Project.query.filter_by(id=1).first()
+    #project.jobs.append(Job.query.filter_by(id=1).first())
+    #project.tags.append(Tag.query.filter_by(id=1).first())
 
-def model_printer():
-    print("------------")
-    print("Table: users with SQL query")
-    print("------------")
-    result = db.session.execute('select * from users')
-    print(result.keys())
-    for row in result:
-        print(row)
 
-    print("------------")
-    print("Table: jobs with SQL query")
-    print("------------")
-    result = db.session.execute('select * from jobs')
-    print(result.keys())
-    for row in result:
-        print(row)
-
-    print("------------")
-    print("Table: tag with SQL query")
-    print("------------")
-    result = db.session.execute('select * from tags')
-    print(result.keys())
-    for row in result:
-        print(row)
+def model_print():
+    model_printer('select * from users')
+    model_printer('select * from jobs')
+    model_printer('select * from tags')
+    model_printer('select * from projects')
+    model_printer('select * from projects_jobs')
+    model_printer('select * from projects_tags')
+    model_printer('select * from jobs_users')
 
 
 if __name__ == "__main__":
-    model_tester()  # builds model of Users
-    model_printer()
+    model_init()  # builds model of Users
+    model_print()
