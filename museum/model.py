@@ -49,24 +49,6 @@ class Note(db.Model):
         }
 
 
-class Project(db.Model):
-    __tablename__ = 'projects'
-
-    # Define the Users schema
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), unique=True)
-    scrum_team = db.Column(db.String(255))
-    description = db.Column(db.Text)
-    users = db.relationship('User', secondary='projects_users', back_populates='projects')
-    jobs = db.relationship('Job', secondary='projects_jobs', back_populates='projects')
-    tags = db.relationship('Tag', secondary='projects_tags', back_populates='projects')
-    github_link = db.Column(db.String(255), unique=False, nullable=False)
-    pages_link = db.Column(db.String(255), unique=False, nullable=False)
-    video_link = db.Column(db.String(255), unique=False, nullable=False)
-    run_link = db.Column(db.String(255), unique=False, nullable=False)
-    notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
-
-
 # Define the Users table within the model
 # -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
 # -- a.) db.Model is like an inner layer of the onion in ORM
@@ -81,7 +63,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
     phone = db.Column(db.String(255), unique=False, nullable=False)
-    projects = db.relationship(Project, secondary='projects_users', back_populates='users')
+    jobs = db.relationship("Job", secondary='jobs_users', back_populates='users')
 
     # constructor of a User object, initializes of instance variables within object
     def __init__(self, name, email, password, phone):
@@ -150,27 +132,38 @@ class User(UserMixin, db.Model):
         return self.id
 
 
-class Tag(db.Model):
-    __tablename__ = 'tags'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, unique=True)
-    projects = db.relationship(Project, secondary='projects_tags', back_populates='tags')
-
-
 class Job(db.Model):
     __tablename__ = 'jobs'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
-    projects = db.relationship(Project, secondary='projects_jobs', back_populates='jobs')
+    projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
+    users = db.relationship('User', secondary='jobs_users', back_populates='jobs')
 
 
 # Define the many-to-many table associating projects to users
-class ProjectUser(db.Model):
-    __tablename__ = "projects_users"
+class JobUser(db.Model):
+    __tablename__ = "jobs_users"
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey(Project.id), primary_key=True)
+    job_id = db.Column(db.Integer, db.ForeignKey(Job.id), primary_key=True)
+
+
+class Project(db.Model):
+    __tablename__ = 'projects'
+
+    # Define the Users schema
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True)
+    scrum_team = db.Column(db.String(255))
+    description = db.Column(db.Text)
+    jobs = db.relationship('Job', secondary='projects_jobs', back_populates='projects')
+    tags = db.relationship('Tag', secondary='projects_tags', back_populates='projects')
+    github_link = db.Column(db.String(255), unique=False, nullable=False)
+    pages_link = db.Column(db.String(255), unique=False, nullable=False)
+    video_link = db.Column(db.String(255), unique=False, nullable=False)
+    run_link = db.Column(db.String(255), unique=False, nullable=False)
+    notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
 
 
 class ProjectJob(db.Model):
@@ -179,6 +172,13 @@ class ProjectJob(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey(Project.id), primary_key=True)
     job_id = db.Column(db.Integer, db.ForeignKey(Job.id), primary_key=True)
+
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, unique=True)
+    projects = db.relationship("Project", secondary='projects_tags', back_populates='tags')
 
 
 # Define the many-to-many table associating projects to users
