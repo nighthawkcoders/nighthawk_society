@@ -8,10 +8,6 @@ class Projects:
     def list(self):
         return self._list
 
-    @property
-    def filters(self):
-        return self.filters
-
     def get_project(self, team):
         projects = self.list
         for proj in projects:
@@ -28,13 +24,9 @@ class Projects:
 
 
 if __name__ == '__main__':
-    projects_object = Projects()
-
-    #print("Filters")
-    #for filter_tag in projects_object.filters:
-        #print(filter_tag)
+    projects = Projects()
 
     print("Project Data")
-    for project in projects_object._list:
-        print(project)
+    for project in projects.list:
         print(project["scrum_team"])
+        print(project)
