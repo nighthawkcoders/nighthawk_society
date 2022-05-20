@@ -4,10 +4,20 @@ from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-
 # Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
+# Define the many-to-many table associating projects to users
 
-# Define the project notes table
+projects_jobs = db.Table('projects_jobs',
+                         db.Column('project_id', db.Integer, db.ForeignKey('projects.id')),
+                         db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
+                         db.Column('job_id', db.Integer, db.ForeignKey('jobs.id'))
+                         )
+
+projects_tags = db.Table('projects_tags',
+                         db.Column('project_id', db.Integer, db.ForeignKey('projects.id')),
+                         db.Column('tag_id', db.Integer, db.ForeignKey('tags.id'))
+                         )
+
 
 class Note(db.Model):
     __tablename__ = 'notes'
@@ -64,7 +74,6 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
     phone = db.Column(db.String(255), unique=False, nullable=False)
-    jobs = db.relationship("Job", secondary='jobs_users', back_populates='users')
 
     # constructor of a User object, initializes of instance variables within object
     def __init__(self, name, email, password, phone):
@@ -89,7 +98,7 @@ class User(UserMixin, db.Model):
     # returns dictionary
     def read(self):
         return {
-            "userID": self.id,
+            "id": self.id,
             "name": self.name,
             "email": self.email,
             "password": self.password,
@@ -136,23 +145,6 @@ class User(UserMixin, db.Model):
         return db.session.query(self).count()
 
 
-class Job(db.Model):
-    __tablename__ = 'jobs'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, unique=True)
-    projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
-    users = db.relationship('User', secondary='jobs_users', back_populates='jobs')
-
-
-# Define the many-to-many table associating projects to users
-class JobUser(db.Model):
-    __tablename__ = "jobs_users"
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(User.id), primary_key=True)
-    job_id = db.Column(db.Integer, db.ForeignKey(Job.id), primary_key=True)
-
-
 class Project(db.Model):
     __tablename__ = 'projects'
 
@@ -182,24 +174,11 @@ class Project(db.Model):
             return None
 
 
-class ProjectJob(db.Model):
-    __tablename__ = "projects_jobs"
-
+class Job(db.Model):
+    __tablename__ = 'jobs'
     id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey(Project.id), primary_key=True)
-    job_id = db.Column(db.Integer, db.ForeignKey(Job.id), primary_key=True)
-
-    ## CRUD create/add a new record to the table
-    # returns self or None on error
-    def create(self):
-        try:
-            # creates an object from U class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Users table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
-            return self
-        except IntegrityError:
-            db.session.remove()
-            return None
+    name = db.Column(db.String, unique=True)
+    projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
 
 
 class Tag(db.Model):
@@ -221,15 +200,6 @@ class Tag(db.Model):
             return None
 
 
-# Define the many-to-many table associating projects to users
-class ProjectTag(db.Model):
-    __tablename__ = "projects_tags"
-
-    id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey(Project.id), primary_key=True)
-    tag_id = db.Column(db.Integer, db.ForeignKey(Tag.id), primary_key=True)
-
-
 """Database Creation and Testing section"""
 
 
@@ -245,7 +215,7 @@ def model_adder(table):
 
 def model_printer(command):
     print("------------")
-    print("Table: users with SQL query")
+    print("Table: " + command)
     print("------------")
     result = db.session.execute(command)
     print(result.keys())
@@ -278,7 +248,15 @@ def model_init():
         Tag(name="API"),
         Project(name="Area 51",
                 scrum_team="Aliens",
-                description="Establish project database and relations",
+                description="Establish project database aliens and relations",
+                github_link="http://gihub",
+                pages_link="http://pages",
+                video_link="http://youtube",
+                run_link="http://aws",
+                ),
+        Project(name="Flintstones",
+                scrum_team="Prehistoric Civilization",
+                description="Establish project database Flintstones ancestors",
                 github_link="http://gihub",
                 pages_link="http://pages",
                 video_link="http://youtube",
@@ -287,9 +265,31 @@ def model_init():
     ]
     model_adder(table)
 
-    project = Project.query.filter_by(id=1).first()
-    #project.jobs.append(Job.query.filter_by(id=1).first())
-    #project.tags.append(Tag.query.filter_by(id=1).first())
+    area51 = Project.query.filter_by(name="Area 51").first()
+    stones = Project.query.filter_by(name="Flintstones").first()
+
+    scrum = Job.query.filter_by(name="Scrum Master").first()
+    git = Job.query.filter_by(name="GitHub Admin").first()
+    deploy = Job.query.filter_by(name="Deployment Manager").first()
+    web = Job.query.filter_by(name="Web Designer").first()
+    be = Job.query.filter_by(name="Backend Developer").first()
+
+    area51.jobs.append(scrum)
+    area51.jobs.append(git)
+    area51.jobs.append(deploy)
+    area51.jobs.append(web)
+    area51.jobs.append(be)
+
+    stones.jobs.append(scrum)
+    stones.jobs.append(git)
+    stones.jobs.append(deploy)
+
+    db.session.add(area51)
+    db.session.commit()
+
+    print(area51.jobs)
+    print(scrum.projects)
+    print(be.projects)
 
 
 def model_print():
@@ -299,7 +299,6 @@ def model_print():
     model_printer('select * from projects')
     model_printer('select * from projects_jobs')
     model_printer('select * from projects_tags')
-    model_printer('select * from jobs_users')
 
 
 if __name__ == "__main__":
