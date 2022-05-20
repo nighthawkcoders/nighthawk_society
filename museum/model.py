@@ -19,9 +19,8 @@ class ProjectJob(db.Model):
 
     project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
+    # This relations contains "extra data", a user_id associated with Job
     user_id = db.Column(db.Integer)
-    #project = db.relationship("Project", back_populates="projects_jobs")
-    #job = db.relationship("Job", back_populates="projects_jobs")
 
 
 # Define the notes table
@@ -167,7 +166,6 @@ class Project(db.Model):
     video_link = db.Column(db.String(255), unique=False, nullable=False)
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
-    #projects_jobs = db.relationship("ProjectJob", back_populates="project")
 
 
 # Define the jobs table
@@ -176,7 +174,6 @@ class Job(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
-    #projects_jobs = db.relationship("ProjectJob", back_populates="job")
 
 
 # Define the tags table
@@ -224,8 +221,13 @@ def model_init():
         User(name='Nicholas Tesla', email='ntesla@example.com', password='123niko', phone="1111112222"),
         User(name='Alexander Graham Bell', email='agbell@example.com', password='123lex', phone="1111113333"),
         User(name='Eli Whitney', email='eliw@example.com', password='123whit', phone="1111114444"),
-        User(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty', phone="8587754956"),
         User(name='Marie Curie', email='marie@example.com', password='123marie', phone="1111115555"),
+        User(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty', phone="8587754956"),
+        User(name='Wilma Flintstone', email='wilma@example.com', password='123qwerty', phone="0000001111"),
+        User(name='Betty Ruble', email='betty@example.com', password='123qwerty', phone="0000001113"),
+        User(name='Fred Flintstone', email='fred@example.com', password='123qwerty', phone="0000001112"),
+        User(name='Barney Ruble', email='barney@example.com', password='123qwerty', phone="0000001114"),
+
         Job(name="Scrum Master"),
         Job(name="GitHub Admin"),
         Job(name="Deployment Manager"),
@@ -236,6 +238,8 @@ def model_init():
         Tag(name="JavaScript"),
         Tag(name="SQL"),
         Tag(name="API"),
+        Tag(name="Java"),
+        Tag(name="Spring"),
         Project(name="Area 51",
                 scrum_team="Aliens",
                 description="Establish project database aliens and relations",
@@ -258,54 +262,81 @@ def model_init():
 
 # adding and printing relationship data
 def model_relations():
-    # access Project test data
+    # Project test data
     area51 = Project.query.filter_by(name="Area 51").first()
     stones = Project.query.filter_by(name="Flintstones").first()
 
-    # access Job test data
+    # Job test data
     scrum = Job.query.filter_by(name="Scrum Master").first()
     git = Job.query.filter_by(name="GitHub Admin").first()
     deploy = Job.query.filter_by(name="Deployment Manager").first()
     web = Job.query.filter_by(name="Web Designer").first()
     be = Job.query.filter_by(name="Backend Developer").first()
 
-    # access Tag test data
+    # Tag test data (like a #hashtag)
     python = Tag.query.filter_by(name="Python").first()
     flask = Tag.query.filter_by(name="Flask").first()
     js = Tag.query.filter_by(name="JavaScript").first()
+    java = Tag.query.filter_by(name="Java").first()
+    spring = Tag.query.filter_by(name="Spring").first()
 
-    # build relations between Project, Job data, and Users
+    # Area51 build relations between Project, Jobs, and Users
+    # Scrum Team User
     area51.jobs.append(scrum)
     assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=scrum.id).first()
     usr = User.query.filter_by(email="ntesla@example.com").first()
     assoc.user_id = usr.id
+    # Git Hub User
     area51.jobs.append(git)
     assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=git.id).first()
     usr = User.query.filter_by(email="marie@example.com").first()
     assoc.user_id = usr.id
-
+    # Deployment User
     area51.jobs.append(deploy)
+    assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=deploy.id).first()
+    usr = User.query.filter_by(email="tedison@example.com").first()
+    assoc.user_id = usr.id
+    # Web Designer User
     area51.jobs.append(web)
+    assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=web.id).first()
+    usr = User.query.filter_by(email="agbell@example.com").first()
+    assoc.user_id = usr.id
+    # Backend Developer
     area51.jobs.append(be)
-    stones.jobs.append(scrum)
-    stones.jobs.append(git)
-    stones.jobs.append(deploy)
-
-    # build relations between Project and Tag data
+    assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=be.id).first()
+    usr = User.query.filter_by(email="eliw@example.com").first()
+    assoc.user_id = usr.id
+    # Tag Data: build relations between Project and Tag data
     area51.tags.append(python)
     area51.tags.append(flask)
     area51.tags.append(js)
+
+    # Flintstones data build relations between Project, Jobs, and Users
+    stones.jobs.append(scrum)
+    assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=scrum.id).first()
+    usr = User.query.filter_by(email="jmort1021@gmail.com").first()
+    assoc.user_id = usr.id
+    stones.jobs.append(git)
+    assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=git.id).first()
+    usr = User.query.filter_by(email="barney@example.com").first()
+    assoc.user_id = usr.id
+    stones.jobs.append(deploy)
+    assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=deploy.id).first()
+    usr = User.query.filter_by(email="betty@example.com").first()
+    assoc.user_id = usr.id
+    stones.jobs.append(web)
+    assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=web.id).first()
+    usr = User.query.filter_by(email="wilma@example.com").first()
+    assoc.user_id = usr.id
+    stones.jobs.append(be)
+    assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=be.id).first()
+    usr = User.query.filter_by(email="fred@example.com").first()
+    assoc.user_id = usr.id
+    stones.tags.append(java)
+    stones.tags.append(spring)
     stones.tags.append(js)
 
     # commit data
-    db.session.commit()
-
-    pj = ProjectJob.query.filter_by(project_id=1).filter_by(job_id=3).first()
-    pj.user_id = 3
-    pj = ProjectJob.query.filter_by(project_id=1).filter_by(job_id=4).first()
-    pj.user_id = 4
-    pj = ProjectJob.query.filter_by(project_id=1).filter_by(job_id=5).first()
-    pj.user_id = 5
     db.session.commit()
 
     # print Jobs and Tags for Area 51
@@ -316,6 +347,15 @@ def model_relations():
         print("\tid:", aj.id, aj.name+":", usr.name)
     for at in area51.tags:
         print("\tid:", at.id, "Tag:", at.name)
+
+    # print Jobs and Tags for Flintstones
+    print("ID:", stones.id, " Name:", stones.name, " Scrum Team:", stones.scrum_team)
+    for sj in stones.jobs:
+        assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=sj.id).first()
+        usr = User.query.filter_by(id=assoc.user_id).first()
+        print("\tid:", sj.id, sj.name+":", usr.name)
+    for st in stones.tags:
+        print("\tid:", st.id, "Tag:", st.name)
 
     # print Projects with a Scrum Master
     print(scrum.name)
@@ -342,4 +382,4 @@ def model_print():
 if __name__ == "__main__":
     model_init()  # builds model of Users
     model_relations()
-    #model_print()
+    model_print()
