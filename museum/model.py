@@ -260,6 +260,22 @@ def model_init():
     model_adder(table)
 
 
+def model_relations_print(project):
+    print()
+    print("ID:", project.id, " Name:", project.name, " Scrum Team:", project.scrum_team)
+    print("Description:", project.description)
+    print("GitHub Link:", project.github_link)
+    print("GitHub Pages:", project.pages_link)
+    print("Runtime Link:", project.run_link)
+    print("Commercial Video:", project.video_link)
+    for job in project.jobs:
+        assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
+        usr = User.query.filter_by(id=assoc.user_id).first()
+        print("\tEngineer:", job.id, usr.name + ",", job.name)
+    for tag in project.tags:
+        print("\tTag:", tag.id, tag.name)
+
+
 # adding and printing relationship data
 def model_relations():
     # Project test data
@@ -340,32 +356,9 @@ def model_relations():
     db.session.commit()
 
     # print Jobs and Tags for Area 51
-    print("ID:", area51.id, " Name:", area51.name, " Scrum Team:", area51.scrum_team)
-    for aj in area51.jobs:
-        assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=aj.id).first()
-        usr = User.query.filter_by(id=assoc.user_id).first()
-        print("\tid:", aj.id, aj.name+":", usr.name)
-    for at in area51.tags:
-        print("\tid:", at.id, "Tag:", at.name)
-
+    model_relations_print(area51)
     # print Jobs and Tags for Flintstones
-    print("ID:", stones.id, " Name:", stones.name, " Scrum Team:", stones.scrum_team)
-    for sj in stones.jobs:
-        assoc = ProjectJob.query.filter_by(project_id=stones.id).filter_by(job_id=sj.id).first()
-        usr = User.query.filter_by(id=assoc.user_id).first()
-        print("\tid:", sj.id, sj.name+":", usr.name)
-    for st in stones.tags:
-        print("\tid:", st.id, "Tag:", st.name)
-
-    # print Projects with a Scrum Master
-    print(scrum.name)
-    for sp in scrum.projects:
-        print("\tproject: ", sp.name)
-
-    # output Projects using Flask
-    print(flask.name)
-    for fp in flask.projects:
-        print("\tproject: ", fp.name)
+    model_relations_print(stones)
 
 
 # print tables
@@ -382,4 +375,4 @@ def model_print():
 if __name__ == "__main__":
     model_init()  # builds model of Users
     model_relations()
-    model_print()
+    # model_print()
