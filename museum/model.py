@@ -273,16 +273,22 @@ def model_init():
     deploy = Job.query.filter_by(name="Deployment Manager").first()
     web = Job.query.filter_by(name="Web Designer").first()
     be = Job.query.filter_by(name="Backend Developer").first()
-
     area51.jobs.append(scrum)
     area51.jobs.append(git)
     area51.jobs.append(deploy)
     area51.jobs.append(web)
     area51.jobs.append(be)
-
     stones.jobs.append(scrum)
     stones.jobs.append(git)
     stones.jobs.append(deploy)
+
+    python = Tag.query.filter_by(name="Python").first()
+    flask = Tag.query.filter_by(name="Flask").first()
+    js = Tag.query.filter_by(name="JavaScript").first()
+    area51.tags.append(python)
+    area51.tags.append(flask)
+    area51.tags.append(js)
+    stones.tags.append(js)
 
     db.session.add(area51)
     db.session.commit()
