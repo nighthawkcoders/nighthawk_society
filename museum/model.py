@@ -5,27 +5,33 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 # Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
-# Define the many-to-many table associating projects to users
 
-projects_jobs = db.Table('projects_jobs',
-                         db.Column('project_id', db.Integer, db.ForeignKey('projects.id')),
-                         db.Column('user_id', db.Integer, db.ForeignKey('users.id')),
-                         db.Column('job_id', db.Integer, db.ForeignKey('jobs.id'))
-                         )
-
+# Define a many-to-many association table
 projects_tags = db.Table('projects_tags',
                          db.Column('project_id', db.Integer, db.ForeignKey('projects.id')),
                          db.Column('tag_id', db.Integer, db.ForeignKey('tags.id'))
                          )
 
 
+# Define a many-to-many association table with extra data
+class ProjectJob(db.Model):
+    __tablename__ = 'projects_jobs'
+
+    project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
+    job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
+    user_id = db.Column(db.Integer)
+    #project = db.relationship("Project", back_populates="projects_jobs")
+    #job = db.relationship("Job", back_populates="projects_jobs")
+
+
+# Define the notes table
 class Note(db.Model):
     __tablename__ = 'notes'
 
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     note = db.Column(db.Text, unique=False, nullable=False)
-    # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
+    # Define a relationship in Notes Schema to id of who originates the note, many-to-one (many notes for each project)
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
 
     # Constructor of a Notes object, initializes of instance variables within object
@@ -60,7 +66,7 @@ class Note(db.Model):
         }
 
 
-# Define the Users table within the model
+# Define the users table within the model
 # -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
 # -- a.) db.Model is like an inner layer of the onion in ORM
 # -- b.) Users represents data we want to store, something that is built on db.Model
@@ -145,6 +151,7 @@ class User(UserMixin, db.Model):
         return db.session.query(self).count()
 
 
+# Define the projects table
 class Project(db.Model):
     __tablename__ = 'projects'
 
@@ -160,49 +167,30 @@ class Project(db.Model):
     video_link = db.Column(db.String(255), unique=False, nullable=False)
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
-
-    # CRUD create/add a new record to the table
-    # returns self or None on error
-    def create(self):
-        try:
-            # creates an object from U class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Users table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
-            return self
-        except IntegrityError:
-            db.session.remove()
-            return None
+    #projects_jobs = db.relationship("ProjectJob", back_populates="project")
 
 
+# Define the jobs table
 class Job(db.Model):
     __tablename__ = 'jobs'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
+    #projects_jobs = db.relationship("ProjectJob", back_populates="job")
 
 
+# Define the tags table
 class Tag(db.Model):
     __tablename__ = 'tags'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_tags', back_populates='tags')
 
-    # CRUD create/add a new record to the table
-    # returns self or None on error
-    def create(self):
-        try:
-            # creates an object from U class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Users table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
-            return self
-        except IntegrityError:
-            db.session.remove()
-            return None
-
 
 """Database Creation and Testing section"""
 
 
+# commit data to table
 def model_adder(table):
     for row in table:
         try:
@@ -213,6 +201,7 @@ def model_adder(table):
             print("Records exist, duplicate email, or error")
 
 
+# print data within table
 def model_printer(command):
     print("------------")
     print("Table: " + command)
@@ -223,6 +212,7 @@ def model_printer(command):
         print(row)
 
 
+# table creation and initialization
 def model_init():
     print("--------------------------")
     print("Seed Data for Table: users")
@@ -265,16 +255,35 @@ def model_init():
     ]
     model_adder(table)
 
+
+# adding and printing relationship data
+def model_relations():
+    # access Project test data
     area51 = Project.query.filter_by(name="Area 51").first()
     stones = Project.query.filter_by(name="Flintstones").first()
 
+    # access Job test data
     scrum = Job.query.filter_by(name="Scrum Master").first()
     git = Job.query.filter_by(name="GitHub Admin").first()
     deploy = Job.query.filter_by(name="Deployment Manager").first()
     web = Job.query.filter_by(name="Web Designer").first()
     be = Job.query.filter_by(name="Backend Developer").first()
+
+    # access Tag test data
+    python = Tag.query.filter_by(name="Python").first()
+    flask = Tag.query.filter_by(name="Flask").first()
+    js = Tag.query.filter_by(name="JavaScript").first()
+
+    # build relations between Project, Job data, and Users
     area51.jobs.append(scrum)
+    assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=scrum.id).first()
+    usr = User.query.filter_by(email="ntesla@example.com").first()
+    assoc.user_id = usr.id
     area51.jobs.append(git)
+    assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=git.id).first()
+    usr = User.query.filter_by(email="marie@example.com").first()
+    assoc.user_id = usr.id
+
     area51.jobs.append(deploy)
     area51.jobs.append(web)
     area51.jobs.append(be)
@@ -282,22 +291,44 @@ def model_init():
     stones.jobs.append(git)
     stones.jobs.append(deploy)
 
-    python = Tag.query.filter_by(name="Python").first()
-    flask = Tag.query.filter_by(name="Flask").first()
-    js = Tag.query.filter_by(name="JavaScript").first()
+    # build relations between Project and Tag data
     area51.tags.append(python)
     area51.tags.append(flask)
     area51.tags.append(js)
     stones.tags.append(js)
 
-    db.session.add(area51)
+    # commit data
     db.session.commit()
 
-    print(area51.jobs)
-    print(scrum.projects)
-    print(be.projects)
+    pj = ProjectJob.query.filter_by(project_id=1).filter_by(job_id=3).first()
+    pj.user_id = 3
+    pj = ProjectJob.query.filter_by(project_id=1).filter_by(job_id=4).first()
+    pj.user_id = 4
+    pj = ProjectJob.query.filter_by(project_id=1).filter_by(job_id=5).first()
+    pj.user_id = 5
+    db.session.commit()
+
+    # print Jobs and Tags for Area 51
+    print("ID:", area51.id, " Name:", area51.name, " Scrum Team:", area51.scrum_team)
+    for aj in area51.jobs:
+        assoc = ProjectJob.query.filter_by(project_id=area51.id).filter_by(job_id=aj.id).first()
+        usr = User.query.filter_by(id=assoc.user_id).first()
+        print("\tid:", aj.id, aj.name+":", usr.name)
+    for at in area51.tags:
+        print("\tid:", at.id, "Tag:", at.name)
+
+    # print Projects with a Scrum Master
+    print(scrum.name)
+    for sp in scrum.projects:
+        print("\tproject: ", sp.name)
+
+    # output Projects using Flask
+    print(flask.name)
+    for fp in flask.projects:
+        print("\tproject: ", fp.name)
 
 
+# print tables
 def model_print():
     model_printer('select * from users')
     model_printer('select * from jobs')
@@ -307,6 +338,8 @@ def model_print():
     model_printer('select * from projects_tags')
 
 
+# tester/driver
 if __name__ == "__main__":
     model_init()  # builds model of Users
-    model_print()
+    model_relations()
+    #model_print()
