@@ -5,19 +5,26 @@ from flask_login import UserMixin
 
 '''
 Objective: Database Model to support students creating Projects, ultimately for showcasing at N@tM
+# -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
+# -- i.  ) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
+# -- ii. ) db.Model is like an inner layer of the onion of the ORM
+# -- iii.) class Project, Job, User represents data to store in database, a table, something that is built on db.Model
+## --iv .) relationship patters allow each table to work with or associate with other tables
 
 Resources:
-This model is using most of the relationship patterns as described in the reference:  
-https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html
-
-This video is 7 minutes and shares a lot of more advanced concepts
-https://www.youtube.com/watch?v=47i-jzrrIGQ
-
 This page seems well maintained and has many videos
 https://www.sqlalchemy.org/library.html#tutorials
+
+This model.py is using advanced relationship patterns as described in the reference:  
+https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html
+
+This video is 7 minutes and shares a lot of more advanced relationship concepts
+https://www.youtube.com/watch?v=47i-jzrrIGQ
+
 '''
 
 # Define a many-to-many association table
+# ... used as table in the middle between Project and Tag, see ForeignKeys
 projects_tags = db.Table('projects_tags',
                          db.Column('project_id', db.Integer, db.ForeignKey('projects.id')),
                          db.Column('tag_id', db.Integer, db.ForeignKey('tags.id'))
@@ -25,15 +32,19 @@ projects_tags = db.Table('projects_tags',
 
 
 # Define a many-to-many association table with extra data
+# ... used as table in the middle between Project and Job, see ForeignKeys
+# ... defined as Class as ProjectJob contains user_id, which is assigned in code
 class ProjectJob(db.Model):
     __tablename__ = 'projects_jobs'
 
     project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
-    user_id = db.Column(db.Integer) # "extra data" in association, a user_id associated with a ProjectJob
+    user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
 
 
 # Define the notes table
+# ... objective of Note is to allow Project viewer write/blog notes on the project
+# ... each Note belongs to one project, see ForeignKeys
 class Note(db.Model):
     __tablename__ = 'notes'
 
@@ -76,10 +87,7 @@ class Note(db.Model):
 
 
 # Define the users table within the model
-# -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
-# -- a.) db.Model is like an inner layer of the onion in ORM
-# -- b.) Users represents data we want to store, something that is built on db.Model
-# -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
+# ... objective of User is store an individual record of student, teacher, etc
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
@@ -161,6 +169,7 @@ class User(UserMixin, db.Model):
 
 
 # Define the projects table
+# ... objective of Project is store an key content related to student/scrum team project
 class Project(db.Model):
     __tablename__ = 'projects'
 
@@ -179,6 +188,7 @@ class Project(db.Model):
 
 
 # Define the jobs table
+# ... objective of Job is define key jobs within the project
 class Job(db.Model):
     __tablename__ = 'jobs'
     id = db.Column(db.Integer, primary_key=True)
@@ -187,6 +197,7 @@ class Job(db.Model):
 
 
 # Define the tags table
+# ... objective of Tag is define key attributes, aka #hashtag, used within the project
 class Tag(db.Model):
     __tablename__ = 'tags'
     id = db.Column(db.Integer, primary_key=True)
@@ -197,7 +208,8 @@ class Tag(db.Model):
 """Database Creation and Testing section"""
 
 
-# commit data to table
+# General purpose add and commit method
+# ... commit data to table
 def model_adder(table):
     for row in table:
         try:
@@ -208,7 +220,8 @@ def model_adder(table):
             print("Records exist: duplicate key, or other error")
 
 
-# print data within table
+# General purpose table visualizer
+# ... print schema and data within table
 def model_printer(command):
     print("------------")
     print("Table: " + command)
@@ -219,7 +232,8 @@ def model_printer(command):
         print(row)
 
 
-# table creation and initialization
+# Hard Coded test data generator
+# ... initial table creation with seed data
 def model_init():
     print("--------------------------")
     print("Seed Data for Table: users")
@@ -254,7 +268,7 @@ def model_init():
 
         Project(name="Area 51",
                 scrum_team="Aliens",
-                description="Establish project database aliens and relations",
+                description="Establish project database of aliens and their relations",
                 github_link="https://github.com/nighthawkcoders",
                 pages_link="https://nighthawkcoders.github.io/pages_python",
                 video_link="https://nighthawkcoders.github.io/pages_python/comments",
@@ -262,7 +276,7 @@ def model_init():
                 ),
         Project(name="Flintstones",
                 scrum_team="Prehistoric Civilization",
-                description="Establish project database Flintstones ancestors",
+                description="Establish project database of the Flintstones ancestors",
                 github_link="https://github.com/nighthawkcoders",
                 pages_link="https://nighthawkcoders.github.io/pages_java/",
                 video_link="https://nighthawkcoders.github.io/pages_java/review",
@@ -272,23 +286,27 @@ def model_init():
     model_adder(table)
 
 
-def model_relations_print(project):
-    print()
-    print("ID:", project.id, " Name:", project.name, " Scrum Team:", project.scrum_team)
-    print("Description:", project.description)
-    print("GitHub Link:", project.github_link)
-    print("GitHub Pages:", project.pages_link)
-    print("Runtime Link:", project.run_link)
-    print("Commercial Video:", project.video_link)
-    for job in project.jobs:
-        assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
-        usr = User.query.filter_by(id=assoc.user_id).first()
-        print("\tEngineer:", job.id, usr.name + ",", job.name)
-    for tag in project.tags:
-        print("\tTag:", tag.id, tag.name)
+# Hard Coded test data generator
+# ... initial table creation with seed data
+def model_relations_print(projects):
+    for project in projects:
+        print()
+        print("ID:", project.id, " Name:", project.name, " Scrum Team:", project.scrum_team)
+        print("Description:", project.description)
+        print("GitHub Link:", project.github_link)
+        print("GitHub Pages:", project.pages_link)
+        print("Runtime Link:", project.run_link)
+        print("Commercial Video:", project.video_link)
+        for job in project.jobs:
+            assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
+            usr = User.query.filter_by(id=assoc.user_id).first()
+            print("\tEngineer:", job.id, job.name + ",", usr.name)
+        for tag in project.tags:
+            print("\tTag:", tag.name)
 
 
-# adding and printing relationship data
+# Hard Coded relation data generator
+# ... adding initial relationship data
 def model_relations():
     # Project test data
     area51 = Project.query.filter_by(name="Area 51").first()
@@ -367,13 +385,11 @@ def model_relations():
     # commit data
     db.session.commit()
 
-    # print Jobs and Tags for Area 51
-    model_relations_print(area51)
-    # print Jobs and Tags for Flintstones
-    model_relations_print(stones)
+    return [area51, stones]
 
 
 # print tables
+# ... send to model_printer select commands for all tables generated by this project
 def model_print():
     model_printer('select * from users')
     model_printer('select * from jobs')
@@ -384,7 +400,11 @@ def model_print():
 
 
 # tester/driver
+# ... driver calls init (db_create_all) which establishes database with tables and seeds content
+# ... driver calls model_relations which completes seed by establishing sample data relations
+# ... driver call two print methods to allow user to visualize success
 if __name__ == "__main__":
     model_init()  # builds model of Users
-    model_relations()
-    # model_print()
+    projects = model_relations()
+    model_print()
+    model_relations_print(projects)
