@@ -1,10 +1,21 @@
-""" database dependencies to support Users db examples """
 from __init__ import db
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-# Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
+'''
+Objective: Database Model to support students creating Projects, ultimately for showcasing at N@tM
+
+Resources:
+This model is using most of the relationship patterns as described in the reference:  
+https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html
+
+This video is 7 minutes and shares a lot of more advanced concepts
+https://www.youtube.com/watch?v=47i-jzrrIGQ
+
+This page seems well maintained and has many videos
+https://www.sqlalchemy.org/library.html#tutorials
+'''
 
 # Define a many-to-many association table
 projects_tags = db.Table('projects_tags',
@@ -19,8 +30,7 @@ class ProjectJob(db.Model):
 
     project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
-    # This relations contains "extra data", a user_id associated with Job
-    user_id = db.Column(db.Integer)
+    user_id = db.Column(db.Integer) # "extra data" in association, a user_id associated with a ProjectJob
 
 
 # Define the notes table
@@ -195,7 +205,7 @@ def model_adder(table):
             db.session.commit()
         except IntegrityError:
             db.session.remove()
-            print("Records exist, duplicate email, or error")
+            print("Records exist: duplicate key, or other error")
 
 
 # print data within table
@@ -233,6 +243,7 @@ def model_init():
         Job(name="Deployment Manager"),
         Job(name="Web Designer"),
         Job(name="Backend Developer"),
+
         Tag(name="Python"),
         Tag(name="Flask"),
         Tag(name="JavaScript"),
@@ -240,6 +251,7 @@ def model_init():
         Tag(name="API"),
         Tag(name="Java"),
         Tag(name="Spring"),
+
         Project(name="Area 51",
                 scrum_team="Aliens",
                 description="Establish project database aliens and relations",
