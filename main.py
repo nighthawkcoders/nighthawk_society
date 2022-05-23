@@ -4,11 +4,13 @@ import sqlite3 as sl3
 
 from models.lessons import LessonData
 from projectsearch.projectapp import projectsearch_bp
+from museum.user import app_crudu
 
 app = Flask(__name__)  # app is the main flask object
 #import storecom
 #import connection
 app.register_blueprint(projectsearch_bp)
+app.register_blueprint(app_crudu)
 ld = LessonData()  # ld is an object that contains data for lesson
 
 
