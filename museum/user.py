@@ -1,5 +1,20 @@
 from model import User
+from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
+from flask_login import login_required, login_manager, logout_user, login_user
+from flask_restful import Api
+import hashlib
 
+app_crudu = Blueprint('usercrud', __name__,
+                      url_prefix='/usercrud',
+                      template_folder='templates/pages/',
+                      static_folder='static',
+                      static_url_path='assets')
+
+@app_crudu.route('/')
+# @login_required # login_url="/adminlogin/"
+def crudu():
+    """obtains all Users from table and loads Admin Form"""
+    return render_template("crudu.html", table=users_all())
 
 # SQLAlchemy extract all users from database
 def users_all():
