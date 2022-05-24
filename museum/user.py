@@ -25,7 +25,6 @@ def users_all():
     json_ready = [peep.read() for peep in table]
     return json_ready
 
-
 # SQLAlchemy extract users from database matching term
 def users_ilike(term):
     """filter Users table by term into JSON list (ordered by User.name)"""
