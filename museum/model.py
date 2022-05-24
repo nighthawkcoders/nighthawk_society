@@ -41,12 +41,7 @@ class ProjectJob(db.Model):
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
     user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
 
-class Project(db.model):
-    __tablename__ = 'project_name'
 
-    project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
-    name_id = db.Column(db.ForeignKey('names.id'), primary_key=True)
-    # user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
 
 
 # Define the notes table
@@ -189,6 +184,30 @@ class Project(db.Model):
     video_link = db.Column(db.String(255), unique=False, nullable=False)
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
+
+    def __init__(self, name, scrum_team, description, github_link, pages_link, video_link, run_link):
+        self.name = name
+        self.scrum_team = scrum_team
+        self.description = description
+        self.github_link = github_link
+        self.pages_link = pages_link
+        self.video_link = video_link
+        self.run_link = run_link
+
+    def read(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "scrum_team": self.scrum_team,
+            "description": self.description,
+            "jobs": self.jobs,
+            "tags": self.tags,
+            "github_link": self.github_link,
+            "pages_link": self.pages_link,
+            "video_link": self.video_link,
+            "run_link": self.run_link,
+            "notes": self.notes
+        }
 
 
 # Define the jobs table

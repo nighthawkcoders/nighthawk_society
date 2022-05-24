@@ -1,0 +1,91 @@
+{% extends "homesite/base.html" %}
+
+{% block content %}
+<style>
+    input[type="submit"]{
+        background: #eee;
+        color: #000000;
+        border: 10px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    body {
+        background-image: url('https://nwc.edu/academics/photos/program-photos/computer-science.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        height: fit-content;
+    }
+</style>
+<title>CRUD page</title>
+
+<div class="container py-4 text-light">
+    <header class="pb-3 mb-4 border-bottom">
+        <h1><mark>CS Students</mark></h1>
+    </header>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Table Viewer</h2>
+            <div class="row align-items-md-stretch">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Loop through rows in table -->
+                        {% for row in users %}
+                        <tr>
+                            <td>{{ row['id'] }}</td>
+                            <td>{{ row['name'] }}</td>
+                            <td>{{ row['email'] }}</td>
+                            <td>{{ row['password'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Scrum Team</th>
+                            <th>Project Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Loop through rows in table -->
+                        {% for row in projects %}
+                        <tr>
+                            <td>{{ row['id'] }}</td>
+                            <td>{{ row['name'] }}</td>
+                            <td>{{ row['scrum_team'] }}</td>
+                            <td>{{ row['description'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
