@@ -182,6 +182,30 @@ class Project(db.Model):
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
 
+    def __init__(self, name, scrum_team, description, github_link, pages_link, video_link, run_link):
+        self.name = name
+        self.scrum_team = scrum_team
+        self.description = description
+        self.github_link = github_link
+        self.pages_link = pages_link
+        self.video_link = video_link
+        self.run_link = run_link
+
+    def read(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "scrum_team": self.scrum_team,
+            "description": self.description,
+            "jobs": self.jobs,
+            "tags": self.tags,
+            "github_link": self.github_link,
+            "pages_link": self.pages_link,
+            "video_link": self.video_link,
+            "run_link": self.run_link,
+            "notes": self.notes
+        }
+
 
 # Define the jobs table
 # ... objective of Job is define key jobs within the project
