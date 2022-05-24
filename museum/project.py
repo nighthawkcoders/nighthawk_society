@@ -29,6 +29,7 @@ def update():
     """gets userid and name from form and filters and then data in  Users table"""
     if request.form:
         id = request.form.get("userID")
+        pname = request.form.get("pname")
         scrum_team = request.form.get("scrum")
         description = request.form.get("email")
         github_link = request.form.get("git")
@@ -36,6 +37,7 @@ def update():
         video_link = request.form.get("vid")
         run_link = request.form.get("run")
         print(id)
+        print(pname)
         print(scrum_team)
         print(description)
         print(github_link)
