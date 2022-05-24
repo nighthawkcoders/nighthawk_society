@@ -3,6 +3,7 @@ from __init__ import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from museum.model import User
+from museum.model import Project
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
 from flask_restful import Api
 import hashlib
@@ -18,10 +19,19 @@ app_crudu = Blueprint('usercrud', __name__,
 def crudu():
     return render_template("crudu.html", table=users_all())
 
+@app_crudu.route('/projects/')
+def findproject():
+    return render_template("findproject.html", users=users_all(), projects=projects_all())
 
 # SQLAlchemy extract all users from database
 def users_all():
     table = User.query.all()
+    json_ready = [peep.read() for peep in table]
+    return json_ready
+
+
+def projects_all():
+    table = Project.query.all()
     json_ready = [peep.read() for peep in table]
     return json_ready
 
