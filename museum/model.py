@@ -96,14 +96,12 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(255), unique=False, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
-    phone = db.Column(db.String(255), unique=False, nullable=False)
 
     # constructor of a User object, initializes of instance variables within object
-    def __init__(self, name, email, password, phone):
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.set_password(password)
-        self.phone = phone
 
     # CRUD create/add a new record to the table
     # returns self or None on error
@@ -125,20 +123,19 @@ class User(UserMixin, db.Model):
             "name": self.name,
             "email": self.email,
             "password": self.password,
-            "phone": self.phone,
             "query": "by_alc"  # This is for fun, a little watermark
         }
 
     # CRUD update: updates users name, password, phone
     # returns self
-    def update(self, name, password="", phone=""):
+    def update(self, name, email="", password=""):
         """only updates values with length"""
         if len(name) > 0:
             self.name = name
+        if len(email) > 0:
+            self.email = email
         if len(password) > 0:
             self.set_password(password)
-        if len(phone) > 0:
-            self.phone = phone
         db.session.commit()
         return self
 
@@ -241,16 +238,16 @@ def model_init():
     db.create_all()
     """Tester data for table"""
     table = [
-        User(name='Thomas Edison', email='tedison@example.com', password='123toby', phone="1111111111"),
-        User(name='Nicholas Tesla', email='ntesla@example.com', password='123niko', phone="1111112222"),
-        User(name='Alexander Graham Bell', email='agbell@example.com', password='123lex', phone="1111113333"),
-        User(name='Eli Whitney', email='eliw@example.com', password='123whit', phone="1111114444"),
-        User(name='Marie Curie', email='marie@example.com', password='123marie', phone="1111115555"),
-        User(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty', phone="8587754956"),
-        User(name='Wilma Flintstone', email='wilma@example.com', password='123qwerty', phone="0000001111"),
-        User(name='Betty Ruble', email='betty@example.com', password='123qwerty', phone="0000001113"),
-        User(name='Fred Flintstone', email='fred@example.com', password='123qwerty', phone="0000001112"),
-        User(name='Barney Ruble', email='barney@example.com', password='123qwerty', phone="0000001114"),
+        User(name='Thomas Edison', email='tedison@example.com', password='123toby'),
+        User(name='Nicholas Tesla', email='ntesla@example.com', password='123niko'),
+        User(name='Alexander Graham Bell', email='agbell@example.com', password='123lex'),
+        User(name='Eli Whitney', email='eliw@example.com', password='123whit'),
+        User(name='Marie Curie', email='marie@example.com', password='123marie'),
+        User(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty'),
+        User(name='Wilma Flintstone', email='wilma@example.com', password='123qwerty'),
+        User(name='Betty Ruble', email='betty@example.com', password='123qwerty'),
+        User(name='Fred Flintstone', email='fred@example.com', password='123qwerty'),
+        User(name='Barney Ruble', email='barney@example.com', password='123qwerty'),
 
         Job(name="Scrum Master"),
         Job(name="GitHub Admin"),

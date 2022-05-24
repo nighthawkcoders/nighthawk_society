@@ -6,7 +6,8 @@ from models.lessons import LessonData
 from projectsearch.projectapp import projectsearch_bp
 from museum.user import app_crudu
 
-app = Flask(__name__)  # app is the main flask object
+from __init__ import app
+
 #import storecom
 #import connection
 app.register_blueprint(projectsearch_bp)
