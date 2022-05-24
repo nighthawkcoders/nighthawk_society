@@ -90,6 +90,7 @@
                         <td><input type="text" name="name" id="name" required></td>
                         <td><input type="email" name="email" id="email" required></td>
                         <td><input type="password" name="password" id="password" required></td>
+                        <td><input type="submit" value="Create"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -102,7 +103,7 @@
         <div class="p-5 mb-4 bg-light text-dark rounded-3">
             <h2>Update</h2>
             <form method="POST" ID="update" action={{url_for('usercrud.update')}} >
-                <table id="update_table">
+                <table class="table" id="update_table">
                     <tr>
                         <td>
                             <select name="userID" id="userID">
@@ -118,7 +119,7 @@
                     <tr>
                         <th><label for="update_name">Name</label></th>
                         <th><label for="update_email">Email</label></th>
-                        <th><label for="update_password">Password</label></th>
+                        <th><label for="update_password">Password (Required)</label></th>
                     </thead>
                     <tbody>
                     <tr>

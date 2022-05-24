@@ -41,14 +41,6 @@ class ProjectJob(db.Model):
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
     user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
 
-class Project(db.model):
-    __tablename__ = 'project_name'
-
-    project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
-    name_id = db.Column(db.ForeignKey('names.id'), primary_key=True)
-    # user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
-
-
 # Define the notes table
 # ... objective of Note is to allow Project viewer write/blog notes on the project
 # ... each Note belongs to one project, see ForeignKeys
