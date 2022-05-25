@@ -91,32 +91,34 @@
     <div class="container py-4">
         <div class="p-5 mb-4 bg-light text-dark rounded-3">
             <h2>Update</h2>
-            <form method="POST" ID="update" action={{url_for('usercrud.update')}} >
+            <form method="POST" ID="update" action={{url_for('usercrud.updateProject')}} >
                 <table id="update_table">
                     <tr>
                         <td>
+                            <select name="projectID" id="projectID">
+                                <optgroup label="projectID">
+                                    {% for row in projects %}
+                                    <option label="{{ row['id'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
                             <select name="userID" id="userID">
                                 <optgroup label="userID">
-                                    {% for row in table %}
+                                    {% for row in users %}
+                                    <option label="{{ row['id'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                            <select name="jobID" id="jobID">
+                                <optgroup label="jobID">
+                                    {% for row in jobs %}
                                     <option label="{{ row['id'] }}">{{ row['id'] }}</option>
                                     {% endfor %}
                                 </optgroup>
                             </select>
                         </td>
-                    </tr>
-                    <thead>
-                    <tr>
-                        <th><label for="update_name">Name</label></th>
-                        <th><label for="update_email">Email</label></th>
-                        <th><label for="update_password">Password</label></th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="text" name="name" id="update_name" required></td>
-                        <td><input type="text" name="email" id="update_email" required></td>
-                        <td><input type="text" name="password" id="update_password" required></td>
                         <td><input type="submit" value="Update"></td>
-                    </tbody>
+                    </tr>
                 </table>
             </form>
         </div>

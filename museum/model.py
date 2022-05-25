@@ -216,6 +216,14 @@ class Job(db.Model):
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
 
+    def __init__(self, name):
+        self.name = name
+
+    def read(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+        }
 
 # Define the tags table
 # ... objective of Tag is define key attributes, aka #hashtag, used within the project
@@ -417,6 +425,9 @@ def createAssociation(projectID, userID, jobID):
     assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
     assoc.user_id = user.id
 
+    projects = [project]
+    model_relations_print(projects)
+
 
 
 # print tables
@@ -439,3 +450,4 @@ if __name__ == "__main__":
     projects = model_relations()
     model_print()
     model_relations_print(projects)
+

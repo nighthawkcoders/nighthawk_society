@@ -2,8 +2,7 @@ from __init__ import login_manager
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from museum.model import User
-from museum.model import Project
+from museum.model import User, Project, Job, ProjectJob, createAssociation
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
 from flask_restful import Api
 import hashlib
@@ -21,7 +20,7 @@ def crudu():
 
 @app_crudu.route('/projects/')
 def findproject():
-    return render_template("findproject.html", users=users_all(), projects=projects_all())
+    return render_template("findproject.html", users=users_all(), projects=projects_all(), jobs=jobs_all())
 
 # SQLAlchemy extract all users from database
 def users_all():
@@ -34,6 +33,12 @@ def projects_all():
     table = Project.query.all()
     json_ready = [peep.read() for peep in table]
     return json_ready
+
+def jobs_all():
+    table = Job.query.all()
+    json_ready = [peep.read() for peep in table]
+    return json_ready
+
 
 # SQLAlchemy extract users from database matching term
 def users_ilike(term):
@@ -96,14 +101,11 @@ def update():
 @app_crudu.route('/updateProject/', methods=["POST"])
 def updateProject():
     if request.form:
-        userID = request.form.get("userID")
         projectID = request.form.get("projectID")
+        userID = request.form.get("userID")
         jobID = request.form.get("jobID")
-        po = user_by_id(id)
-        if po is not None:
-            if (po.is_password_match(password)):
-                po.update(name, email, password)
-    return redirect(url_for('usercrud.crudu'))
+        createAssociation(projectID, userID, jobID)
+    return redirect(url_for('usercrud.findproject'))
 
 
 if __name__ == "__main__":
