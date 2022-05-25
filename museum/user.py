@@ -93,6 +93,18 @@ def update():
                 po.update(name, email, password)
     return redirect(url_for('usercrud.crudu'))
 
+@app_crudu.route('/updateProject/', methods=["POST"])
+def updateProject():
+    if request.form:
+        userID = request.form.get("userID")
+        projectID = request.form.get("projectID")
+        jobID = request.form.get("jobID")
+        po = user_by_id(id)
+        if po is not None:
+            if (po.is_password_match(password)):
+                po.update(name, email, password)
+    return redirect(url_for('usercrud.crudu'))
+
 
 if __name__ == "__main__":
     # Look at table

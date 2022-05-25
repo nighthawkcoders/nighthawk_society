@@ -167,6 +167,7 @@ class User(UserMixin, db.Model):
         return db.session.query(self).count()
 
 
+
 # Define the projects table
 # ... objective of Project is store an key content related to student/scrum team project
 class Project(db.Model):
@@ -409,6 +410,16 @@ def model_relations():
     db.session.commit()
 
     return [area51, stones]
+
+
+def createAssociation(projectID, userID, jobID):
+    project = Project.query.filter_by(id = projectID).first()
+    user = User.query.filter_by(id = userID).first()
+    job = Job.query.filter_by(id = jobID).first()
+    project.jobs.append(job)
+    assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
+    assoc.user_id = user.id
+
 
 
 # print tables
