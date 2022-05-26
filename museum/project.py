@@ -111,4 +111,4 @@ if __name__ == "__main__":
     print(project_by_id(2).read())
 
     print("Print user_id tedison@example.com")
-    print(project_by_email("tedison@example.com").read())
+    print(project_by_scrum_name("tedison@example.com").read())
