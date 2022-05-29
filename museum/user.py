@@ -136,7 +136,7 @@ def createProject():
 @app_crudu.route('/view/', methods=["POST"])
 def view():
     if request.form:
-        temp = request.form.get("projectName")
+        # temp = request.form.get("projectName")
         projectID = request.form.get("projectID")
         project = Project.query.filter_by(id = projectID).first()
         # if temp is not None:
@@ -153,7 +153,8 @@ def view():
         #     print("\tTag:", tag.name)
     return render_template("viewProject.html", projects=projects_all(),
                            id=project.id, name=project.name,team=project.scrum_team, description=project.description,
-                           jobs=alljobs, users=allusers, tags=project.tags)
+                           jobs=alljobs, users=allusers, tags=project.tags, glink=project.github_link, plink=project.pages_link,vlink=project.video_link,
+                           rlink=project.run_link)
 
 
 
