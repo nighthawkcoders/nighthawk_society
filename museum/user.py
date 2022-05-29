@@ -52,6 +52,11 @@ def users_ilike(term):
     table = User.query.order_by(User.name).filter((User.name.ilike(term)) | (User.email.ilike(term)))
     return [peep.read() for peep in table]
 
+def projects_ilike(term):
+    """filter Users table by term into JSON list (ordered by User.name)"""
+    term = "%{}%".format(term)  # "ilike" is case insensitive and requires wrapped  %term%
+    x = Project.query.order_by(Project.name).filter((Project.name.ilike(term))).first()
+    return x
 
 # SQLAlchemy extract single user from database matching ID
 def user_by_id(userid):
@@ -131,15 +136,12 @@ def createProject():
 @app_crudu.route('/view/', methods=["POST"])
 def view():
     if request.form:
+        temp = request.form.get("projectName")
         projectID = request.form.get("projectID")
         project = Project.query.filter_by(id = projectID).first()
-        print()
-        print("ID:", project.id, " Name:", project.name, " Scrum Team:", project.scrum_team)
-        print("Description:", project.description)
-        print("GitHub Link:", project.github_link)
-        print("GitHub Pages:", project.pages_link)
-        print("Runtime Link:", project.run_link)
-        print("Commercial Video:", project.video_link)
+        # if temp is not None:
+        #     if projects_ilike(temp) is not None:
+        #         project = projects_ilike(temp)
         allusers=[]
         alljobs=[]
         for job in project.jobs:
@@ -147,9 +149,8 @@ def view():
             usr = User.query.filter_by(id=assoc.user_id).first()
             allusers.append(usr.name)
             alljobs.append(job.name)
-            print("\tEngineer:", job.id, job.name + ",", usr.name)
-        for tag in project.tags:
-            print("\tTag:", tag.name)
+        # for tag in project.tags:
+        #     print("\tTag:", tag.name)
     return render_template("viewProject.html", projects=projects_all(),
                            id=project.id, name=project.name,team=project.scrum_team, description=project.description,
                            jobs=alljobs, users=allusers, tags=project.tags)
