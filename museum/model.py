@@ -431,12 +431,14 @@ def createAssociation(projectID, userID, jobID):
     project = Project.query.filter_by(id = projectID).first()
     user = User.query.filter_by(id = userID).first()
     job = Job.query.filter_by(id = jobID).first()
-    # project.jobs.append(job)
+    if job not in project.jobs:
+        project.jobs.append(job)
     assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
     assoc.user_id = user.id
+    db.session.commit()
 
-    # projects = [project]
-    # model_relations_print(projects)
+    projects = [project]
+    model_relations_print(projects)
 
 
 
