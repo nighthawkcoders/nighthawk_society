@@ -22,6 +22,10 @@ def crudu():
 def findproject():
     return render_template("findproject.html", users=users_all(), projects=projects_all(), jobs=jobs_all())
 
+@app_crudu.route('/viewproject/')
+def viewProject():
+    return render_template("viewProject.html", users=users_all(), projects=projects_all(), jobs=jobs_all())
+
 # SQLAlchemy extract all users from database
 def users_all():
     table = User.query.all()
@@ -106,6 +110,33 @@ def updateProject():
         jobID = request.form.get("jobID")
         createAssociation(projectID, userID, jobID)
     return redirect(url_for('usercrud.findproject'))
+
+@app_crudu.route('/view/', methods=["POST"])
+def view():
+    if request.form:
+        projectID = request.form.get("projectID")
+        project = Project.query.filter_by(id = projectID).first()
+        print()
+        print("ID:", project.id, " Name:", project.name, " Scrum Team:", project.scrum_team)
+        print("Description:", project.description)
+        print("GitHub Link:", project.github_link)
+        print("GitHub Pages:", project.pages_link)
+        print("Runtime Link:", project.run_link)
+        print("Commercial Video:", project.video_link)
+        allusers=[]
+        alljobs=[]
+        for job in project.jobs:
+            assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
+            usr = User.query.filter_by(id=assoc.user_id).first()
+            allusers.append(usr.name)
+            alljobs.append(job.name)
+            print("\tEngineer:", job.id, job.name + ",", usr.name)
+        for tag in project.tags:
+            print("\tTag:", tag.name)
+    return render_template("viewProject.html", projects=projects_all(),
+                           id=project.id, name=project.name,team=project.scrum_team, description=project.description,
+                           jobs=alljobs, users=allusers, tags=project.tags)
+
 
 
 if __name__ == "__main__":

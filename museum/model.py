@@ -40,6 +40,7 @@ class ProjectJob(db.Model):
     project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
     user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
+#     project is associated with job, and in the relation there is a user
 
 # Define the notes table
 # ... objective of Note is to allow Project viewer write/blog notes on the project
@@ -421,12 +422,12 @@ def createAssociation(projectID, userID, jobID):
     project = Project.query.filter_by(id = projectID).first()
     user = User.query.filter_by(id = userID).first()
     job = Job.query.filter_by(id = jobID).first()
-    project.jobs.append(job)
+    # project.jobs.append(job)
     assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
     assoc.user_id = user.id
 
-    projects = [project]
-    model_relations_print(projects)
+    # projects = [project]
+    # model_relations_print(projects)
 
 
 

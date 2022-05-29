@@ -1,0 +1,108 @@
+{% extends "homesite/base.html" %}
+
+{% block content %}
+<style>
+    input[type="submit"]{
+        background: #eee;
+        color: #000000;
+        border: 10px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    body {
+        background-image: url('https://nwc.edu/academics/photos/program-photos/computer-science.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        height: fit-content;
+    }
+</style>
+<title>Viewer</title>
+
+<div class="container py-4 text-light">
+    <header class="pb-3 mb-4 border-bottom">
+        <h1><mark>CS Projects</mark></h1>
+    </header>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>View a Project</h2>
+            <form method="POST" ID="update" action={{url_for('usercrud.view')}} >
+                <table id="update_table">
+                    <tr>
+                        <td>
+                            <select name="projectID" id="projectID">
+                                <optgroup label="projectID">
+                                    {% for row in projects %}
+                                    <option label="{{ row['id'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td><input type="submit" value="View"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Information about the Project</h2>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Project Description</th>
+                            <th>Scrum Team</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{ name }}</td>
+                            <td>{{ description }}</td>
+                            <td>{{ team }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Meet the Team</h2>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            {% for job in jobs %}
+                            <th> {{ job }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tr>
+                            {% for user in users %}
+                            <td> {{ user }}</td>
+                            {% endfor %}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+{% endblock %}
