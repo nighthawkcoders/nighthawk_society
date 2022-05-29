@@ -34,6 +34,37 @@
 
     <div class="container py-4">
         <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Projects Table</h2>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Scrum Team</th>
+                            <th>Project Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Loop through rows in table -->
+                        {% for row in projects %}
+                        <tr>
+                            <td>{{ row['id'] }}</td>
+                            <td>{{ row['name'] }}</td>
+                            <td>{{ row['scrum_team'] }}</td>
+                            <td>{{ row['description'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
             <h2>Users Table </h2>
             <div class="row align-items-md-stretch">
                 <table class="table">
@@ -69,38 +100,8 @@
                 </div>
             </div>
         </div>
-
-        <div class="container py-4">
-            <div class="p-5 mb-4 bg-light text-dark rounded-3">
-                <h2>Projects Table</h2>
-                <div class="row align-items-md-stretch">
-                    <div class="container-fluid py-5">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Scrum Team</th>
-                                <th>Project Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!-- Loop through rows in table -->
-                            {% for row in projects %}
-                            <tr>
-                                <td>{{ row['id'] }}</td>
-                                <td>{{ row['name'] }}</td>
-                                <td>{{ row['scrum_team'] }}</td>
-                                <td>{{ row['description'] }}</td>
-                            </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
     </div>
+
 
     <div class="container py-4">
         <div class="p-5 mb-4 bg-light text-dark rounded-3">
@@ -131,6 +132,8 @@
                                 </optgroup>
                             </select>
                         </td>
+                        <th><label for="pass">Password of Updated User (Required)</label></th>
+                        <td><input type="pass" name="pass" id="pass" required></td>
                         <td><input type="submit" value="Update"></td>
                     </tr>
                 </table>

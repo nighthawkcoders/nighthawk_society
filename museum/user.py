@@ -108,13 +108,18 @@ def update():
                 po.update(name, email, password)
     return redirect(url_for('usercrud.crudu'))
 
+
 @app_crudu.route('/updateProject/', methods=["POST"])
 def updateProject():
     if request.form:
         projectID = request.form.get("projectID")
         userID = request.form.get("userID")
         jobID = request.form.get("jobID")
-        createAssociation(projectID, userID, jobID)
+        password = request.form.get("pass")
+        po = user_by_id(userID)
+        if po is not None:
+            if (po.is_password_match(password)):
+                createAssociation(projectID, userID, jobID)
     return redirect(url_for('usercrud.findproject'))
 
 
