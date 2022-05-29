@@ -109,6 +109,7 @@
             <form method="POST" ID="update" action={{url_for('usercrud.updateProject')}} >
                 <table id="update_table">
                     <tr>
+                        <th> Select a Project </th>
                         <td>
                             <select name="projectID" id="projectID">
                                 <optgroup label="projectID">
@@ -117,6 +118,11 @@
                                     {% endfor %}
                                 </optgroup>
                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th> Select a User </th>
+                        <td>
                             <select name="userID" id="userID">
                                 <optgroup label="userID">
                                     {% for row in users %}
@@ -124,6 +130,12 @@
                                     {% endfor %}
                                 </optgroup>
                             </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th> Select a Job for the User </th>
+                        <td>
                             <select name="jobID" id="jobID">
                                 <optgroup label="jobID">
                                     {% for row in jobs %}
@@ -132,6 +144,9 @@
                                 </optgroup>
                             </select>
                         </td>
+                    </tr>
+
+                    <tr>
                         <th><label for="pass">Password of Updated User (Required)</label></th>
                         <td><input type="pass" name="pass" id="pass" required></td>
                         <td><input type="submit" value="Update"></td>
