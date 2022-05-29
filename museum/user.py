@@ -24,8 +24,9 @@ def findproject():
 
 @app_crudu.route('/viewproject/')
 def viewProject():
-    return render_template("viewProject.html", users=users_all(), projects=projects_all(), jobs=jobs_all())
-
+    return render_template("viewProject.html", projects=projects_all(),
+                           id="", name="",team="",description="",
+                           jobs="", users="", tags="")
 # SQLAlchemy extract all users from database
 def users_all():
     table = User.query.all()
@@ -109,6 +110,22 @@ def updateProject():
         userID = request.form.get("userID")
         jobID = request.form.get("jobID")
         createAssociation(projectID, userID, jobID)
+    return redirect(url_for('usercrud.findproject'))
+
+
+@app_crudu.route('/createProject/', methods=["POST"])
+def createProject():
+    if request.form:
+        po = Project(
+            request.form.get("name"),
+            request.form.get("scrum_team"),
+            request.form.get("description"),
+            request.form.get("github_link"),
+            request.form.get("pages_link"),
+            request.form.get("video_link"),
+            request.form.get("run_link")
+        )
+        po.create()
     return redirect(url_for('usercrud.findproject'))
 
 @app_crudu.route('/view/', methods=["POST"])

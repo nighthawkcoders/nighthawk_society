@@ -193,6 +193,15 @@ class Project(db.Model):
         self.video_link = video_link
         self.run_link = run_link
 
+    def create(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+            return self
+        except IntegrityError:
+            db.session.remove()
+            return None
+
     def read(self):
         return {
             "id": self.id,
