@@ -5,6 +5,7 @@ import sqlite3 as sl3
 from models.lessons import LessonData
 from projectsearch.projectapp import projectsearch_bp
 from museum.user import app_crudu
+from museum.project import app_project
 
 from __init__ import app
 
@@ -12,6 +13,7 @@ from __init__ import app
 #import connection
 app.register_blueprint(projectsearch_bp)
 app.register_blueprint(app_crudu)
+app.register_blueprint(app_project)
 ld = LessonData()  # ld is an object that contains data for lesson
 
 
