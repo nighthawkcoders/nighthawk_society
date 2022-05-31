@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<!-- EXTEND (layout.html), this is a template for all rendered pages in the project -->
+{% extends "homesite/base.html" %}
+
+<!-- CONTENT (in <head>), content for this page -->
+{% block content %}
+<style>
+    input[type="submit"]{
+        background: #eee;
+        color: #000000;
+        border: 10px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    body {
+        background-image: url('https://nwc.edu/academics/photos/program-photos/computer-science.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        height: fit-content;
+    }
+</style>
+<title>CRUD page</title>
+
+<div class="container py-4 text-light">
+    <header class="pb-3 mb-4 border-bottom">
+        <h1><mark>CS Students</mark></h1>
+    </header>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Table Viewer</h2>
+            <div class="row align-items-md-stretch">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Scrum Name</th>
+                            <th>description</th>
+                            <th>github_link</th>
+                            <th>pages_link</th>
+                            <th>video_link</th>
+                            <th>run_link</th>
+                            <th>Password</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Loop through rows in table -->
+                        {% for row in table %}
+                        <tr>
+                            <td>{{ row['id'] }}</td>
+                            <td>{{ row['name'] }}</td>
+                            <td>{{ row['scrum name'] }}</td>
+                            <td>{{ row['github_link'] }}</td>
+                            <td>{{ row['pages_link'] }}</td>
+                            <td>{{ row['video_link'] }}</td>
+                            <td>{{ row['run_link'] }}</td>
+                            <td>{{ row['password'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Create a new record</h2>
+            <form method="POST" ID="create" action={{url_for('project.create')}}>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><label for="name">Name</label></th>
+                        <th><label for="scrum name">Scrum Name</label></th>
+                        <th><label for="github_link">github_link</label></th>
+                        <th><label for="pages_link">pages_link</label></th>
+                        <th><label for="pages_link">video_link</label></th>
+                        <th><label for="run_link">run_link</label></th>
+                        <th><label for="password">Password</label></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="text" name="name" id="name" required></td>
+                        <td><input type="text" name="scrum name" id="scrum name" required></td>
+                        <td><input type="text" name="github_link" id="github_link" required></td>
+                        <td><input type="text" name="pages_link" id="pages_link" required></td>
+                        <td><input type="text" name="run_link" id="run_link" required></td>
+                        <td><input type="submit" value="Create"></td>
+                        <td><input type="password" name="password" id="password" required></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Update</h2>
+            <form method="POST" ID="update" action={{url_for('project.update')}} >
+                <table class="table" id="update_table">
+                    <tr>
+                        <td>
+                            <select name="userID" id="userID">
+                                <optgroup label="userID">
+                                    {% for row in table %}
+                                    <option label="{{ row['id'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <thead>
+                    <tr>
+                        <th><label for="update_name">Name</label></th>
+                        <th><label for="update_scrum name">Scrum Name</label></th>
+                        <th><label for="update_github_link">Github Link</label></th>
+                        <th><label for="update_pages_link">Pages Link</label></th>
+                        <th><label for="update_run_link">Run LInk</label></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="text" name="name" id="update_name" required></td>
+                        <td><input type="text" name="scrum name" id="update_scrum name" required></td>
+                        <td><input type="text" name="github_link" id="update_github_link" required></td>
+                        <td><input type="text" name="pages_link" id="update_pages_link" required></td>
+                        <td><input type="text" name="run_link" id="update_run_link" required></td>
+                        <td><input type="submit" value="Create"></td>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+{% endblock %}

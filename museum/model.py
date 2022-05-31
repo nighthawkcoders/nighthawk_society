@@ -40,7 +40,7 @@ class ProjectJob(db.Model):
     project_id = db.Column(db.ForeignKey('projects.id'), primary_key=True)
     job_id = db.Column(db.ForeignKey('jobs.id'), primary_key=True)
     user_id = db.Column(db.Integer)  # "extra data" in association, a user_id associated with a ProjectJob
-
+#     project is associated with job, and in the relation there is a user
 
 # Define the notes table
 # ... objective of Note is to allow Project viewer write/blog notes on the project
@@ -96,14 +96,12 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(255), unique=False, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
-    phone = db.Column(db.String(255), unique=False, nullable=False)
 
     # constructor of a User object, initializes of instance variables within object
-    def __init__(self, name, email, password, phone):
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.set_password(password)
-        self.phone = phone
 
     # CRUD create/add a new record to the table
     # returns self or None on error
@@ -125,20 +123,19 @@ class User(UserMixin, db.Model):
             "name": self.name,
             "email": self.email,
             "password": self.password,
-            "phone": self.phone,
             "query": "by_alc"  # This is for fun, a little watermark
         }
 
     # CRUD update: updates users name, password, phone
     # returns self
-    def update(self, name, password="", phone=""):
+    def update(self, name, email="", password=""):
         """only updates values with length"""
         if len(name) > 0:
             self.name = name
+        if len(email) > 0:
+            self.email = email
         if len(password) > 0:
             self.set_password(password)
-        if len(phone) > 0:
-            self.phone = phone
         db.session.commit()
         return self
 
@@ -168,6 +165,7 @@ class User(UserMixin, db.Model):
         return db.session.query(self).count()
 
 
+
 # Define the projects table
 # ... objective of Project is store an key content related to student/scrum team project
 class Project(db.Model):
@@ -186,6 +184,39 @@ class Project(db.Model):
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
 
+    def __init__(self, name, scrum_team, description, github_link, pages_link, video_link, run_link):
+        self.name = name
+        self.scrum_team = scrum_team
+        self.description = description
+        self.github_link = github_link
+        self.pages_link = pages_link
+        self.video_link = video_link
+        self.run_link = run_link
+
+    def create(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+            return self
+        except IntegrityError:
+            db.session.remove()
+            return None
+
+    def read(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "scrum_team": self.scrum_team,
+            "description": self.description,
+            "jobs": self.jobs,
+            "tags": self.tags,
+            "github_link": self.github_link,
+            "pages_link": self.pages_link,
+            "video_link": self.video_link,
+            "run_link": self.run_link,
+            "notes": self.notes
+        }
+
 
 # Define the jobs table
 # ... objective of Job is define key jobs within the project
@@ -195,6 +226,14 @@ class Job(db.Model):
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_jobs', back_populates='jobs')
 
+    def __init__(self, name):
+        self.name = name
+
+    def read(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+        }
 
 # Define the tags table
 # ... objective of Tag is define key attributes, aka #hashtag, used within the project
@@ -241,16 +280,16 @@ def model_init():
     db.create_all()
     """Tester data for table"""
     table = [
-        User(name='Thomas Edison', email='tedison@example.com', password='123toby', phone="1111111111"),
-        User(name='Nicholas Tesla', email='ntesla@example.com', password='123niko', phone="1111112222"),
-        User(name='Alexander Graham Bell', email='agbell@example.com', password='123lex', phone="1111113333"),
-        User(name='Eli Whitney', email='eliw@example.com', password='123whit', phone="1111114444"),
-        User(name='Marie Curie', email='marie@example.com', password='123marie', phone="1111115555"),
-        User(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty', phone="8587754956"),
-        User(name='Wilma Flintstone', email='wilma@example.com', password='123qwerty', phone="0000001111"),
-        User(name='Betty Ruble', email='betty@example.com', password='123qwerty', phone="0000001113"),
-        User(name='Fred Flintstone', email='fred@example.com', password='123qwerty', phone="0000001112"),
-        User(name='Barney Ruble', email='barney@example.com', password='123qwerty', phone="0000001114"),
+        User(name='Thomas Edison', email='tedison@example.com', password='123toby'),
+        User(name='Nicholas Tesla', email='ntesla@example.com', password='123niko'),
+        User(name='Alexander Graham Bell', email='agbell@example.com', password='123lex'),
+        User(name='Eli Whitney', email='eliw@example.com', password='123whit'),
+        User(name='Marie Curie', email='marie@example.com', password='123marie'),
+        User(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty'),
+        User(name='Wilma Flintstone', email='wilma@example.com', password='123qwerty'),
+        User(name='Betty Ruble', email='betty@example.com', password='123qwerty'),
+        User(name='Fred Flintstone', email='fred@example.com', password='123qwerty'),
+        User(name='Barney Ruble', email='barney@example.com', password='123qwerty'),
 
         Job(name="Scrum Master"),
         Job(name="GitHub Admin"),
@@ -388,6 +427,21 @@ def model_relations():
     return [area51, stones]
 
 
+def createAssociation(projectID, userID, jobID):
+    project = Project.query.filter_by(id = projectID).first()
+    user = User.query.filter_by(id = userID).first()
+    job = Job.query.filter_by(id = jobID).first()
+    if job not in project.jobs:
+        project.jobs.append(job)
+    assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
+    assoc.user_id = user.id
+    db.session.commit()
+
+    projects = [project]
+    model_relations_print(projects)
+
+
+
 # print tables
 # ... send to model_printer select commands for all tables generated by this project
 def model_print():
@@ -408,3 +462,4 @@ if __name__ == "__main__":
     projects = model_relations()
     model_print()
     model_relations_print(projects)
+

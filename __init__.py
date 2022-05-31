@@ -19,5 +19,4 @@ app.config['SECRET_KEY'] = 'SECRET_KEY'
 db = SQLAlchemy(app)
 Migrate(app, db)
 # Setup LoginManager object (app)
-login_manager = LoginManager()
-login_manager.init_app(app)
+login_manager = LoginManager(app)

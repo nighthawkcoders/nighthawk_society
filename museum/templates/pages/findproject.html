@@ -1,0 +1,201 @@
+{% extends "homesite/base.html" %}
+
+{% block content %}
+<style>
+    input[type="submit"]{
+        background: #eee;
+        color: #000000;
+        border: 10px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    body {
+        background-image: url('https://nwc.edu/academics/photos/program-photos/computer-science.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        height: fit-content;
+    }
+
+    hr {
+        border: 1px solid black;
+    }
+
+</style>
+<title>CRUD page</title>
+
+<div class="container py-4 text-light">
+    <header class="pb-3 mb-4 border-bottom">
+        <h1><mark>CS Project and Student Page</mark></h1>
+    </header>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Projects Table</h2>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Scrum Team</th>
+                            <th>Project Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Loop through rows in table -->
+                        {% for row in projects %}
+                        <tr>
+                            <td>{{ row['id'] }}</td>
+                            <td>{{ row['name'] }}</td>
+                            <td>{{ row['scrum_team'] }}</td>
+                            <td>{{ row['description'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Users Table </h2>
+            <div class="row align-items-md-stretch">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row align-items-md-stretch">
+                <div class="container-fluid py-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Loop through rows in table -->
+                        {% for row in users %}
+                        <tr>
+                            <td>{{ row['id'] }}</td>
+                            <td>{{ row['name'] }}</td>
+                            <td>{{ row['email'] }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Update or Create a role in a Project</h2>
+            <form method="POST" ID="update" action={{url_for('usercrud.updateProject')}} >
+                <table id="update_table">
+                    <tr>
+                        <th> Select a Project </th>
+                        <td>
+                            <select name="projectID" id="projectID">
+                                <optgroup label="projectID">
+                                    {% for row in projects %}
+                                    <option label="{{ row['id'] }}. {{ row['name'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th> Select a User </th>
+                        <td>
+                            <select name="userID" id="userID">
+                                <optgroup label="userID">
+                                    {% for row in users %}
+                                    <option label="{{ row['id'] }}. {{ row['name'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th> Select a Job for the User </th>
+                        <td>
+                            <select name="jobID" id="jobID">
+                                <optgroup label="jobID">
+                                    {% for row in jobs %}
+                                    <option label="{{ row['id'] }}. {{ row['name'] }}">{{ row['id'] }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th><label for="pass">Password of Updated User (Required)</label></th>
+                        <td><input type="pass" name="pass" id="pass" required></td>
+                        <td><input type="submit" value="Update"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light text-dark rounded-3">
+            <h2>Create a new record</h2>
+            <form method="POST" ID="create" action={{url_for('usercrud.createProject')}}>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th><label for="name">Project Name</label></th>
+                        <th><label for="scrum_team">Scrum Team</label></th>
+                        <th><label for="description">Project Description</label></th>
+                        <th><label for="github_link">Github Link</label></th>
+
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="text" name="name" id="name" required></td>
+                        <td><input type="scrum_team" name="scrum_team" id="scrum_team" required></td>
+                        <td><input type="description" name="description" id="description" required></td>
+                        <td><input type="github_link" name="github_link" id="github_link" required></td>
+                    </tr>
+                    </tbody>
+                    <thead>
+                    <tr>
+                        <th><label for="pages_link">Pages Link</label></th>
+                        <th><label for="video_link">Video Link</label></th>
+                        <th><label for="run_link">Runtime Link</label></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="pages_link" name="pages_link" id="pages_link" required></td>
+                        <td><input type="video_link" name="video_link" id="video_link" required></td>
+                        <td><input type="run_link" name="run_link" id="run_link" required></td>
+                        <td><input type="submit" value="Create"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

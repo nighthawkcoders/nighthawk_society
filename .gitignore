@@ -1,6 +1,9 @@
 ### Exclude IntelliJ IDEA from GitHub ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
 *.xml
+
+__pycache__/
+*.pyc
