@@ -187,8 +187,9 @@ class Project(db.Model):
     video_link = db.Column(db.String(255), unique=False, nullable=False)
     run_link = db.Column(db.String(255), unique=False, nullable=False)
     notes = db.relationship(Note, cascade='all, delete', backref='projects', lazy=True)
+    password = db.Column(db.String(255), unique=False, nullable=False)
 
-    def __init__(self, name, scrum_team, description, github_link, pages_link, video_link, run_link):
+    def __init__(self, name, scrum_team, description, github_link, pages_link, video_link, run_link, password):
         self.name = name
         self.scrum_team = scrum_team
         self.description = description
@@ -196,15 +197,16 @@ class Project(db.Model):
         self.pages_link = pages_link
         self.video_link = video_link
         self.run_link = run_link
+        self.set_password(password)
 
     def create(self):
-        try:
-            db.session.add(self)
-            db.session.commit()
-            return self
-        except IntegrityError:
-            db.session.remove()
-            return None
+            try:
+                db.session.add(self)
+                db.session.commit()
+                return self
+            except IntegrityError:
+                db.session.remove()
+                return None
 
     def read(self):
         return {
@@ -218,8 +220,40 @@ class Project(db.Model):
             "pages_link": self.pages_link,
             "video_link": self.video_link,
             "run_link": self.run_link,
-            "notes": self.notes
+            "notes": self.notes,
+            "password": self.password
         }
+
+    def update(self, name="", scrum_team="", description="", github_link="", pages_link="", video_link="", run_link="", password=""):
+        if len(name) > 0:
+            self.name = name
+        if len(scrum_team) > 0:
+            self.scrum_team = scrum_team
+        if len(description) > 0:
+            self.description = description
+        if len(github_link) > 0:
+            self.github_link = github_link
+        if len(pages_link) > 0:
+            self.pages_link = pages_link
+        if len(video_link) > 0:
+            self.video_link = video_link
+        if len(run_link) > 0:
+            self.run_link = run_link
+        if len(password) > 0:
+            self.set_password(password)
+        db.session.commit()
+        return self
+
+        # set password method is used to create encrypted password
+    def set_password(self, password):
+        """Create hashed password."""
+        self.password = generate_password_hash(password, method='sha256')
+
+    # check password to check versus encrypted password
+    def is_password_match(self, password):
+        """Check hashed password."""
+        result = check_password_hash(self.password, password)
+        return result
 
 
 # Define the jobs table
@@ -378,6 +412,7 @@ def model_init():
                 pages_link="https://nighthawkcoders.github.io/pages_python",
                 video_link="https://nighthawkcoders.github.io/pages_python/comments",
                 run_link="https://nighthawkcodingsociety.com/",
+                password="1234"
                 ),
         Project(name="Flintstones",
                 scrum_team="Prehistoric Civilization",
@@ -386,6 +421,7 @@ def model_init():
                 pages_link="https://nighthawkcoders.github.io/pages_java/",
                 video_link="https://nighthawkcoders.github.io/pages_java/review",
                 run_link="https://csa.nighthawkcodingsociety.com/",
+                password="123456"
                 ),
     ]
     model_adder(table)
