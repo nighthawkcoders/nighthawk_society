@@ -319,7 +319,7 @@ class Passwords(db.Model, UserMixin):
         if len(name) > 0:
             self.name = name
         if len(password) > 0:
-            self.password = password
+            self.set_password(password)
         db.session.commit()
         return self
 
@@ -390,6 +390,7 @@ def model_init():
         User(name='Betty Ruble', email='betty@example.com', password='123qwerty'),
         User(name='Fred Flintstone', email='fred@example.com', password='123qwerty'),
         User(name='Barney Ruble', email='barney@example.com', password='123qwerty'),
+        User(name='Admin', email='Admin@Admin.com', password='Admin123'),
 
         Job(name="Scrum Master"),
         Job(name="GitHub Admin"),
@@ -608,16 +609,15 @@ def login():
     if request.form:
         adminpass = request.form.get("adminpass")
         pw = Passwords.query.filter(Passwords.name == "Admin").first()
-        print(pw)
-        print(adminpass)
-        print(encryption(adminpass))
         if (pw.is_password_match(adminpass)):
             user = User.query.filter(User.name == "Admin").first()
             login_user(user)
-            return redirect('/admin/user')# where is the render template??? LMFAO
+            return redirect('/admin/')# where is the render template??? LMFAO
         else:
             print("no")
     return render_template("authorize.html")
+
+
 
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Project, db.session))
