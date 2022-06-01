@@ -26,6 +26,9 @@
 <div class="container py-4 text-light">
     <header class="pb-3 mb-4 border-bottom">
         <h1><mark>Admin Home</mark></h1>
+        {% if current_user.is_authenticated %}
+        <h1> Logged in as {{ current_user.name }} </h1>
+        {% endif %}
     </header>
   </div>
 
