@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- EXTEND (layout.html), this is a template for all rendered pages in the project -->
-{% extends "homesite/base.html" %}
+{% extends "nav.html" %}
 
 <!-- CONTENT (in <head>), content for this page -->
 {% block content %}
@@ -16,7 +16,7 @@
     }
 
     body {
-        background-image: url('https://nwc.edu/academics/photos/program-photos/computer-science.jpg');
+        background-image: url('https://images.unsplash.com/photo-1611647832580-377268dba7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -62,7 +62,7 @@
                             <td>{{ row['id'] }}</td>
                             <td>{{ row['name'] }}</td>
                             <td>{{ row['email'] }}</td>
-                            <td>{{ row['password'] }}</td>
+                            <td>{{ row['password'] | truncate(30)}}</td>
                         </tr>
                         {% endfor %}
                         </tbody>
@@ -126,7 +126,7 @@
                     <tr>
                         <td><input type="text" name="name" id="update_name" required></td>
                         <td><input type="text" name="email" id="update_email" required></td>
-                        <td><input type="text" name="password" id="update_password" required></td>
+                        <td><input type="password" name="password" id="update_password" required></td>
                         <td><input type="submit" value="Update"></td>
                     </tbody>
                 </table>
