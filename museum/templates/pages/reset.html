@@ -24,7 +24,7 @@
 </style>
 <div class="container py-4 text-light">
     <header class="pb-3 mb-4 border-bottom">
-        <h1><mark>Administrator Login</mark></h1>
+        <h1><mark>Reset Administrator Passowrd</mark></h1>
     </header>
 </div>
 
@@ -32,12 +32,13 @@
     <div class="container">
         <div class="p-5 mb-4 bg-light text-dark rounded-3">
             <form method="POST" ID="authUser" action={{url_for('usercrud.reset')}} >
+                <p>Only do this if absolutely necessary! <br> The 'Forgot Password' function will not help you (much) if you forget your password! <br> Proceed with CAUTION.</p>
                 <table>
                     <tr><th><label for="adminpass">Old Password</label></th></tr>
                     <tr>
                         <td><input type="password" id='adminpass' name="adminpass" size="20" required></td>
                     </tr>
-                    <tr><th><label for="newpass">New Password</label></th></tr>
+                    <tr><th><label style="padding-top: 15px" for="newpass">New Password</label></th></tr>
                     <tr>
                         <td><input type="password" id='newpass' name="newpass" size="20" required></td>
                         <td style="padding-left: 15px"><input type="submit" value="Submit"></td>
