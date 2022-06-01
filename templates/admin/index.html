@@ -1,93 +1,49 @@
-{% extends 'admin/master.html' %}
+{% extends "homesite/base.html" %}
 
-
-{% block body %}
+{% block content %}
 <style>
+    button {
+        background: #eee;
+        color: #000000;
+        border: 10px solid #eee;
+        border-radius: 20px;
+        text-shadow: none;
+        font-size: 20px;
+    }
+    body {
+        background-image: url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        height: fit-content;
+    }
     h1 {
-        font-family: "Bebas Neue";
-        text-align: center;
-        font-size:100px;
-    }
-    h2 {
-        font-family: "Bebas Neue";
-        text-align: center;
-        font-size:30px
-    }
-    html, body {
-        background-color: #727ffc;
-    }
-    p {
-        font-family: "Raleway"
-    }
-    .button {
-        border: none;
-        color: white;
-        padding: 16px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 40px;
-        margin: 4px 2px;
-        transition-duration: 0.4s;
-        cursor: pointer;
-    }
-
-    .button1 {
-        background-color: white;
-        color: black;
-        border: 2px solid #65a87e;
-    }
-
-    .button1:hover {
-        background-color: #65a87e;
         color: white;
     }
-
-    .button2 {
-        background-color: white;
-        color: black;
-        border: 2px solid #91ffba;
-    }
-
-    .button2:hover {
-        background-color: #91ffba;
-        color: white;
-    }
-
-    .button3 {
-        background-color: white;
-        color: black;
-        border: 2px solid #b8beff;
-    }
-
-    .button3:hover {
-        background-color: #b8beff;
-        color: white;
-    }
-
 </style>
+
+<div class="container py-4 text-light">
+    <header class="pb-3 mb-4 border-bottom">
+        <h1><mark>Admin Home</mark></h1>
+    </header>
+  </div>
 
 <div class="text-center">
     <div class="container pt-5">
         <div class="row">
             <div class="col">
-                <h2> If you are an admin, login to view content. </h2>
-                <button class="button button1"><a  style = "text-decoration:none;" href={{ url_for('usercrud.admin') }}>Login</a></button>
+                <h1> If you are an admin, login to view content. </h2>
+                <button><a href={{ url_for('usercrud.admin') }}>Login</a></button>
             </div>
-
-
             <div class="col">
-                <h2> Logout when finished. </h2>
-                <button class="button button1"><a  style = "text-decoration:none;" href={{ url_for('usercrud.logout') }} >Logout</a></button>
+                <h1> Logout when finished. </h2>
+                <button><a href={{ url_for('usercrud.logout') }} >Logout</a></button>
             </div>
-
-        </div>
-        <div class="row">
-            <br>
-            <br>
-            <br>
-            <button class="button button3"><a  style = "text-decoration:none;" href={{ url_for('index') }}>Go Back to Home</a></button>
-        </div>
+            <div class="col">
+                <h1> Return Home </h2>
+                <button><a href={{ url_for('index') }}>Go Back to Home</a></button>
+            </div>
     </div>
 </div>
 {% endblock %}

@@ -578,7 +578,7 @@ def login():
         if (pw.is_password_match(adminpass)):
             user = User.query.filter(User.name == "Admin").first()
             login_user(user)
-            return redirect('/admin/user') # where is the render template??? LMFAO
+            return redirect('/admin/user')# where is the render template??? LMFAO
         else:
             print("no")
     return render_template("authorize.html")
