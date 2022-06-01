@@ -26,6 +26,16 @@
         border: 1px solid black;
     }
 
+    table.update_table {
+        border-spacing: 15px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    tr.update_table {
+        height: 2.5em;
+    }
+
 </style>
 <title>CRUD page</title>
 
@@ -109,8 +119,8 @@
         <div class="p-5 mb-4 bg-light text-dark rounded-3">
             <h2>Update or Create a role in a Project</h2>
             <form method="POST" ID="update" action={{url_for('usercrud.updateProject')}} >
-                <table id="update_table">
-                    <tr>
+                <table class="update_table" id="update_table">
+                    <tr  class="update_table">
                         <th> Select a Project </th>
                         <td>
                             <select name="projectID" id="projectID">
@@ -122,7 +132,7 @@
                             </select>
                         </td>
                     </tr>
-                    <tr>
+                    <tr  class="update_table">
                         <th> Select a User </th>
                         <td>
                             <select name="userID" id="userID">
@@ -135,7 +145,7 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr  class="update_table">
                         <th> Select a Job for the User </th>
                         <td>
                             <select name="jobID" id="jobID">
@@ -147,8 +157,7 @@
                             </select>
                         </td>
                     </tr>
-
-                    <tr>
+                    <tr  class="update_table">
                         <th><label for="pass">Password of Updated User (Required)</label></th>
                         <td><input type="password" name="pass" id="pass" required></td>
                         <td><input type="submit" value="Update"></td>
