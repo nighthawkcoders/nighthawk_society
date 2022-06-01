@@ -2,7 +2,7 @@ from __init__ import login
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_required, login_manager, logout_user, login_user
-from museum.model import User, Project, Job, ProjectJob, createAssociation
+from museum.model import User, Project, Job, ProjectJob, createAssociation, Passwords
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
 from flask_restful import Api
 import hashlib
@@ -191,6 +191,27 @@ def logout():
 @app_crudu.route('/admin/')
 def admin():
     return render_template("authorize.html")
+
+
+@app_crudu.route('/reset/', methods=['GET', 'POST'])
+@login_required
+def reset():
+    if request.form:
+        adminpass = request.form.get("adminpass")
+        pw = Passwords.query.filter(Passwords.name == "Admin").first()
+        if (pw.is_password_match(adminpass)):
+            newpass = request.form.get("newpass")
+            pw.update("Admin", newpass)
+            return redirect('/admin/')
+        else:
+            print("no")
+    return render_template("reset.html")
+
+
+def set_password(password):
+    """Create hashed password."""
+    password = generate_password_hash(password, method='sha256')
+    return password
 
 
 
