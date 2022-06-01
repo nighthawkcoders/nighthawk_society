@@ -40,10 +40,17 @@
                 <h1> Logout when finished. </h2>
                 <button><a href={{ url_for('usercrud.logout') }} >Logout</a></button>
             </div>
+        </div>
+        <div class="row" style="padding-top: 30px">
+            <div class="col">
+                <h1> Already Logged In?</h2>
+                <button><a href="user">Database</a></button>
+            </div>
             <div class="col">
                 <h1> Return Home </h2>
-                <button><a href={{ url_for('index') }}>Go Back to Home</a></button>
+                <button><a href={{ url_for('index') }}>Home</a></button>
             </div>
+        </div>
     </div>
 </div>
 {% endblock %}
