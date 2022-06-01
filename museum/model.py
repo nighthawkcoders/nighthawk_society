@@ -584,4 +584,6 @@ def login():
     return render_template("authorize.html")
 
 admin.add_view(MyModelView(User, db.session))
+admin.add_view(MyModelView(Project, db.session))
+admin.add_view(MyModelView(Passwords, db.session))
 
