@@ -1,7 +1,9 @@
-from __init__ import db
+from __init__ import db, app, admin, login
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+from flask_login import current_user, login_user, logout_user, UserMixin
+from flask_admin.contrib.sqla import ModelView
+from flask import render_template, request, url_for, redirect
 
 '''
 Objective: Database Model to support students creating Projects, ultimately for showcasing at N@tM
@@ -462,4 +464,28 @@ if __name__ == "__main__":
     projects = model_relations()
     model_print()
     model_relations_print(projects)
+
+
+@login.user_loader
+def load_user(userID):
+    return User.query.get(userID)
+
+
+class MyModelView(ModelView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+@app.route('/adminlogin/', methods=['GET', 'POST'])
+def login():
+    if request.form:
+        adminpass = request.form.get("adminpass")
+        if (adminpass == "jmort123"):
+            user = User.query.filter(User.name == "Admin").first()
+            login_user(user)
+            return redirect('/admin/user') # where is the render template??? LMFAO
+        else:
+            print("no")
+    return render_template("authorize.html")
+
+admin.add_view(MyModelView(User, db.session))
 
