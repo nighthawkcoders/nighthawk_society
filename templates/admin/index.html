@@ -22,6 +22,11 @@
         color: white;
     }
 </style>
+<script>
+    function uhoh() {
+        alert("I am really sorry for your loss");
+    }
+</script>
 
 <div class="container py-4 text-light">
     <header class="pb-3 mb-4 border-bottom">
@@ -52,6 +57,12 @@
             <div class="col">
                 <h1> Return Home </h2>
                 <button><a href={{ url_for('index') }}>Home</a></button>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 30px">
+            <div class="col">
+                <h1> Forgot Password?</h2>
+                <button><a href="https://www.wikihow.com/Remember-a-Forgotten-Password" target="_blank">Help!</a></button>
             </div>
         </div>
     </div>
