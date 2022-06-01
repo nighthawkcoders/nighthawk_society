@@ -4,6 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_user, logout_user, UserMixin
 from flask_admin.contrib.sqla import ModelView
 from flask import render_template, request, url_for, redirect
+import hashlib
+
 
 '''
 Objective: Database Model to support students creating Projects, ultimately for showcasing at N@tM
@@ -254,12 +256,11 @@ class Passwords(db.Model, UserMixin):
     # constructor of a User object, initializes of instance variables within object
     def __init__(self, name, password):
         self.name = name
-        self.password = password
+        self.set_password(password)
 
     # CRUD create/add a new record to the table
     # returns self or None on error
     def create(self):
-        print("We here now")
         try:
             # creates a person object from Users(db.Model) class, passes initializers
             db.session.add(self)  # add prepares to persist person object to Users table
@@ -297,6 +298,17 @@ class Passwords(db.Model, UserMixin):
 
     def get_id(self):
         return (self.ID)
+
+        # set password method is used to create encrypted password
+    def set_password(self, password):
+        """Create hashed password."""
+        self.password = generate_password_hash(password, method='sha256')
+
+    # check password to check versus encrypted password
+    def is_password_match(self, password):
+        """Check hashed password."""
+        result = check_password_hash(self.password, password)
+        return result
 
 """Database Creation and Testing section"""
 
@@ -542,6 +554,9 @@ if __name__ == "__main__":
     passwords_model_tester()  # builds model of Passwords
     passwords_model_printer()
 
+def encryption(code):
+    encrypted = hashlib.sha512(code.encode()).hexdigest()
+    return encrypted
 
 @login.user_loader
 def load_user(userID):
@@ -556,7 +571,8 @@ class MyModelView(ModelView):
 def login():
     if request.form:
         adminpass = request.form.get("adminpass")
-        if (adminpass == "jmort123"):
+        pw = Passwords.query.filter(Passwords.name == "Admin").first().password
+        if (adminpass == pw):
             user = User.query.filter(User.name == "Admin").first()
             login_user(user)
             return redirect('/admin/user') # where is the render template??? LMFAO
