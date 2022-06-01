@@ -86,7 +86,7 @@ def project_by_description(description):
     return User.query.filter_by(description=description).first()
 
 
-# @login_manager.project_loader
+# @login.project_loader
 # def project_loader(projectid):
 #     """Check if user login status on each page protected by @login_required."""
 #     if projectid is not None:

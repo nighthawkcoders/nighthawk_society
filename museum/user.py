@@ -1,7 +1,7 @@
-from __init__ import login_manager
+from __init__ import login
 
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask_login import login_required, login_manager, logout_user, login_user
 from museum.model import User, Project, Job, ProjectJob, createAssociation
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
 from flask_restful import Api
@@ -70,7 +70,7 @@ def user_by_email(email):
     return User.query.filter_by(email=email).first()
 
 
-@login_manager.user_loader
+@login.user_loader
 def user_loader(id):
     """Check if user login status on each page protected by @login_required."""
     if id is not None:
@@ -160,6 +160,15 @@ def view():
                            id=project.id, name=project.name,team=project.scrum_team, description=project.description,
                            jobs=alljobs, users=allusers, tags=project.tags, glink=project.github_link, plink=project.pages_link,vlink=project.video_link,
                            rlink=project.run_link)
+
+@app_crudu.route('/adminlogout/')
+def logout():
+    logout_user()
+    return redirect(url_for('usercrud.findproject'))
+
+@app_crudu.route('/admin/')
+def admin():
+    return render_template("authorize.html")
 
 
 

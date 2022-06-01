@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+{% extends "homesite/base.html" %}
+
+{% block content %}
+<style>
+  input[type="submit"]{
+        background: #eee;
+        color: #000000;
+        border: 10px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    body {
+        background-image: url('https://images.unsplash.com/photo-1611647832580-377268dba7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100%;
+        height: fit-content;
+    }
+</style>
+<div class="container py-4 text-light">
+  <header class="pb-3 mb-4 border-bottom">
+      <h1><mark>Administrator Login</mark></h1>
+  </header>
+</div>
+
+<div class="container py-4">
+  <div class="container">
+    <div class="p-5 mb-4 bg-light text-dark rounded-3">
+      <form method="POST" ID="authUser" action={{url_for('login')}} >
+        <table>
+          <tr><th><label for="adminpass">Administrator Login ONLY</label></th></tr>
+          <tr>
+            <td><input type="password" id='adminpass' name="adminpass" size="20" required></td>
+            <td style="padding-left: 15px"><input type="submit" value="Submit"></td>
+          </tr>
+        </table>
+      </form>
+
+      <!-- <button class="button"  style = "text-decoration:none;" href="http://127.0.0.1:5000/admin/">Go to Admin Page</a></button> -->
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
