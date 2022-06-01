@@ -24,7 +24,7 @@
 </style>
 <div class="container py-4 text-light">
   <header class="pb-3 mb-4 border-bottom">
-      <h1><mark>Sign In Page</mark></h1>
+      <h1><mark>Administrator Login</mark></h1>
   </header>
 </div>
 
@@ -33,10 +33,10 @@
     <div class="p-5 mb-4 bg-light text-dark rounded-3">
       <form method="POST" ID="authUser" action={{url_for('login')}} >
         <table>
-          <tr><th><label for="adminpass">Administrator Login</label></th></tr>
+          <tr><th><label for="adminpass">Administrator Login ONLY</label></th></tr>
           <tr>
             <td><input type="password" id='adminpass' name="adminpass" size="20" required></td>
-            <td><input type="submit" value="Submit"></td>
+            <td style="padding-left: 15px"><input type="submit" value="Submit"></td>
           </tr>
         </table>
       </form>
