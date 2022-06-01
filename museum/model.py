@@ -547,15 +547,15 @@ def model_print():
 # ... driver calls model_relations which completes seed by establishing sample data relations
 # ... driver call two print methods to allow user to visualize success
 if __name__ == "__main__":
-    # model_init()  # builds model of Users
-    # projects = model_relations()
-    # model_print()
-    # model_relations_print(projects)
+    model_init()  # builds model of Users
+    projects = model_relations()
+    model_print()
+    model_relations_print(projects)
     passwords_model_tester()  # builds model of Passwords
     passwords_model_printer()
 
 def encryption(code):
-    encrypted = hashlib.sha512(code.encode()).hexdigest()
+    encrypted = hashlib.sha256(code.encode()).hexdigest()
     return encrypted
 
 @login.user_loader
@@ -571,8 +571,11 @@ class MyModelView(ModelView):
 def login():
     if request.form:
         adminpass = request.form.get("adminpass")
-        pw = Passwords.query.filter(Passwords.name == "Admin").first().password
-        if (adminpass == pw):
+        pw = Passwords.query.filter(Passwords.name == "Admin").first()
+        print(pw)
+        print(adminpass)
+        print(encryption(adminpass))
+        if (pw.is_password_match(adminpass)):
             user = User.query.filter(User.name == "Admin").first()
             login_user(user)
             return redirect('/admin/user') # where is the render template??? LMFAO
