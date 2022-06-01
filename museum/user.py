@@ -63,6 +63,10 @@ def user_by_id(userid):
     """finds User in table matching userid """
     return User.query.filter_by(id=userid).first()
 
+def project_by_id(projectID):
+    """finds User in table matching userid """
+    return Project.query.filter_by(id=projectID).first()
+
 
 # SQLAlchemy extract single user from database matching email
 def user_by_email(email):
@@ -122,6 +126,23 @@ def updateProject():
                 createAssociation(projectID, userID, jobID)
     return redirect(url_for('usercrud.findproject'))
 
+@app_crudu.route('/updateProjectInfo/', methods=["POST"])
+def updateProjectInfo():
+    if request.form:
+        id = request.form.get("projectID2")
+        name = request.form.get("namep")
+        scrum = request.form.get("scrum_teamp")
+        description = request.form.get("descriptionp")
+        glink = request.form.get("github_linkp")
+        plink = request.form.get("pages_linkp")
+        vlink = request.form.get("video_linkp")
+        rlink = request.form.get("run_linkp")
+        password = request.form.get("passwordp")
+        po = project_by_id(id)
+        if po is not None:
+            if (po.is_password_match(password)):
+                po.update(name, scrum, description, glink, plink, vlink, rlink, password)
+    return redirect(url_for('usercrud.findproject'))
 
 @app_crudu.route('/createProject/', methods=["POST"])
 def createProject():
@@ -133,7 +154,8 @@ def createProject():
             request.form.get("github_link"),
             request.form.get("pages_link"),
             request.form.get("video_link"),
-            request.form.get("run_link")
+            request.form.get("run_link"),
+            request.form.get("passwordi")
         )
         po.create()
     return redirect(url_for('usercrud.findproject'))
