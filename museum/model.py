@@ -501,7 +501,7 @@ def passwords_model_tester():
     db.create_all()
     """Tester data for table"""
     t1 = Passwords(name='Admin', password='jmort123')
-    table = [t1, t2]
+    table = [t1]
     for row in table:
         try:
             db.session.add(row)
