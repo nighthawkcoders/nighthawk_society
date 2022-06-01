@@ -479,10 +479,10 @@ class MyModelView(ModelView):
 def login():
     if request.form:
         adminpass = request.form.get("adminpass")
-        if (adminpass == "jmort123"):
+        if (adminpass == "jmort123" ):
             user = User.query.filter(User.name == "Admin").first()
             login_user(user)
-            return redirect('/admin/user') # where is the render template??? LMFAO
+            return redirect('/admin/user')# where is the render template??? LMFAO
         else:
             print("no")
     return render_template("authorize.html")
