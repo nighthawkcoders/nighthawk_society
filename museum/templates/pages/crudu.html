@@ -110,7 +110,7 @@
                             <select name="userID" id="userID">
                                 <optgroup label="userID">
                                     {% for row in table %}
-                                    <option label="{{ row['id'] }}">{{ row['id'] }}</option>
+                                    <option label="{{ row['id'] }}. {{ row['name'] }}">{{ row['id'] }}</option>
                                     {% endfor %}
                                 </optgroup>
                             </select>

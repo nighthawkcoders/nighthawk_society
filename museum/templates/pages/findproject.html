@@ -220,7 +220,7 @@
                         <select name="projectID2" id="projectID2">
                             <optgroup label="projectID2">
                                 {% for row in projects %}
-                                <option label="{{ row['id'] }}">{{ row['id'] }}</option>
+                                <option label="{{ row['id'] }}. {{ row['name'] }}">{{ row['id'] }}</option>
                                 {% endfor %}
                             </optgroup>
                         </select>
