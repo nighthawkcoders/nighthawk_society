@@ -207,3 +207,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+models/__pycache__/__init__.cpython-310.pyc
+models/__pycache__/__init__.cpython-310.pyc
+*.pyc
+*.pyc
+*.pyc
