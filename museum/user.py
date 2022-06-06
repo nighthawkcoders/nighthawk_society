@@ -200,7 +200,7 @@ def logout():
     logout_user()
     return redirect(url_for('usercrud.findproject'))
 
-# Admin Login page
+# Admin Login page, used to reference in the navbar.
 @app_crudu.route('/admin/')
 def admin():
     return render_template("authorize.html")
