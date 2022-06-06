@@ -13,32 +13,36 @@ app_crudu = Blueprint('usercrud', __name__,
                       static_folder='static',
                       static_url_path='assets')
 
-
+# The page for displaying CRUD for Users
 @app_crudu.route('/')
 def crudu():
     return render_template("crudu.html", table=users_all())
 
+# The page for displaying CRUD for projects and creating associations between users and projects
 @app_crudu.route('/projects/')
 def findproject():
     return render_template("findproject.html", users=users_all(), projects=projects_all(), jobs=jobs_all())
 
+# The page for viewing projects and all the information about them
 @app_crudu.route('/viewproject/')
 def viewProject():
     return render_template("viewProject.html", projects=projects_all(),
                            id="", name="",team="",description="",
                            jobs="", users="", tags="")
-# SQLAlchemy extract all users from database
+
+# Returns a list of all users
 def users_all():
     table = User.query.all()
     json_ready = [peep.read() for peep in table]
     return json_ready
 
-
+# Returns a list of all projects
 def projects_all():
     table = Project.query.all()
     json_ready = [peep.read() for peep in table]
     return json_ready
 
+# Returns a list of all jobs
 def jobs_all():
     table = Job.query.all()
     json_ready = [peep.read() for peep in table]
@@ -58,11 +62,12 @@ def projects_ilike(term):
     x = Project.query.order_by(Project.name).filter((Project.name.ilike(term))).first()
     return x
 
-# SQLAlchemy extract single user from database matching ID
+# Returns an object of the user class, querying based on ID
 def user_by_id(userid):
     """finds User in table matching userid """
     return User.query.filter_by(id=userid).first()
 
+# Returns an object of the project class, querying based on ID
 def project_by_id(projectID):
     """finds User in table matching userid """
     return Project.query.filter_by(id=projectID).first()
@@ -73,7 +78,7 @@ def user_by_email(email):
     """finds User in table matching email """
     return User.query.filter_by(email=email).first()
 
-
+# Returns the id of the current user; needed function for login and passwords
 @login.user_loader
 def user_loader(id):
     """Check if user login status on each page protected by @login_required."""
@@ -81,6 +86,7 @@ def user_loader(id):
         return User.query.get(id)
     return None
 
+# The function called to create a new user
 @app_crudu.route('/create/', methods=["POST"])
 def create():
     """gets data from form and add it to Users table"""
@@ -93,7 +99,8 @@ def create():
         po.create()
     return redirect(url_for('usercrud.crudu'))
 
-# CRUD update
+
+# The function called to update information about a user
 @app_crudu.route('/update/', methods=["POST"])
 def update():
     """gets userid and name from form and filters and then data in  Users table"""
@@ -112,7 +119,24 @@ def update():
                 po.update(name, email, password)
     return redirect(url_for('usercrud.crudu'))
 
+# The function called to create a new project
+@app_crudu.route('/createProject/', methods=["POST"])
+def createProject():
+    if request.form:
+        po = Project(
+            request.form.get("name"),
+            request.form.get("scrum_team"),
+            request.form.get("description"),
+            request.form.get("github_link"),
+            request.form.get("pages_link"),
+            request.form.get("video_link"),
+            request.form.get("run_link"),
+            request.form.get("passwordi")
+        )
+        po.create()
+    return redirect(url_for('usercrud.findproject'))
 
+# The function called to update associations between projects and users
 @app_crudu.route('/updateProject/', methods=["POST"])
 def updateProject():
     if request.form:
@@ -126,6 +150,7 @@ def updateProject():
                 createAssociation(projectID, userID, jobID)
     return redirect(url_for('usercrud.findproject'))
 
+# The function called to uupdate the information of a project (not the associations with users)
 @app_crudu.route('/updateProjectInfo/', methods=["POST"])
 def updateProjectInfo():
     if request.form:
@@ -144,22 +169,8 @@ def updateProjectInfo():
                 po.update(name, scrum, description, glink, plink, vlink, rlink, password)
     return redirect(url_for('usercrud.findproject'))
 
-@app_crudu.route('/createProject/', methods=["POST"])
-def createProject():
-    if request.form:
-        po = Project(
-            request.form.get("name"),
-            request.form.get("scrum_team"),
-            request.form.get("description"),
-            request.form.get("github_link"),
-            request.form.get("pages_link"),
-            request.form.get("video_link"),
-            request.form.get("run_link"),
-            request.form.get("passwordi")
-        )
-        po.create()
-    return redirect(url_for('usercrud.findproject'))
 
+# The function called to get all the information and display it to view a project
 @app_crudu.route('/view/', methods=["POST"])
 def view():
     if request.form:
@@ -183,16 +194,18 @@ def view():
                            jobs=alljobs, users=allusers, tags=project.tags, glink=project.github_link, plink=project.pages_link,vlink=project.video_link,
                            rlink=project.run_link)
 
+# Function to logout the admin
 @app_crudu.route('/adminlogout/')
 def logout():
     logout_user()
     return redirect(url_for('usercrud.findproject'))
 
+# Admin Login page, used to reference in the navbar.
 @app_crudu.route('/admin/')
 def admin():
     return render_template("authorize.html")
 
-
+# Page for admin to reset password
 @app_crudu.route('/reset/', methods=['GET', 'POST'])
 @login_required
 def reset():
@@ -207,7 +220,7 @@ def reset():
             print("no")
     return render_template("reset.html")
 
-
+# Function to encrypt a password
 def set_password(password):
     """Create hashed password."""
     password = generate_password_hash(password, method='sha256')

@@ -175,7 +175,7 @@ class User(UserMixin, db.Model):
 class Project(db.Model):
     __tablename__ = 'projects'
 
-    # Define the Users schema
+    # Define the Projects schema
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True)
     scrum_team = db.Column(db.String(255))
@@ -281,39 +281,33 @@ class Tag(db.Model):
     name = db.Column(db.String, unique=True)
     projects = db.relationship("Project", secondary='projects_tags', back_populates='tags')
 
+
+# This table contains the admin password. The encrypted version is stored.
 class Passwords(db.Model, UserMixin):
-    # define the Password schema
     ID = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
 
-    # constructor of a User object, initializes of instance variables within object
     def __init__(self, name, password):
         self.name = name
         self.set_password(password)
 
-    # CRUD create/add a new record to the table
-    # returns self or None on error
     def create(self):
         try:
-            # creates a person object from Users(db.Model) class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Users table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+            db.session.add(self)  
+            db.session.commit() 
             return self
         except IntegrityError:
             db.session.remove()
             return None
 
-    # CRUD read converts self to dictionary
-    # returns dictionary
     def read(self):
         return {
             "name": self.name,
             "password": self.password,
         }
 
-    # CRUD update: updates users name, password, phone
-    # returns self
+
     def update(self, name="", password=""):
         """only updates values with length"""
         if len(name) > 0:
@@ -323,8 +317,7 @@ class Passwords(db.Model, UserMixin):
         db.session.commit()
         return self
 
-    # CRUD delete: remove self
-    # None
+ 
     def delete(self):
         db.session.delete(self)
         db.session.commit()
@@ -333,12 +326,10 @@ class Passwords(db.Model, UserMixin):
     def get_id(self):
         return (self.ID)
 
-        # set password method is used to create encrypted password
     def set_password(self, password):
         """Create hashed password."""
         self.password = generate_password_hash(password, method='sha256')
 
-    # check password to check versus encrypted password
     def is_password_match(self, password):
         """Check hashed password."""
         result = check_password_hash(self.password, password)
@@ -530,11 +521,15 @@ def model_relations():
     return [area51, stones]
 
 
+# Function that automates creating associations between users and projects.
 def createAssociation(projectID, userID, jobID):
+    # Getting the project, user, and job object from the inputted ID's
     project = Project.query.filter_by(id = projectID).first()
     user = User.query.filter_by(id = userID).first()
     job = Job.query.filter_by(id = jobID).first()
+    # Checking if there is already an association between the job and the project. If one already exists, then the user is updated to the inputted one.
     if job not in project.jobs:
+        # If there is not an association, then it is created, and assigned the inputted user.
         project.jobs.append(job)
     assoc = ProjectJob.query.filter_by(project_id=project.id).filter_by(job_id=job.id).first()
     assoc.user_id = user.id
@@ -595,15 +590,18 @@ def encryption(code):
     encrypted = hashlib.sha256(code.encode()).hexdigest()
     return encrypted
 
+
+# Userloader for login
 @login.user_loader
 def load_user(userID):
     return User.query.get(userID)
 
-
+# This creates the admin database page
 class MyModelView(ModelView):
     def is_accessible(self):
         return current_user.is_authenticated
 
+# Admin login, called in authorize.
 @app.route('/adminlogin/', methods=['GET', 'POST'])
 def login():
     if request.form:
@@ -618,7 +616,7 @@ def login():
     return render_template("authorize.html")
 
 
-
+# Defining the tables that the admin sees on the admin database.
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Project, db.session))
 admin.add_view(MyModelView(Passwords, db.session))
