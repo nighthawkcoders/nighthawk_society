@@ -1,6 +1,7 @@
 flask
 flask_admin
 flask_login
+flask_sqlalchemy
 requests
 SQLAlchemy
 Werkzeug
