@@ -1,5 +1,6 @@
 flask
 flask_admin
+flask_login
 requests
 SQLAlchemy
 Werkzeug
